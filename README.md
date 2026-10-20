@@ -33,7 +33,6 @@ Search both languages for these and replace them:
 |---|---|---|
 | `contact@example.com` | `index.html`, `en/index.html`, both privacy pages | your real contact address |
 | `href="#start" data-appstore` | hero button, both home pages | the App Store link once the app is live, and Apple's official "Download on the App Store" badge (Apple Marketing Tools) |
-| `og:image` (commented out) | `<head>` of both home pages | a full `https://` URL to a 1200×630 preview image |
 | "Rezultate din teren: în curând" / "Field results: coming soon" | `#honest` section | a table of real field tests (site, taped side, measured side, error %) — and then update the "Precizie" / "Accuracy" row of the comparison table |
 | "Prețul va fi anunțat la lansare" / "The price will be announced at launch" | FAQ | the real price |
 
@@ -66,14 +65,34 @@ on screen. Export H.264 MP4 under ~15 MB.
 Screenshots are 395×860 PNGs in `assets/img/`. Replace a file with one of the same name
 and aspect ratio. They are currently from the English version of the app.
 
-## Publishing
+## Publishing (walkmeasure.com)
 
-Any static host works. Upload the contents of `website/` as the site root:
+The site is served by GitHub Pages from the **public** repo
+`DenisDaniel707/walkmeasure-site`, which holds only this folder. The app and
+everything else live in the **private** repo `DenisDaniel707/walkmeasure`.
 
-- **Netlify / Cloudflare Pages:** drag and drop the `website` folder, or connect the repo
-  with the publish directory set to `website`.
-- **GitHub Pages:** push the folder's contents to a `gh-pages` branch (or `/docs`).
-- **Classic hosting (cPanel):** upload everything into `public_html/` by FTP.
+To publish changes: commit them in the main repo, then run
 
-Afterwards, add your domain to the `og:image` tag and, if you want, a `sitemap.xml`
-listing `/`, `/en/`, `/confidentialitate.html` and `/en/privacy.html`.
+```bash
+scripts/publish-website.sh
+```
+
+It splits `website/` out of the main repo's history and pushes it to the site
+repo's `main` branch; Pages redeploys within a minute or two.
+
+Files GitHub Pages uses here: `CNAME` (the custom domain), `.nojekyll` (serve
+files as they are), `404.html` (shown for unknown addresses). `sitemap.xml` and
+`robots.txt` are for search engines; add new pages to the sitemap.
+
+DNS for walkmeasure.com (at the registrar):
+
+| Type | Host | Value |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| AAAA | @ | 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153 |
+| CNAME | www | denisdaniel707.github.io |
+
+Remove any other A/AAAA records for `@` (such as the registrar's parking page).
