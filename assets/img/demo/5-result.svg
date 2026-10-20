@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f9f2"/><stop offset="1" stop-color="#e3efe0"/></linearGradient></defs><rect width="640" height="360" fill="url(#sky)"/>
+<g stroke="#2e7d32" stroke-opacity=".08" stroke-width="2"><path d="M0 60H640M0 120H640M0 180H640M0 240H640M0 300H640M80 0V360M160 0V360M240 0V360M320 0V360M400 0V360M480 0V360M560 0V360"/></g>
+<path d="M176 292L462 304L486 68L156 56Z" fill="#2e7d32" fill-opacity=".16" stroke="#2e7d32" stroke-width="6" stroke-linejoin="round"/>
+<g fill="#fff" stroke="#2e7d32" stroke-width="5"><circle cx="176" cy="292" r="11"/><circle cx="462" cy="304" r="9"/><circle cx="486" cy="68" r="9"/><circle cx="156" cy="56" r="9"/></g>
+<g font-size="16" font-weight="800" fill="#17201a"><text x="150" y="324">A</text><text x="476" y="334">B</text><text x="498" y="60">C</text><text x="130" y="48">D</text></g>
+<g font-size="14" font-weight="700" fill="#2e7d32"><text x="318" y="322" text-anchor="middle">10 m</text><text x="320" y="46" text-anchor="middle">10 m</text><text x="136" y="180" text-anchor="end">10 m</text><text x="500" y="190">10 m</text></g>
+<rect x="250" y="146" width="140" height="64" rx="16" fill="#fff" stroke="#dfe4dc" stroke-width="2"/>
+<text x="320" y="190" text-anchor="middle" font-size="30" font-weight="800" fill="#17201a">101 m²</text>
+<circle cx="214" cy="262" r="20" fill="#2e7d32"/><path d="M204 262l7 7 13-14" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
