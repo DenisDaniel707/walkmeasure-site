@@ -31,7 +31,6 @@ Search both languages for these and replace them:
 
 | What | Where | Replace with |
 |---|---|---|
-| `contact@example.com` | `index.html`, `en/index.html`, both privacy pages | your real contact address |
 | `href="#start" data-appstore` | hero button, both home pages | the App Store link once the app is live, and Apple's official "Download on the App Store" badge (Apple Marketing Tools) |
 | "Rezultate din teren: în curând" / "Field results: coming soon" | `#honest` section | a table of real field tests (site, taped side, measured side, error %) — and then update the "Precizie" / "Accuracy" row of the comparison table |
 | "Prețul va fi anunțat la lansare" / "The price will be announced at launch" | FAQ | the real price |
