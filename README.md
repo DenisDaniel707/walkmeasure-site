@@ -32,11 +32,10 @@ Search both languages for these and replace them:
 | What | Where | Replace with |
 |---|---|---|
 | `href="#start" data-appstore` | hero button, both home pages | the App Store link once the app is live, and Apple's official "Download on the App Store" badge (Apple Marketing Tools) |
-| "Rezultate din teren: în curând" / "Field results: coming soon" | `#honest` section | a table of real field tests (site, taped side, measured side, error %) — and then update the "Precizie" / "Accuracy" row of the comparison table |
 | "Prețul va fi anunțat la lansare" / "The price will be announced at launch" | FAQ | the real price |
 
-Do not publish accuracy figures until they come from real, independently checked
-measurements. The current text says plainly that the figures so far come from simulation.
+To publish accuracy figures, use your own field results (taped side vs. measured side)
+and add them to the FAQ answer "Cât de precisă este?" / "How accurate is it?".
 
 ## Replacing the "how it works" presentation with the video
 
@@ -62,7 +61,10 @@ on screen. Export H.264 MP4 under ~15 MB.
 ## Updating screenshots
 
 Screenshots are 395×860 PNGs in `assets/img/`. Replace a file with one of the same name
-and aspect ratio. They are currently from the English version of the app.
+and aspect ratio. `measure`, `plan`, `project`, `surface`, `floor-plan` and `projects` are
+the App Store screenshots (`docs/app-store/screenshots/`) scaled down, so the site matches
+the store listing. `floor-plan-pdf.png` is the top of an exported floor-plan PDF page
+(title, plan and room table).
 
 ## Publishing (walkmeasure.com)
 

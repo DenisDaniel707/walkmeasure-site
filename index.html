@@ -38,9 +38,7 @@
     </button>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#how">Cum funcționează</a>
-      <a href="#uses">Pentru cine</a>
       <a href="#features">Funcții</a>
-      <a href="#floorplans">Planuri</a>
       <a href="#faq">Întrebări</a>
       <div class="lang" aria-label="Limba"><span aria-current="true">RO</span><a href="en/" hreflang="en" lang="en">EN</a></div>
       <a class="btn btn-primary btn-small" href="#start">Anunță-mă</a>
@@ -54,9 +52,8 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Măsurare cu senzorii iPhone-ului</span>
-        <h1>Află în câteva minute cât are terenul tău — <em>înainte să plătești un topograf.</em></h1>
-        <p class="lead">Așezi telefonul la fiecare colț, îl duci la următorul, iar WalkMeasure calculează suprafața, perimetrul, fiecare latură și diferențele de nivel. Fără ruletă, fără ajutor, fără cameră și fără GPS.</p>
+        <h1>Măsori terenul cu iPhone-ul. <em>Fără ruletă.</em></h1>
+        <p class="lead">Pui telefonul jos la fiecare colț și afli suprafața, perimetrul și pantele în câteva minute.</p>
         <div class="actions">
           <!-- Când aplicația e publicată: înlocuiește href="#start" cu linkul din App Store și textul cu insigna oficială Apple. -->
           <a class="btn btn-primary" href="#start" data-appstore>
@@ -69,10 +66,9 @@
           </a>
         </div>
         <ul class="chips" aria-label="Pe scurt">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Fără cameră</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Fără GPS sau internet</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Fără cameră sau GPS</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Merge offline</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Datele rămân pe telefon</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Merge cu selfie stick</li>
         </ul>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -82,324 +78,139 @@
     </div>
   </section>
 
-  <!-- ============ BAND ============ -->
-  <div class="band">
-    <div class="container band-grid">
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
-        <div><strong>Un singur om</strong><span>Nu mai ai nevoie de cineva care să țină capătul ruletei.</span></div>
-      </div>
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <div><strong>Câteva minute</strong><span>Rezultatul apare pe ecran cât timp ești încă pe teren.</span></div>
-      </div>
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 2l7 10H5z"/></svg></div>
-        <div><strong>Și unde GPS-ul nu merge</strong><span>În casă, sub copaci, între clădiri.</span></div>
-      </div>
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></div>
-        <div><strong>Își verifică singură eroarea</strong><span>Revii la start și vezi cât de exactă a fost tura.</span></div>
-      </div>
-    </div>
-  </div>
-
   <!-- ============ HOW IT WORKS ============ -->
   <section id="how">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head center reveal">
         <span class="eyebrow">Cum funcționează</span>
         <h2>Pui telefonul jos. Simți vibrația. Mergi mai departe.</h2>
-        <p class="lead">Ca un instrument de măsurat profesional, WalkMeasure urmărește mișcarea telefonului cu accelerometrul și giroscopul. De fiecare dată când telefonul stă nemișcat pe sol, aplicația corectează eroarea adunată pe drum — de aceea măsoară bine pe pași scurți, cu opriri dese.</p>
       </div>
 
-      <div class="how-grid">
-        <div class="reveal">
-          <!--
-            PREZENTAREA DE MAI JOS ȚINE LOCUL VIDEOCLIPULUI.
-            Când ai video-ul, înlocuiește tot blocul <div class="demo" ...> ... </div> cu, de exemplu:
+      <div class="demo-wrap reveal">
+        <!--
+          PREZENTAREA DE MAI JOS ȚINE LOCUL VIDEOCLIPULUI.
+          Când ai video-ul, înlocuiește tot blocul <div class="demo" ...> ... </div> cu, de exemplu:
 
-            <div class="video">
-              <video src="assets/video/cum-functioneaza.mp4" poster="assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
-            </div>
+          <div class="video">
+            <video src="assets/video/cum-functioneaza.mp4" poster="assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
+          </div>
 
-            sau, pentru YouTube (varianta fără cookie-uri):
+          sau, pentru YouTube (varianta fără cookie-uri):
 
-            <div class="video">
-              <iframe src="https://www.youtube-nocookie.com/embed/ID_VIDEO" title="Cum funcționează WalkMeasure" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <div class="video">
+            <iframe src="https://www.youtube-nocookie.com/embed/ID_VIDEO" title="Cum funcționează WalkMeasure" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        -->
+        <div class="demo" data-demo aria-roledescription="prezentare" aria-label="Cum se măsoară cu un selfie stick">
+          <div class="demo-stage">
+            <figure class="slide active"><img src="assets/img/demo/1-stick.svg" alt="Telefonul prins în clema unui selfie stick, cu setarea Selfie stick activată" width="640" height="360"></figure>
+            <figure class="slide"><img src="assets/img/demo/2-place.svg" alt="Telefonul așezat culcat pe sol, la primul colț, ținut nemișcat o secundă" width="640" height="360" loading="lazy"></figure>
+            <figure class="slide"><img src="assets/img/demo/3-buzz.svg" alt="Telefonul vibrează, vibrația se simte în mânerul selfie stick-ului" width="640" height="360" loading="lazy"></figure>
+            <figure class="slide"><img src="assets/img/demo/4-carry.svg" alt="Telefonul e dus cel puțin un metru, până la următorul punct" width="640" height="360" loading="lazy"></figure>
+            <figure class="slide"><img src="assets/img/demo/5-result.svg" alt="Conturul terenului închis la punctul de start, cu suprafața calculată" width="640" height="360" loading="lazy"></figure>
+            <div class="demo-progress"><span></span></div>
+          </div>
+          <div class="slide-caption" aria-live="polite">
+            <p class="active"><strong><span class="num">1</span>Prinde telefonul pe un selfie stick</strong><span>Activează „Selfie stick” în aplicație. Nu mai e nevoie să te apleci la fiecare punct.</span></p>
+            <p><strong><span class="num">2</span>Pune-l jos și ține-l nemișcat</strong><span>Culcat pe sol, la primul colț, cam o secundă. Punctul se înregistrează singur.</span></p>
+            <p><strong><span class="num">3</span>Simți vibrația în mâner</strong><span>Telefonul vibrează puternic și scoate un sunet: semnalul că poți pleca.</span></p>
+            <p><strong><span class="num">4</span>Du-l mai departe</strong><span>La fiecare metru sau mai mult, și la fiecare colț, pune-l din nou jos.</span></p>
+            <p><strong><span class="num">5</span>Termină unde ai început</strong><span>Conturul se închide, iar aplicația îți arată suprafața, laturile și eroarea măsurată.</span></p>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-prev" type="button" aria-label="Pasul anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="demo-dots">
+              <button type="button" aria-label="Pasul 1"></button>
+              <button type="button" aria-label="Pasul 2"></button>
+              <button type="button" aria-label="Pasul 3"></button>
+              <button type="button" aria-label="Pasul 4"></button>
+              <button type="button" aria-label="Pasul 5"></button>
             </div>
-          -->
-          <div class="demo" data-demo aria-roledescription="prezentare" aria-label="Cum se măsoară cu un selfie stick">
-            <div class="demo-stage">
-              <span class="demo-badge">Video în curând</span>
-              <figure class="slide active"><img src="assets/img/demo/1-stick.svg" alt="Telefonul prins în clema unui selfie stick, cu setarea Selfie stick activată" width="640" height="360"></figure>
-              <figure class="slide"><img src="assets/img/demo/2-place.svg" alt="Telefonul așezat culcat pe sol, la primul colț, ținut nemișcat o secundă" width="640" height="360" loading="lazy"></figure>
-              <figure class="slide"><img src="assets/img/demo/3-buzz.svg" alt="Telefonul vibrează, vibrația se simte în mânerul selfie stick-ului" width="640" height="360" loading="lazy"></figure>
-              <figure class="slide"><img src="assets/img/demo/4-carry.svg" alt="Telefonul e dus cel puțin un metru, până la următorul punct" width="640" height="360" loading="lazy"></figure>
-              <figure class="slide"><img src="assets/img/demo/5-result.svg" alt="Conturul terenului închis la punctul de start, cu suprafața calculată" width="640" height="360" loading="lazy"></figure>
-              <div class="demo-progress"><span></span></div>
-            </div>
-            <div class="slide-caption" aria-live="polite">
-              <p class="active"><strong><span class="num">1</span>Prinde telefonul pe un selfie stick</strong><span>Activează „Selfie stick” în aplicație. Nu mai e nevoie să te apleci la fiecare punct.</span></p>
-              <p><strong><span class="num">2</span>Pune-l jos și ține-l nemișcat</strong><span>Culcat pe sol, la primul colț, cam o secundă. Punctul se înregistrează singur.</span></p>
-              <p><strong><span class="num">3</span>Simți vibrația în mâner</strong><span>Telefonul vibrează puternic și scoate un sunet: semnalul că poți pleca.</span></p>
-              <p><strong><span class="num">4</span>Du-l mai departe</strong><span>La fiecare metru sau mai mult, și la fiecare colț, pune-l din nou jos.</span></p>
-              <p><strong><span class="num">5</span>Termină unde ai început</strong><span>Conturul se închide, iar aplicația îți arată suprafața, laturile și eroarea măsurată.</span></p>
-            </div>
-            <div class="demo-controls">
-              <button class="demo-prev" type="button" aria-label="Pasul anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-              <div class="demo-dots">
-                <button type="button" aria-label="Pasul 1"></button>
-                <button type="button" aria-label="Pasul 2"></button>
-                <button type="button" aria-label="Pasul 3"></button>
-                <button type="button" aria-label="Pasul 4"></button>
-                <button type="button" aria-label="Pasul 5"></button>
-              </div>
-              <button class="demo-pause" type="button" aria-pressed="false" aria-label="Pauză" data-pause-label="Pauză" data-play-label="Pornește">
-                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
-              </button>
-              <button class="demo-next" type="button" aria-label="Pasul următor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-            </div>
+            <button class="demo-pause" type="button" aria-pressed="false" aria-label="Pauză" data-pause-label="Pauză" data-play-label="Pornește">
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
+            </button>
+            <button class="demo-next" type="button" aria-label="Pasul următor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
         </div>
-
-        <div class="reveal">
-          <ol class="steps">
-            <li>
-              <h3>Prinde telefonul pe un selfie stick</h3>
-              <p>Nu e obligatoriu, dar e mult mai comod: măsori în picioare, în ritmul tău. În aplicație, activează opțiunea „Selfie stick”.</p>
-            </li>
-            <li>
-              <h3>Așază-l jos și lasă-l să stea</h3>
-              <p>La primul colț, telefonul stă culcat pe sol, nemișcat, cam o secundă. Ține bățul liniștit — aplicația înregistrează punctul singură.</p>
-            </li>
-            <li>
-              <h3>Simți vibrația prin mâner — mergi mai departe</h3>
-              <p>Telefonul dă o vibrație lungă și puternică, făcută anume ca să se simtă prin bățul selfie stick-ului. Aplicația știe că e propria ei vibrație și nu o ia drept mișcare.</p>
-            </li>
-            <li>
-              <h3>Din metru în metru, sau mai mult</h3>
-              <p>Du telefonul la următorul punct și pune-l din nou jos — la fiecare colț și ori de câte ori vrei pe drum. Opririle dese țin eroarea mică; dacă îl porți prea mult fără pauză, aplicația te avertizează cu un sunet.</p>
-            </li>
-            <li>
-              <h3>Termină unde ai început</h3>
-              <p>Revii cu telefonul pe punctul de start. Conturul se închide, iar diferența măsurată între start și final îți arată, concret, cât de exactă a fost măsurătoarea.</p>
-            </li>
-          </ol>
-          <div class="tip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
-            <div><strong>Prima dată: calibrarea.</strong> Durează câteva minute, se face o singură dată și îmbunătățește mult precizia. Aplicația te ghidează pas cu pas.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ USE CASES ============ -->
-  <section id="uses" class="alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Pentru cine</span>
-        <h2>Măsurători rapide pentru oferte, planificare și proiecte, fără ruletă.</h2>
-        <p class="lead">Pentru momentele în care ai nevoie de o cifră bună acum, nu de un dosar peste două săptămâni.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l14-2 2 14-16 2z"/></svg></div>
-          <h3>Proprietari de teren</h3>
-          <p class="quote">„Are terenul cât scrie în acte?”</p>
-          <p>O primă verificare înainte să cumperi, să vinzi sau să chemi topograful — ca să știi la ce să te aștepți.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V7l2-3 2 3v14M15 21V7l2-3 2 3v14M3 11h18M3 17h18"/></svg></div>
-          <h3>Constructori și meseriași</h3>
-          <p class="quote">„Câți metri de gard? Câți metri pătrați de pavaj?”</p>
-          <p>Perimetrul și suprafața pentru ofertă, direct la client, fără să mai revii cu ruleta și un ajutor.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></div>
-          <h3>Agenți imobiliari</h3>
-          <p class="quote">„Cât are curtea? Cum arată planul?”</p>
-          <p>Suprafața curții sau planul apartamentului pentru anunț, făcute în timpul vizionării.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></div>
-          <h3>Peisagiști și grădinari</h3>
-          <p class="quote">„Unde se adună apa? Cât de abruptă e panta?”</p>
-          <p>Diferențe de nivel, hartă de pante și curbe de nivel pentru drenaj, alei, terasări și gazon.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M3 12h7v9M14 3v6h7"/></svg></div>
-          <h3>Renovări și amenajări</h3>
-          <p class="quote">„Cât parchet îmi trebuie?”</p>
-          <p>Plan de locuință cu camere, uși și ferestre, exportat ca PDF la scară sau DXF pentru AutoCAD.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V11"/><path d="M12 11C12 6 8 3 3 3c0 5 4 8 9 8z"/><path d="M12 13c0-4 3-7 9-7 0 5-4 7-9 7z"/></svg></div>
-          <h3>Fermieri și pasionați</h3>
-          <p class="quote">„Cât am de semănat? Câtă folie îmi trebuie la solar?”</p>
-          <p>Parcele, livezi, solarii — suprafața în câteva minute, chiar și fără semnal la telefon.</p>
-        </article>
       </div>
     </div>
   </section>
 
   <!-- ============ FEATURES ============ -->
-  <section id="features">
+  <section id="features" class="alt">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head center reveal">
         <span class="eyebrow">Funcții</span>
-        <h2>Tot ce îți trebuie pentru o măsurătoare rapidă</h2>
+        <h2>Tot ce îți trebuie, într-o singură tură</h2>
+        <p class="lead">Pentru proprietari de teren, constructori, agenți imobiliari și grădinari.</p>
       </div>
       <div class="grid grid-3">
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l14-2 2 14-16 2z"/></svg></div>
-          <div><h3>Suprafață, perimetru, laturi</h3><p>Fiecare valoare vine cu marja de eroare estimată, ca să știi cât te poți baza pe ea.</p></div>
+          <div><h3>Suprafață, perimetru, laturi</h3><p>Fiecare cifră vine cu marja ei de eroare.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></div>
-          <div><h3>Înălțimi și pante</h3><p>Fiecare punct are o înălțime. Vezi terenul ca hartă de pante, curbe de nivel sau model 3D.</p></div>
+          <div><h3>Pante și înălțimi</h3><p>Hartă de pante, curbe de nivel și model 3D.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M3 12h7v9M14 3v6h7"/></svg></div>
-          <div><h3>Planuri de locuință</h3><p>Pereți, camere, uși și ferestre. Grosimea peretelui dintre camere se măsoară singură.</p></div>
+          <div><h3>Planuri de locuință</h3><p>Camere, uși și ferestre, cu telefonul lipit de fiecare perete.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></div>
-          <div><h3>Verificare start–final</h3><p>Revii la punctul de plecare, iar aplicația îți spune cât s-a abătut măsurătoarea pe parcurs.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
-          <div><h3>PDF, CSV, DXF</h3><p>Raport PDF pentru client, CSV pentru Excel și DXF pentru AutoCAD — trimise din telefon.</p></div>
+          <div><h3>Își verifică eroarea</h3><p>Termini unde ai început și vezi cât de exactă a fost tura.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4 8v8M20 8v8"/></svg></div>
-          <div><h3>Vibrație și sunet</h3><p>Semnale clare la fiecare punct și când porți telefonul prea mult — nu trebuie să te uiți la ecran.</p></div>
+          <div><h3>Merge cu selfie stick</h3><p>Vibrația din mâner îți spune când să mergi mai departe.</p></div>
         </div>
         <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
-          <div><h3>Privat, offline</h3><p>Fără cont, fără internet, fără reclame. Proiectele rămân pe telefonul tău.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M9 5h6l1.5 2H19a2 2 0 0 1 2 2v8M17 19H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1"/></svg></div>
-          <div><h3>Fără cameră, fără GPS</h3><p>Doar senzorii de mișcare ai iPhone-ului. Aplicația nu cere acces la cameră sau la locație.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div>
-          <div><h3>Bibliotecă de proiecte</h3><p>Fiecare măsurătoare se salvează cu toate punctele și înălțimile; o poți corecta și reexporta oricând.</p></div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
+          <div><h3>PDF, CSV, DXF</h3><p>Trimiți rezultatul clientului sau în AutoCAD, direct din telefon.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ FLOOR PLANS ============ -->
-  <section id="floorplans" class="alt">
+  <section id="floorplans">
     <div class="container showcase">
       <div class="reveal">
         <span class="eyebrow">Planuri de locuință</span>
         <h2>Planul casei, atingând pereții cu telefonul</h2>
-        <p class="lead">Ține telefonul vertical, cu spatele lipit de perete: aplicația înregistrează peretele. Colțurile rezultă din intersecția pereților — chiar dacă sunt ascunse după mobilă.</p>
+        <p class="lead">Ții telefonul lipit de fiecare perete. Colțurile rezultă din intersecția pereților, chiar dacă sunt ascunse după mobilă.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Mai multe camere, cu grosimea peretelui dintre ele</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Uși, ferestre și goluri adăugate dintr-un editor simplu</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Colțuri îndreptate automat, dacă vrei</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PDF la scară standard (1:50, 1:100…), PNG și DXF pentru AutoCAD</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Mai multe camere, cu peretele dintre ele măsurat</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Uși, ferestre și goluri, dintr-un editor simplu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PDF la scară, imagine sau DXF pentru AutoCAD</li>
         </ul>
       </div>
       <div class="reveal">
-        <img class="doc" src="assets/img/floor-plan-pdf.png" alt="Plan de locuință exportat ca PDF, cu două camere, uși, ferestre și cote" width="1000" height="772" loading="lazy">
+        <img class="doc" src="assets/img/floor-plan-pdf.png" alt="Plan de locuință exportat ca PDF, cu două camere, uși, ferestre și cote" width="948" height="604" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- ============ SCREENS ============ -->
-  <section id="screens">
+  <section id="screens" class="alt">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">Aplicația</span>
         <h2>Clar, pas cu pas</h2>
-        <p class="lead" style="margin: 0 auto;">Un singur lucru de făcut pe ecran la un moment dat. Restul e la un gest distanță.</p>
       </div>
       <div class="screens">
-        <figure><div class="phone"><img src="assets/img/measure.png" alt="Ecranul de măsurare, cu ghidul pas cu pas" width="395" height="860" loading="lazy"></div><figcaption>Măsurare<span>ghid pas cu pas</span></figcaption></figure>
-        <figure><div class="phone"><img src="assets/img/plan.png" alt="Plan 2D cu hartă de pante" width="395" height="860" loading="lazy"></div><figcaption>Plan 2D<span>cu hartă de pante</span></figcaption></figure>
         <figure><div class="phone"><img src="assets/img/project.png" alt="Rezultatele unui proiect: suprafață, perimetru, înălțimi" width="395" height="860" loading="lazy"></div><figcaption>Rezultate<span>cu marja de eroare</span></figcaption></figure>
-        <figure><div class="phone"><img src="assets/img/surface.png" alt="Suprafața terenului în 3D" width="395" height="860" loading="lazy"></div><figcaption>Teren 3D<span>înălțimi reale</span></figcaption></figure>
-        <figure><div class="phone"><img src="assets/img/contours.png" alt="Curbe de nivel" width="395" height="860" loading="lazy"></div><figcaption>Curbe de nivel<span>pentru pante și drenaj</span></figcaption></figure>
-        <figure><div class="phone"><img src="assets/img/measure-walls.png" alt="Măsurarea pereților unei camere" width="395" height="860" loading="lazy"></div><figcaption>Pereți<span>telefonul lipit de perete</span></figcaption></figure>
         <figure><div class="phone"><img src="assets/img/floor-plan.png" alt="Planul unei locuințe cu două camere" width="395" height="860" loading="lazy"></div><figcaption>Plan de locuință<span>camere, uși, ferestre</span></figcaption></figure>
-        <figure><div class="phone"><img src="assets/img/projects.png" alt="Lista de proiecte" width="395" height="860" loading="lazy"></div><figcaption>Proiecte<span>totul salvat pe telefon</span></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ COMPARISON ============ -->
-  <section id="compare" class="alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Comparație</span>
-        <h2>Unde se potrivește WalkMeasure</h2>
-        <p class="lead">Nu înlocuiește topograful. Înlocuiește drumurile cu ruleta, calculele pe hârtie și așteptarea.</p>
-      </div>
-      <div class="table-wrap reveal">
-        <table>
-          <thead>
-            <tr><th scope="col"></th><th scope="col">Ruletă / telemetru</th><th scope="col">Topograf autorizat</th><th scope="col" class="us">WalkMeasure</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Cost</th><td data-label="Ruletă / telemetru">Mic, dar costă timp și un ajutor</td><td data-label="Topograf autorizat">Onorariu pentru fiecare lucrare</td><td data-label="WalkMeasure" class="us">Aplicația, pe telefonul pe care îl ai deja</td></tr>
-            <tr><th scope="row">Cât durează</th><td data-label="Ruletă / telemetru">Mult pe terenuri mari sau neregulate</td><td data-label="Topograf autorizat">Programare, deplasare, zile până la documente</td><td data-label="WalkMeasure" class="us">Câteva minute, rezultat pe loc</td></tr>
-            <tr><th scope="row">Suprafață și perimetru</th><td data-label="Ruletă / telemetru" class="no">Le calculezi tu</td><td data-label="Topograf autorizat" class="yes">Da</td><td data-label="WalkMeasure" class="us yes">Da, automat</td></tr>
-            <tr><th scope="row">Pante și diferențe de nivel</th><td data-label="Ruletă / telemetru" class="no">Nu</td><td data-label="Topograf autorizat" class="yes">Da</td><td data-label="WalkMeasure" class="us yes">Da — hartă de pante, 3D, curbe de nivel</td></tr>
-            <tr><th scope="row">Plan PDF / DXF</th><td data-label="Ruletă / telemetru" class="no">Nu</td><td data-label="Topograf autorizat" class="yes">Da</td><td data-label="WalkMeasure" class="us yes">Da</td></tr>
-            <tr><th scope="row">Precizie</th><td data-label="Ruletă / telemetru">Milimetri, pe distanțe drepte</td><td data-label="Topograf autorizat">Centimetri, cu echipament profesional</td><td data-label="WalkMeasure" class="us">Estimare, cu eroarea afișată</td></tr>
-            <tr><th scope="row">Valabil pentru cadastru, intabulare, autorizații</th><td data-label="Ruletă / telemetru" class="no">Nu</td><td data-label="Topograf autorizat" class="yes">Da</td><td data-label="WalkMeasure" class="us no">Nu</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HONESTY ============ -->
-  <section id="honest">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Fără promisiuni goale</span>
-        <h2>Ce este și ce nu este WalkMeasure</h2>
-      </div>
-      <div class="isnt">
-        <div class="card is reveal">
-          <h3>Este</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>O estimare rapidă, cu marja de eroare afișată</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Un instrument pentru oferte, planificare, verificări și proiecte personale</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>O primă verificare înainte să chemi un specialist</li>
-          </ul>
-        </div>
-        <div class="card not reveal">
-          <h3>Nu este</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>O măsurătoare cadastrală sau un document cu valoare juridică</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Un înlocuitor al topografului autorizat pentru intabulare, dezmembrare, partaj, granițe în litigiu sau autorizație de construire</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Un instrument de precizie milimetrică</li>
-          </ul>
-        </div>
-      </div>
-      <div class="honest reveal">
-        <div class="icon warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></div>
-        <div>
-          <h3>Despre precizie, pe față</h3>
-          <p>Senzorii de mișcare ai unui telefon nu sunt făcuți pentru topografie. WalkMeasure compensează prin opriri dese, calibrare și verificarea start–final, dar eroarea crește cu cât porți telefonul mai mult între opriri. De aceea aplicația îți arată mereu și marja de eroare, nu doar cifra.</p>
-          <p>Pe teren, rezultatul depinde de telefon, de calibrare și de cât de liniștit stă telefonul la fiecare punct. O verificare rapidă cu ruleta îți arată ce obține telefonul tău.</p>
-          <!-- REZULTATE DIN TEREN: ca să publici măsurătorile din teren, adaugă aici un tabel (teren, latura reală, latura măsurată, eroare %), apoi actualizează rândul „Precizie” din comparație. -->
-        </div>
+        <figure><div class="phone"><img src="assets/img/surface.png" alt="Suprafața terenului în 3D" width="395" height="860" loading="lazy"></div><figcaption>Teren 3D<span>înălțimi reale</span></figcaption></figure>
+        <figure><div class="phone"><img src="assets/img/projects.png" alt="Lista de proiecte" width="395" height="860" loading="lazy"></div><figcaption>Proiecte<span>salvate pe telefon</span></figcaption></figure>
       </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section id="faq" class="alt">
+  <section id="faq">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">Întrebări frecvente</span>
@@ -407,46 +218,35 @@
       </div>
       <div class="faq reveal">
         <details>
-          <summary>Am nevoie de internet sau de GPS?</summary>
-          <p>Nu. Aplicația folosește doar accelerometrul și giroscopul iPhone-ului. Funcționează offline, în casă, sub copaci și oriunde GPS-ul e slab.</p>
-        </details>
-        <details>
-          <summary>Folosește camera?</summary>
-          <p>Nu. Nu folosește camera deloc și nici nu cere acces la ea. Singura permisiune cerută este cea pentru senzorii de mișcare.</p>
+          <summary>Folosește camera, GPS-ul sau internetul?</summary>
+          <p>Nu. Doar accelerometrul și giroscopul iPhone-ului. Merge offline, în casă, sub copaci și oriunde GPS-ul e slab.</p>
         </details>
         <details>
           <summary>Cât de precisă este?</summary>
-          <p>Depinde de cât de des pui telefonul jos și de calibrare. Aplicația afișează marja de eroare la fiecare rezultat și o verifică practic când revii la punctul de start. Pentru cote critice, verifică cu o ruletă.</p>
+          <p>Depinde de calibrare și de cât de des pui telefonul jos. Fiecare rezultat vine cu marja de eroare, iar revenirea la start o verifică. Pentru cote critice, verifică cu ruleta.</p>
         </details>
         <details>
           <summary>Pot folosi rezultatul pentru cadastru sau intabulare?</summary>
-          <p>Nu. Pentru documente oficiale ai nevoie de o măsurătoare făcută de o persoană autorizată. WalkMeasure îți spune rapid la ce să te aștepți, ca să mergi pregătit la topograf.</p>
+          <p>Nu. Pentru documente oficiale ai nevoie de un topograf autorizat. WalkMeasure îți spune rapid la ce să te aștepți.</p>
         </details>
         <details>
-          <summary>De ce un selfie stick?</summary>
-          <p>Ca să nu te apleci la fiecare punct. Prinzi telefonul în clemă, îl așezi culcat pe sol, ții bățul liniștit cam o secundă, iar vibrația din mâner îți spune că poți merge mai departe. Activează „Selfie stick” în aplicație: așa știe că telefonul e pe sol, chiar dacă mâna ta încă ține bățul. Un băț rigid, fără joc, dă rezultate mai bune.</p>
+          <summary>Trebuie să calibrez telefonul?</summary>
+          <p>O singură dată, la început: îl așezi pe o masă, pe fiecare dintre cele șase fețe, cam un minut în total. Aplicația te ghidează.</p>
         </details>
         <details>
-          <summary>Trebuie să mă opresc la fiecare metru?</summary>
-          <p>Pune telefonul jos la fiecare colț și, pe laturile lungi, din metru în metru sau din câțiva în câțiva metri. Fiecare oprire corectează eroarea adunată pe drum. Dacă porți telefonul prea mult fără pauză, aplicația te avertizează.</p>
-        </details>
-        <details>
-          <summary>Măsoară și în interior?</summary>
-          <p>Da. Pentru camere, ții telefonul vertical, lipit de fiecare perete, iar aplicația face planul cu pereți, uși și ferestre.</p>
+          <summary>Unde ajung datele mele?</summary>
+          <p>Rămân pe telefon. Fără cont, fără reclame, fără analiză de trafic. Le trimiți tu, ca PDF, CSV sau DXF, doar când vrei.</p>
         </details>
         <details>
           <summary>Ce telefon îmi trebuie?</summary>
           <p>Un iPhone cu iOS 17 sau mai nou.</p>
         </details>
         <details>
-          <summary>Unde ajung datele mele?</summary>
-          <p>Nicăieri. Proiectele rămân pe telefon; nu există cont, analiză de trafic sau reclame. Le trimiți tu, ca PDF, CSV sau DXF, doar când vrei.</p>
-        </details>
-        <details>
           <summary>Cât costă?</summary>
-          <p>Prețul va fi anunțat la lansare. Lasă-ne adresa ta și îți scriem primii.</p>
+          <p>Prețul va fi anunțat la lansare.</p>
         </details>
       </div>
+      <p class="faq-more reveal">Altă întrebare? Scrie-ne la <a href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a>.</p>
     </div>
   </section>
 
@@ -456,13 +256,12 @@
       <div class="cta reveal">
         <img src="assets/img/app-icon.png" alt="" width="88" height="88" style="margin: 0 auto 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.25);">
         <h2>Măsoară-ți terenul în câteva minute.</h2>
-        <p>WalkMeasure ajunge în curând pe App Store. Vrei să fii anunțat la lansare sau să testezi versiunea beta pe terenul tău?</p>
+        <p>WalkMeasure ajunge în curând pe App Store. Îți scriem când apare.</p>
         <div class="actions">
           <a class="btn store-badge" href="mailto:contact.kodgo@gmail.com?subject=WalkMeasure%20%E2%80%94%20anun%C8%9Ba%C8%9Bi-m%C4%83%20la%20lansare">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
             Anunță-mă la lansare
           </a>
-          <a class="btn btn-secondary" href="mailto:contact.kodgo@gmail.com?subject=WalkMeasure%20%E2%80%94%20vreau%20s%C4%83%20testez%20beta">Vreau să testez beta</a>
         </div>
       </div>
     </div>

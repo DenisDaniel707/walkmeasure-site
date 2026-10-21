@@ -38,9 +38,7 @@
     </button>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#how">How it works</a>
-      <a href="#uses">Who it's for</a>
       <a href="#features">Features</a>
-      <a href="#floorplans">Floor plans</a>
       <a href="#faq">FAQ</a>
       <div class="lang" aria-label="Language"><a href="../" hreflang="ro" lang="ro">RO</a><span aria-current="true">EN</span></div>
       <a class="btn btn-primary btn-small" href="#start">Notify me</a>
@@ -54,9 +52,8 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Measuring with your iPhone's sensors</span>
-        <h1>Find out in minutes how big your land is — <em>before you pay a surveyor.</em></h1>
-        <p class="lead">Set the phone down at each corner, carry it to the next, and WalkMeasure works out the area, the perimeter, every side and the height differences. No tape measure, no helper, no camera and no GPS.</p>
+        <h1>Measure your land with your iPhone. <em>No tape measure.</em></h1>
+        <p class="lead">Set the phone down at each corner and get the area, perimeter and slopes in minutes.</p>
         <div class="actions">
           <!-- Once the app is published: point href="#start" at the App Store page and swap the button for Apple's official badge. -->
           <a class="btn btn-primary" href="#start" data-appstore>
@@ -69,10 +66,9 @@
           </a>
         </div>
         <ul class="chips" aria-label="In short">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No camera</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No GPS or internet</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No camera or GPS</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Works offline</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Your data stays on your phone</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Works with a selfie stick</li>
         </ul>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -82,324 +78,139 @@
     </div>
   </section>
 
-  <!-- ============ BAND ============ -->
-  <div class="band">
-    <div class="container band-grid">
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
-        <div><strong>One person</strong><span>Nobody needed to hold the other end of the tape.</span></div>
-      </div>
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <div><strong>A few minutes</strong><span>The result is on screen while you're still on site.</span></div>
-      </div>
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 2l7 10H5z"/></svg></div>
-        <div><strong>Even where GPS fails</strong><span>Indoors, under trees, between buildings.</span></div>
-      </div>
-      <div class="band-item">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></div>
-        <div><strong>Checks its own error</strong><span>Finish at the start and see how accurate the walk was.</span></div>
-      </div>
-    </div>
-  </div>
-
   <!-- ============ HOW IT WORKS ============ -->
   <section id="how">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head center reveal">
         <span class="eyebrow">How it works</span>
         <h2>Set the phone down. Feel the buzz. Move on.</h2>
-        <p class="lead">Like a dedicated measuring device, WalkMeasure follows the phone's movement with its accelerometer and gyroscope. Every time the phone rests still on the ground, the app corrects the error picked up on the way — which is why it measures well in short hops with frequent stops.</p>
       </div>
 
-      <div class="how-grid">
-        <div class="reveal">
-          <!--
-            THE PRESENTATION BELOW STANDS IN FOR THE VIDEO.
-            When the video is ready, replace the whole <div class="demo" ...> ... </div> block with, for example:
+      <div class="demo-wrap reveal">
+        <!--
+          THE PRESENTATION BELOW STANDS IN FOR THE VIDEO.
+          When the video is ready, replace the whole <div class="demo" ...> ... </div> block with, for example:
 
-            <div class="video">
-              <video src="../assets/video/how-it-works.mp4" poster="../assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
-            </div>
+          <div class="video">
+            <video src="../assets/video/how-it-works.mp4" poster="../assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
+          </div>
 
-            or, for YouTube (the no-cookie variant):
+          or, for YouTube (the no-cookie variant):
 
-            <div class="video">
-              <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="How WalkMeasure works" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <div class="video">
+            <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="How WalkMeasure works" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        -->
+        <div class="demo" data-demo aria-roledescription="presentation" aria-label="How to measure with a selfie stick">
+          <div class="demo-stage">
+            <figure class="slide active"><img src="../assets/img/demo/1-stick.svg" alt="The phone in a selfie stick's clamp, with the Selfie stick setting turned on" width="640" height="360"></figure>
+            <figure class="slide"><img src="../assets/img/demo/2-place.svg" alt="The phone lying flat on the ground at the first corner, held still for a second" width="640" height="360" loading="lazy"></figure>
+            <figure class="slide"><img src="../assets/img/demo/3-buzz.svg" alt="The phone buzzes and the vibration is felt in the selfie stick's handle" width="640" height="360" loading="lazy"></figure>
+            <figure class="slide"><img src="../assets/img/demo/4-carry.svg" alt="The phone is carried at least a metre to the next point" width="640" height="360" loading="lazy"></figure>
+            <figure class="slide"><img src="../assets/img/demo/5-result.svg" alt="The outline closed at the starting point, with the area worked out" width="640" height="360" loading="lazy"></figure>
+            <div class="demo-progress"><span></span></div>
+          </div>
+          <div class="slide-caption" aria-live="polite">
+            <p class="active"><strong><span class="num">1</span>Clip the phone onto a selfie stick</strong><span>Turn on "Selfie stick" in the app. No more bending down at every point.</span></p>
+            <p><strong><span class="num">2</span>Set it down and hold it still</strong><span>Flat on the ground at the first corner, for about a second. The point records itself.</span></p>
+            <p><strong><span class="num">3</span>Feel the buzz in the handle</strong><span>The phone gives a strong buzz and a beep: your signal to move on.</span></p>
+            <p><strong><span class="num">4</span>Carry it on</strong><span>Every metre or more, and at every corner, set it down again.</span></p>
+            <p><strong><span class="num">5</span>Finish where you started</strong><span>The outline closes and the app shows the area, the sides and the measured error.</span></p>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-prev" type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="demo-dots">
+              <button type="button" aria-label="Step 1"></button>
+              <button type="button" aria-label="Step 2"></button>
+              <button type="button" aria-label="Step 3"></button>
+              <button type="button" aria-label="Step 4"></button>
+              <button type="button" aria-label="Step 5"></button>
             </div>
-          -->
-          <div class="demo" data-demo aria-roledescription="presentation" aria-label="How to measure with a selfie stick">
-            <div class="demo-stage">
-              <span class="demo-badge">Video coming soon</span>
-              <figure class="slide active"><img src="../assets/img/demo/1-stick.svg" alt="The phone in a selfie stick's clamp, with the Selfie stick setting turned on" width="640" height="360"></figure>
-              <figure class="slide"><img src="../assets/img/demo/2-place.svg" alt="The phone lying flat on the ground at the first corner, held still for a second" width="640" height="360" loading="lazy"></figure>
-              <figure class="slide"><img src="../assets/img/demo/3-buzz.svg" alt="The phone buzzes and the vibration is felt in the selfie stick's handle" width="640" height="360" loading="lazy"></figure>
-              <figure class="slide"><img src="../assets/img/demo/4-carry.svg" alt="The phone is carried at least a metre to the next point" width="640" height="360" loading="lazy"></figure>
-              <figure class="slide"><img src="../assets/img/demo/5-result.svg" alt="The outline closed at the starting point, with the area worked out" width="640" height="360" loading="lazy"></figure>
-              <div class="demo-progress"><span></span></div>
-            </div>
-            <div class="slide-caption" aria-live="polite">
-              <p class="active"><strong><span class="num">1</span>Clip the phone onto a selfie stick</strong><span>Turn on "Selfie stick" in the app. No more bending down at every point.</span></p>
-              <p><strong><span class="num">2</span>Set it down and hold it still</strong><span>Flat on the ground at the first corner, for about a second. The point records itself.</span></p>
-              <p><strong><span class="num">3</span>Feel the buzz in the handle</strong><span>The phone gives a strong buzz and a beep: your signal to move on.</span></p>
-              <p><strong><span class="num">4</span>Carry it on</strong><span>Every metre or more, and at every corner, set it down again.</span></p>
-              <p><strong><span class="num">5</span>Finish where you started</strong><span>The outline closes and the app shows the area, the sides and the measured error.</span></p>
-            </div>
-            <div class="demo-controls">
-              <button class="demo-prev" type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-              <div class="demo-dots">
-                <button type="button" aria-label="Step 1"></button>
-                <button type="button" aria-label="Step 2"></button>
-                <button type="button" aria-label="Step 3"></button>
-                <button type="button" aria-label="Step 4"></button>
-                <button type="button" aria-label="Step 5"></button>
-              </div>
-              <button class="demo-pause" type="button" aria-pressed="false" aria-label="Pause" data-pause-label="Pause" data-play-label="Play">
-                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
-              </button>
-              <button class="demo-next" type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-            </div>
+            <button class="demo-pause" type="button" aria-pressed="false" aria-label="Pause" data-pause-label="Pause" data-play-label="Play">
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
+            </button>
+            <button class="demo-next" type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
         </div>
-
-        <div class="reveal">
-          <ol class="steps">
-            <li>
-              <h3>Clip the phone onto a selfie stick</h3>
-              <p>You don't have to, but it's far more comfortable: you measure standing up, at your own pace. In the app, turn on the "Selfie stick" option.</p>
-            </li>
-            <li>
-              <h3>Set it down and let it rest</h3>
-              <p>At the first corner, the phone lies flat on the ground, still, for about a second. Keep the stick steady — the app records the point by itself.</p>
-            </li>
-            <li>
-              <h3>Feel the buzz through the handle — move on</h3>
-              <p>The phone gives a long, strong buzz, made to be felt through the selfie stick. The app knows it's its own vibration and doesn't mistake it for movement.</p>
-            </li>
-            <li>
-              <h3>Every metre or more</h3>
-              <p>Carry the phone to the next point and set it down again — at every corner, and as often as you like along the way. Frequent stops keep the error small; if you carry it too long without a stop, the app warns you with a beep.</p>
-            </li>
-            <li>
-              <h3>Finish where you started</h3>
-              <p>Bring the phone back to the starting point. The outline closes, and the measured gap between start and finish shows you, in real terms, how accurate the measurement was.</p>
-            </li>
-          </ol>
-          <div class="tip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
-            <div><strong>First time: calibrate.</strong> It takes a few minutes, you do it once, and it improves accuracy a lot. The app guides you step by step.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ USE CASES ============ -->
-  <section id="uses" class="alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Who it's for</span>
-        <h2>Fast measurements for quotes, planning and projects — no tape measure.</h2>
-        <p class="lead">For the moments when you need a good number now, not a file in two weeks.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l14-2 2 14-16 2z"/></svg></div>
-          <h3>Landowners</h3>
-          <p class="quote">"Is my plot as big as the deeds say?"</p>
-          <p>A first check before you buy, sell or call a surveyor — so you know what to expect.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V7l2-3 2 3v14M15 21V7l2-3 2 3v14M3 11h18M3 17h18"/></svg></div>
-          <h3>Builders and trades</h3>
-          <p class="quote">"How many metres of fence? How many square metres of paving?"</p>
-          <p>Perimeter and area for the quote, on the spot with the client — no second trip with a tape and a helper.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></div>
-          <h3>Estate agents</h3>
-          <p class="quote">"How big is the garden? What's the layout?"</p>
-          <p>The garden's area or the flat's floor plan for the listing, done during the viewing.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></div>
-          <h3>Landscapers and gardeners</h3>
-          <p class="quote">"Where does the water collect? How steep is it?"</p>
-          <p>Height differences, a slope map and contours for drainage, paths, terracing and lawns.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M3 12h7v9M14 3v6h7"/></svg></div>
-          <h3>Renovation and interiors</h3>
-          <p class="quote">"How much flooring do I need?"</p>
-          <p>A floor plan with rooms, doors and windows, exported as a scaled PDF or a DXF for AutoCAD.</p>
-        </article>
-        <article class="card usecase reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V11"/><path d="M12 11C12 6 8 3 3 3c0 5 4 8 9 8z"/><path d="M12 13c0-4 3-7 9-7 0 5-4 7-9 7z"/></svg></div>
-          <h3>Farmers and hobbyists</h3>
-          <p class="quote">"How much do I need to sow? How much film for the polytunnel?"</p>
-          <p>Fields, orchards, polytunnels — the area in minutes, even with no phone signal.</p>
-        </article>
       </div>
     </div>
   </section>
 
   <!-- ============ FEATURES ============ -->
-  <section id="features">
+  <section id="features" class="alt">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head center reveal">
         <span class="eyebrow">Features</span>
-        <h2>Everything you need for a quick measurement</h2>
+        <h2>Everything you need, in one walk</h2>
+        <p class="lead">For landowners, builders, estate agents and gardeners.</p>
       </div>
       <div class="grid grid-3">
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l14-2 2 14-16 2z"/></svg></div>
-          <div><h3>Area, perimeter, sides</h3><p>Every value comes with its estimated margin of error, so you know how far to trust it.</p></div>
+          <div><h3>Area, perimeter, sides</h3><p>Every number comes with its margin of error.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></div>
-          <div><h3>Heights and slopes</h3><p>Every point has a height. See the ground as a slope map, contours or a 3D model.</p></div>
+          <div><h3>Heights and slopes</h3><p>A slope map, contour lines and a 3D model.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M3 12h7v9M14 3v6h7"/></svg></div>
-          <div><h3>Floor plans</h3><p>Walls, rooms, doors and windows. The wall between two rooms is measured, not guessed.</p></div>
+          <div><h3>Floor plans</h3><p>Rooms, doors and windows, with the phone against each wall.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></div>
-          <div><h3>Start–finish check</h3><p>Come back to where you started and the app tells you how far the measurement drifted on the way.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
-          <div><h3>PDF, CSV, DXF</h3><p>A PDF report for the client, CSV for Excel and DXF for AutoCAD — sent straight from the phone.</p></div>
+          <div><h3>Checks its own error</h3><p>Finish where you started and see how accurate the walk was.</p></div>
         </div>
         <div class="feature reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4 8v8M20 8v8"/></svg></div>
-          <div><h3>Buzz and beep</h3><p>Clear signals at every point and when a carry gets too long — no need to watch the screen.</p></div>
+          <div><h3>Works with a selfie stick</h3><p>A buzz in the handle tells you when to move on.</p></div>
         </div>
         <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
-          <div><h3>Private, offline</h3><p>No account, no internet, no ads. Your projects stay on your phone.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M9 5h6l1.5 2H19a2 2 0 0 1 2 2v8M17 19H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1"/></svg></div>
-          <div><h3>No camera, no GPS</h3><p>Just the iPhone's motion sensors. The app never asks for camera or location access.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div>
-          <div><h3>Project library</h3><p>Every measurement is saved with all its points and heights; correct and re-export it any time.</p></div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
+          <div><h3>PDF, CSV, DXF</h3><p>Send the result to a client or into AutoCAD, straight from the phone.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ FLOOR PLANS ============ -->
-  <section id="floorplans" class="alt">
+  <section id="floorplans">
     <div class="container showcase">
       <div class="reveal">
         <span class="eyebrow">Floor plans</span>
         <h2>A floor plan, by touching the walls with your phone</h2>
-        <p class="lead">Hold the phone upright with its back against a wall and the app records the wall. Corners come from where the walls meet — even when they're hidden behind furniture.</p>
+        <p class="lead">Hold the phone against each wall. Corners come from where the walls meet, even when they're hidden behind furniture.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Several rooms, with the wall thickness between them</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Several rooms, with the wall between them measured</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Doors, windows and openings from a simple editor</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Corners squared automatically, if you want</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PDF at a standard scale (1:50, 1:100…), PNG and DXF for AutoCAD</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PDF to scale, an image, or DXF for AutoCAD</li>
         </ul>
       </div>
       <div class="reveal">
-        <img class="doc" src="../assets/img/floor-plan-pdf.png" alt="A floor plan exported as PDF, with two rooms, doors, windows and dimensions" width="1000" height="772" loading="lazy">
+        <img class="doc" src="../assets/img/floor-plan-pdf.png" alt="A floor plan exported as PDF, with two rooms, doors, windows and dimensions" width="948" height="604" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- ============ SCREENS ============ -->
-  <section id="screens">
+  <section id="screens" class="alt">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">The app</span>
         <h2>Clear, step by step</h2>
-        <p class="lead" style="margin: 0 auto;">One thing to do on screen at a time. Everything else is a tap away.</p>
       </div>
       <div class="screens">
-        <figure><div class="phone"><img src="../assets/img/measure.png" alt="The measuring screen with its step-by-step guide" width="395" height="860" loading="lazy"></div><figcaption>Measuring<span>step-by-step guide</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/plan.png" alt="2D plan with a slope map" width="395" height="860" loading="lazy"></div><figcaption>2D plan<span>with a slope map</span></figcaption></figure>
         <figure><div class="phone"><img src="../assets/img/project.png" alt="A project's results: area, perimeter, heights" width="395" height="860" loading="lazy"></div><figcaption>Results<span>with the margin of error</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/surface.png" alt="The ground surface in 3D" width="395" height="860" loading="lazy"></div><figcaption>3D terrain<span>true heights</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/contours.png" alt="Contour lines" width="395" height="860" loading="lazy"></div><figcaption>Contours<span>for slopes and drainage</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/measure-walls.png" alt="Measuring a room's walls" width="395" height="860" loading="lazy"></div><figcaption>Walls<span>phone against the wall</span></figcaption></figure>
         <figure><div class="phone"><img src="../assets/img/floor-plan.png" alt="A two-room floor plan" width="395" height="860" loading="lazy"></div><figcaption>Floor plan<span>rooms, doors, windows</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/projects.png" alt="The project list" width="395" height="860" loading="lazy"></div><figcaption>Projects<span>all saved on the phone</span></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ COMPARISON ============ -->
-  <section id="compare" class="alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Comparison</span>
-        <h2>Where WalkMeasure fits</h2>
-        <p class="lead">It doesn't replace a surveyor. It replaces trips with a tape measure, sums on paper, and waiting.</p>
-      </div>
-      <div class="table-wrap reveal">
-        <table>
-          <thead>
-            <tr><th scope="col"></th><th scope="col">Tape / laser measure</th><th scope="col">Licensed surveyor</th><th scope="col" class="us">WalkMeasure</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Cost</th><td data-label="Tape / laser measure">Low, but it costs time and a helper</td><td data-label="Licensed surveyor">A fee for every job</td><td data-label="WalkMeasure" class="us">The app, on the phone you already have</td></tr>
-            <tr><th scope="row">Time</th><td data-label="Tape / laser measure">Long on large or irregular plots</td><td data-label="Licensed surveyor">Booking, a visit, days until the documents</td><td data-label="WalkMeasure" class="us">A few minutes, result on the spot</td></tr>
-            <tr><th scope="row">Area and perimeter</th><td data-label="Tape / laser measure" class="no">You work them out</td><td data-label="Licensed surveyor" class="yes">Yes</td><td data-label="WalkMeasure" class="us yes">Yes, automatically</td></tr>
-            <tr><th scope="row">Slopes and height differences</th><td data-label="Tape / laser measure" class="no">No</td><td data-label="Licensed surveyor" class="yes">Yes</td><td data-label="WalkMeasure" class="us yes">Yes — slope map, 3D, contours</td></tr>
-            <tr><th scope="row">PDF / DXF plan</th><td data-label="Tape / laser measure" class="no">No</td><td data-label="Licensed surveyor" class="yes">Yes</td><td data-label="WalkMeasure" class="us yes">Yes</td></tr>
-            <tr><th scope="row">Accuracy</th><td data-label="Tape / laser measure">Millimetres, on straight runs</td><td data-label="Licensed surveyor">Centimetres, with professional equipment</td><td data-label="WalkMeasure" class="us">An estimate, with its error shown</td></tr>
-            <tr><th scope="row">Valid for land registry, conveyancing, permits</th><td data-label="Tape / laser measure" class="no">No</td><td data-label="Licensed surveyor" class="yes">Yes</td><td data-label="WalkMeasure" class="us no">No</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HONESTY ============ -->
-  <section id="honest">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">No empty promises</span>
-        <h2>What WalkMeasure is — and isn't</h2>
-      </div>
-      <div class="isnt">
-        <div class="card is reveal">
-          <h3>It is</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>A quick estimate, with its margin of error shown</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>A tool for quotes, planning, checks and personal projects</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>A first check before you call in a professional</li>
-          </ul>
-        </div>
-        <div class="card not reveal">
-          <h3>It isn't</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>A cadastral survey or a legally valid document</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>A replacement for a licensed surveyor for land registration, subdivision, boundary disputes or building permits</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>A millimetre-precision instrument</li>
-          </ul>
-        </div>
-      </div>
-      <div class="honest reveal">
-        <div class="icon warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></div>
-        <div>
-          <h3>About accuracy, plainly</h3>
-          <p>A phone's motion sensors aren't made for surveying. WalkMeasure makes up for it with frequent stops, calibration and the start–finish check, but the error grows the longer you carry the phone between stops. That's why the app always shows the margin of error, not just the number.</p>
-          <p>In the field, the result depends on the phone, the calibration and how still the phone rests at each point. A quick check against a tape measure shows what your phone achieves.</p>
-          <!-- FIELD RESULTS: to publish your field measurements, add a table here (site, true side, measured side, error %), then update the "Accuracy" row of the comparison. -->
-        </div>
+        <figure><div class="phone"><img src="../assets/img/surface.png" alt="The ground surface in 3D" width="395" height="860" loading="lazy"></div><figcaption>3D terrain<span>true heights</span></figcaption></figure>
+        <figure><div class="phone"><img src="../assets/img/projects.png" alt="The project list" width="395" height="860" loading="lazy"></div><figcaption>Projects<span>saved on your phone</span></figcaption></figure>
       </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section id="faq" class="alt">
+  <section id="faq">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">FAQ</span>
@@ -407,46 +218,35 @@
       </div>
       <div class="faq reveal">
         <details>
-          <summary>Do I need internet or GPS?</summary>
-          <p>No. The app uses only the iPhone's accelerometer and gyroscope. It works offline, indoors, under trees and anywhere GPS is weak.</p>
-        </details>
-        <details>
-          <summary>Does it use the camera?</summary>
-          <p>No. It never uses the camera and never asks for access to it. The only permission it asks for is motion sensors.</p>
+          <summary>Does it use the camera, GPS or internet?</summary>
+          <p>No. Only the iPhone's accelerometer and gyroscope. It works offline, indoors, under trees and anywhere GPS is weak.</p>
         </details>
         <details>
           <summary>How accurate is it?</summary>
-          <p>It depends on how often you set the phone down and on calibration. The app shows the margin of error with every result and checks it for real when you return to the starting point. For critical dimensions, check with a tape measure.</p>
+          <p>It depends on calibration and on how often you set the phone down. Every result comes with its margin of error, and returning to the start checks it. For critical dimensions, check with a tape measure.</p>
         </details>
         <details>
           <summary>Can I use the result for the land registry or a sale?</summary>
-          <p>No. Official documents need a measurement by a licensed professional. WalkMeasure quickly tells you what to expect, so you go to the surveyor prepared.</p>
+          <p>No. Official documents need a licensed surveyor. WalkMeasure quickly tells you what to expect.</p>
         </details>
         <details>
-          <summary>Why a selfie stick?</summary>
-          <p>So you don't have to bend down at every point. Clip the phone into the clamp, set it flat on the ground, keep the stick steady for about a second, and the buzz in the handle tells you to move on. Turn on "Selfie stick" in the app so it knows the phone is on the ground even though your hand still holds the stick. A rigid stick with no wobble gives better results.</p>
+          <summary>Do I need to calibrate the phone?</summary>
+          <p>Once, at the start: rest it on a table on each of its six sides, about a minute in all. The app guides you.</p>
         </details>
         <details>
-          <summary>Do I have to stop every metre?</summary>
-          <p>Set the phone down at every corner and, on long sides, every metre or every few metres. Each stop corrects the error picked up on the way. If you carry the phone too long without a stop, the app warns you.</p>
-        </details>
-        <details>
-          <summary>Does it work indoors?</summary>
-          <p>Yes. For rooms, hold the phone upright against each wall and the app builds the plan with walls, doors and windows.</p>
+          <summary>Where does my data go?</summary>
+          <p>It stays on your phone. No account, no ads, no analytics. You share projects yourself, as PDF, CSV or DXF, only when you want to.</p>
         </details>
         <details>
           <summary>Which phone do I need?</summary>
           <p>An iPhone running iOS 17 or later.</p>
         </details>
         <details>
-          <summary>Where does my data go?</summary>
-          <p>Nowhere. Projects stay on the phone; there's no account, no analytics and no ads. You share them yourself, as PDF, CSV or DXF, only when you want to.</p>
-        </details>
-        <details>
           <summary>How much does it cost?</summary>
-          <p>The price will be announced at launch. Leave us your address and you'll hear first.</p>
+          <p>The price will be announced at launch.</p>
         </details>
       </div>
+      <p class="faq-more reveal">Another question? Write to us at <a href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a>.</p>
     </div>
   </section>
 
@@ -456,13 +256,12 @@
       <div class="cta reveal">
         <img src="../assets/img/app-icon.png" alt="" width="88" height="88" style="margin: 0 auto 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.25);">
         <h2>Measure your land in minutes.</h2>
-        <p>WalkMeasure is coming soon to the App Store. Want to hear when it launches, or try the beta on your own land?</p>
+        <p>WalkMeasure is coming soon to the App Store. We'll write to you when it's out.</p>
         <div class="actions">
           <a class="btn store-badge" href="mailto:contact.kodgo@gmail.com?subject=WalkMeasure%20%E2%80%94%20notify%20me%20at%20launch">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
             Notify me at launch
           </a>
-          <a class="btn btn-secondary" href="mailto:contact.kodgo@gmail.com?subject=WalkMeasure%20%E2%80%94%20I%27d%20like%20to%20test%20the%20beta">I'd like to test the beta</a>
         </div>
       </div>
     </div>
