@@ -446,3 +446,36 @@ section.alt { background: var(--bg-alt); }
 .no-js .slide-caption p:first-child { opacity: 1; position: static; }
 .nav.nav-static { display: flex; position: static; flex-direction: row; padding: 0; border: 0; box-shadow: none; background: none; margin-left: auto; }
 .nav.nav-static .lang { margin: 0; }
+
+/* ---------- Pricing ---------- */
+
+.pricing { display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); gap: 18px; justify-content: center; }
+.plan {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+}
+.plan h3 { margin: 0 0 8px; }
+.plan .price { font-size: 2.2rem; font-weight: 800; letter-spacing: -.02em; margin: 0; line-height: 1.1; }
+.plan .price span { font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.plan .plan-note { color: var(--muted); font-size: .92rem; margin: 6px 0 18px; }
+.plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.plan li { display: flex; gap: 10px; font-size: .97rem; }
+.plan li svg { width: 18px; height: 18px; color: var(--accent); flex: none; margin-top: 4px; }
+.plan-pro { border: 2px solid var(--accent); box-shadow: var(--shadow); }
+.plan-tag {
+  position: absolute;
+  top: -12px; left: 24px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.pricing-note { text-align: center; color: var(--muted); font-size: .88rem; max-width: 44em; margin: 22px auto 0; }
+@media (max-width: 720px) { .pricing { grid-template-columns: 1fr; } }

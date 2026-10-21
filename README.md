@@ -32,7 +32,6 @@ Search both languages for these and replace them:
 | What | Where | Replace with |
 |---|---|---|
 | `href="#start" data-appstore` | hero button, both home pages | the App Store link once the app is live, and Apple's official "Download on the App Store" badge (Apple Marketing Tools) |
-| "Prețul va fi anunțat la lansare" / "The price will be announced at launch" | FAQ | the real price |
 
 To publish accuracy figures, use your own field results (taped side vs. measured side)
 and add them to the FAQ answer "Cât de precisă este?" / "How accurate is it?".
@@ -57,6 +56,12 @@ the visitor presses play. The `.video` styles are already in `styles.css`.
 Video tips: 30–60 s, landscape 16:9, show the selfie stick from the side, the phone being
 set down, a close-up of the hand feeling the buzz, the walk back to the start and the result
 on screen. Export H.264 MP4 under ~15 MB.
+
+## Prices
+
+The `#pricing` section and the "Cât costă? / How much does it cost?" answer show
+19,99 lei and $3.99 a month. If you change the price in App Store Connect, update both
+pages (the app itself always shows the App Store's price).
 
 ## Updating screenshots
 
