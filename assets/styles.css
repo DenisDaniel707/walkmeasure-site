@@ -447,9 +447,52 @@ section.alt { background: var(--bg-alt); }
 .nav.nav-static { display: flex; position: static; flex-direction: row; padding: 0; border: 0; box-shadow: none; background: none; margin-left: auto; }
 .nav.nav-static .lang { margin: 0; }
 
+/* ---------- Who it's for ---------- */
+
+.audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.audience .card, .trust .card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+}
+.audience h3, .trust h3 { margin: 4px 0 6px; }
+.audience p, .trust p { color: var(--muted); margin: 0; font-size: .97rem; }
+@media (max-width: 980px) { .audience { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .audience { grid-template-columns: 1fr; } }
+
+/* ---------- The problem ---------- */
+
+.problem { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.problem .card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--warm);
+  border-radius: 14px;
+  padding: 22px;
+}
+.problem h3 { margin: 0 0 8px; font-size: 1.08rem; }
+.problem p { color: var(--muted); margin: 0; font-size: .95rem; }
+.promise {
+  text-align: center;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  max-width: 30em;
+  margin: 40px auto 0;
+}
+.promise em { font-style: normal; color: var(--accent); }
+@media (max-width: 900px) { .problem { grid-template-columns: 1fr; } }
+
+/* ---------- Trust ---------- */
+
+.trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.trust-note { text-align: center; color: var(--muted); font-size: .88rem; max-width: 46em; margin: 24px auto 0; }
+@media (max-width: 900px) { .trust { grid-template-columns: 1fr; } }
+
 /* ---------- Pricing ---------- */
 
-.pricing { display: grid; grid-template-columns: repeat(2, minmax(0, 360px)); gap: 18px; justify-content: center; }
+.pricing { display: grid; grid-template-columns: repeat(3, minmax(0, 340px)); gap: 18px; justify-content: center; align-items: start; }
 .plan {
   position: relative;
   background: var(--surface);
@@ -464,7 +507,9 @@ section.alt { background: var(--bg-alt); }
 .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .plan li { display: flex; gap: 10px; font-size: .97rem; }
 .plan li svg { width: 18px; height: 18px; color: var(--accent); flex: none; margin-top: 4px; }
-.plan-pro { border: 2px solid var(--accent); box-shadow: var(--shadow); }
+.plan-pro { border: 2px solid var(--line); }
+.plan-best { border: 2px solid var(--accent); box-shadow: var(--shadow); }
+.plan-tag.warm { background: var(--warm); color: #17201a; }
 .plan-tag {
   position: absolute;
   top: -12px; left: 24px;
@@ -478,4 +523,5 @@ section.alt { background: var(--bg-alt); }
   border-radius: 999px;
 }
 .pricing-note { text-align: center; color: var(--muted); font-size: .88rem; max-width: 44em; margin: 22px auto 0; }
+@media (max-width: 1000px) { .pricing { grid-template-columns: repeat(2, minmax(0, 360px)); } }
 @media (max-width: 720px) { .pricing { grid-template-columns: 1fr; } }

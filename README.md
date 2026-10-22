@@ -59,9 +59,16 @@ on screen. Export H.264 MP4 under ~15 MB.
 
 ## Prices
 
-The `#pricing` section and the "Cât costă? / How much does it cost?" answer show
-19,99 lei and $3.99 a month. If you change the price in App Store Connect, update both
-pages (the app itself always shows the App Store's price).
+The `#pricing` section and the "Cât costă? / How much does it cost?" and "Pot plăti o
+singură dată? / Can I pay once?" answers show 19,99 lei and $3.99 a month for Pro Monthly,
+and 249,99 lei and $49.99 once for Pro Lifetime. If you change a price in App Store
+Connect, update both pages (the app itself always shows the App Store's prices).
+
+The home pages follow a one-page business plan: a specific customer (people who quote
+by the square metre), the expensive problem (a wrong area), the narrow promise (the
+number on the spot, with how far to trust it), proof built into the product (the
+start/finish check, the margin on every number, the free first project) and the two ways
+to pay. Keep new copy honest: no accuracy figures, no promises the app can't check.
 
 ## Updating screenshots
 
