@@ -174,11 +174,22 @@
           bottom: top + li.offsetHeight
         };
       });
-      var d = "M" + corners[0].x + " " + corners[0].y;
+      var points = [[corners[0].x, corners[0].y]];
       for (var i = 1; i < corners.length; i++) {
         var from = corners[i - 1], to = corners[i];
-        d += " L" + from.x + " " + from.bottom + " L" + to.x + " " + to.top + " L" + to.x + " " + to.y;
+        points.push([from.x, from.bottom], [to.x, to.top], [to.x, to.y]);
       }
+      // Each bend is rounded off: the tape curves through it instead of folding.
+      var d = "M" + points[0].join(" ");
+      for (var v = 1; v < points.length - 1; v++) {
+        var prev = points[v - 1], at = points[v], next = points[v + 1];
+        var inLen = Math.hypot(at[0] - prev[0], at[1] - prev[1]), outLen = Math.hypot(next[0] - at[0], next[1] - at[1]);
+        var r = Math.min(36, inLen / 2, outLen / 2);
+        if (!inLen || !outLen) continue;
+        d += " L" + (at[0] - (at[0] - prev[0]) * r / inLen) + " " + (at[1] - (at[1] - prev[1]) * r / inLen) +
+             " Q" + at[0] + " " + at[1] + " " + (at[0] + (next[0] - at[0]) * r / outLen) + " " + (at[1] + (next[1] - at[1]) * r / outLen);
+      }
+      d += " L" + points[points.length - 1].join(" ");
       edge.setAttribute("d", d);
       band.setAttribute("d", d);
       maskPath.setAttribute("d", d);
