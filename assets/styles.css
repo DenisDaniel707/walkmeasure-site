@@ -338,19 +338,20 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .route { position: relative; list-style: none; counter-reset: corner; display: grid; gap: clamp(28px, 6vw, 72px); }
 .route-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .route-line path { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.5 13; vector-effect: non-scaling-stroke; }
-.route li { position: relative; max-width: 560px; }
+.route li { --title: clamp(30px, 5.2vw, 76px); position: relative; max-width: 560px; }
 .route h3 {
   font-weight: 800; font-stretch: 88%; letter-spacing: -.03em; color: var(--green);
-  font-size: clamp(30px, 5.2vw, 76px); line-height: .94;
+  font-size: var(--title); line-height: .94;
 }
 .route-toggle {
-  display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; width: 100%;
   padding: 0; border: 0; background: none; color: inherit; font: inherit; letter-spacing: inherit;
   text-align: left; cursor: pointer;
 }
 .route .plus {
   flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
   background: var(--ink); color: var(--paper); font: 700 22px/1 var(--text); letter-spacing: 0;
+  margin-top: calc(var(--title) * .52 - 18px); /* level with the first line and its corner letter */
   transition: transform .25s, background-color .2s;
 }
 .route-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
@@ -370,7 +371,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .no-js .route .plus { display: none; }
 .route li::before {
   counter-increment: corner; content: counter(corner, upper-alpha);
-  position: absolute; left: -44px; top: .2em; width: 30px; height: 30px; border-radius: 50%;
+  position: absolute; left: -44px; top: calc(var(--title) * .52 - 15px); width: 30px; height: 30px; border-radius: 50%;
   display: grid; place-items: center; font: 800 14px/1 var(--display);
   background: var(--paper); border: 4px solid var(--ink);
 }
@@ -486,8 +487,8 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 @media (min-width: 1000px) { .split { grid-template-columns: 5fr 7fr; gap: 72px; } }
 .split h2 { font-size: clamp(44px, 5.6vw, 88px); margin-bottom: 28px; }
 .dash { list-style: none; margin-top: 28px; }
-.dash li { padding: 12px 0 12px 32px; border-top: 1.5px solid var(--line); position: relative; }
-.dash li::before { content: ""; position: absolute; left: 0; top: 1.15em; width: 18px; height: 3px; border-radius: 3px; background: var(--green); }
+.dash li { padding: 12px 0 12px 32px; border-top: 1.5px solid var(--line); position: relative; line-height: 26px; }
+.dash li::before { content: ""; position: absolute; left: 0; top: calc(12px + 13px - 1.5px + 3px); width: 18px; height: 3px; border-radius: 3px; background: var(--green); }
 .doc {
   border-radius: 20px; background: #fff; padding: clamp(8px, 1.5vw, 16px);
   transform: rotate(-1.5deg); box-shadow: 0 30px 60px -30px rgba(24, 22, 17, .45); border: 1.5px solid var(--line);
@@ -523,9 +524,15 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .plan-note { color: var(--muted); min-height: 3em; }
 .plan ul { list-style: none; margin-top: 16px; border-top: 1.5px solid var(--line); }
 .plan-best ul { border-color: color-mix(in srgb, var(--paper) 20%, transparent); }
-.plan li { padding: 10px 0 10px 26px; position: relative; font-size: 16px; }
-.plan li::before { content: "+"; position: absolute; left: 0; top: 7px; font: 800 20px/1 var(--display); color: var(--green); }
-.plan-best li::before { color: var(--yellow); }
+/* The plus is drawn, not typed, and centred on the first line of its item. */
+.plan li { --mark: var(--green); padding: 10px 0 10px 26px; position: relative; font-size: 16px; line-height: 24px; }
+.plan li::before {
+  content: ""; position: absolute; left: 0; top: calc(10px + 12px - 6px + 2px); width: 12px; height: 12px;
+  background:
+    linear-gradient(var(--mark), var(--mark)) center / 100% 2.5px no-repeat,
+    linear-gradient(var(--mark), var(--mark)) center / 2.5px 100% no-repeat;
+}
+.plan-best li { --mark: var(--yellow); }
 .plan-tag { position: absolute; top: -16px; right: 24px; }
 .pricing-note { margin: 32px 0 0; color: var(--muted); font-size: 15px; max-width: 50em; }
 
