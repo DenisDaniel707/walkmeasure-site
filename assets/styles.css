@@ -362,7 +362,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .route-wrap { position: relative; }
 .route { --gap: clamp(28px, 6vw, 72px); position: relative; list-style: none; counter-reset: corner; display: grid; gap: var(--gap); }
 .route-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.route-line path { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.5 13; vector-effect: non-scaling-stroke; }
+.route-line .dots { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.5 13; vector-effect: non-scaling-stroke; }
 .route li { --title: clamp(30px, 5.2vw, 76px); position: relative; max-width: 560px; }
 .route h3 {
   font-weight: 800; font-stretch: 88%; letter-spacing: -.03em; color: var(--green);
@@ -411,12 +411,28 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
   .route { padding-left: 40px; }
   .route-line { display: none; }
   .route li::before { left: -40px; }
-  /* One dotted leg from each corner to the next, so the walk stops at the last corner. */
+  .route-wrap.taped .route-line { display: block; }
+  .route-wrap.taped .route li::after { display: none; }
+  /* Without JavaScript: one dotted leg from each corner to the next, so the walk stops at the last corner. */
   .route li:not(:last-child)::after {
     content: ""; position: absolute; left: -28px; top: calc(var(--title) * .52);
     height: calc(100% + var(--gap)); border-left: 6px dotted var(--yellow);
   }
 }
+
+/* The tape measure (drawn by site.js): a yellow band with graduations every 8px and a
+   number every tenth, unwound from a case that follows the scroll. */
+.route-wrap.taped .route-line .dots { display: none; }
+.tape-edge { fill: none; stroke: #c99a12; stroke-width: 20; stroke-linejoin: round; }
+.tape-band { fill: none; stroke: var(--yellow); stroke-width: 17; stroke-linejoin: round; }
+.tape-ticks line { stroke: var(--ink); stroke-width: 1.2; }
+.tape-ticks text { font: 700 7.5px/1 var(--text); fill: var(--ink); letter-spacing: 0; }
+.tape-case { transition: opacity .3s; }
+.tape-case.parked { opacity: 0; }
+.tape-case rect { fill: var(--ink); }
+.tape-case .reel { fill: var(--yellow); }
+.tape-case .hub { fill: var(--ink); }
+.tape-case .spoke { stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; }
 
 /* ---------- How it works ---------- */
 

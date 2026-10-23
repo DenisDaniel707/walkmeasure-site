@@ -127,25 +127,107 @@
     show(0);
   });
 
-  // "Who it's for" on wide screens: the walked line runs exactly through each corner
-  // circle, wherever the layout puts them (redrawn when the window resizes).
-  var routePath = document.querySelector(".route-line path");
-  function drawRoute() {
-    var wrap = routePath.ownerSVGElement.parentElement;
-    var list = wrap.querySelector(".route");
-    if (!wrap.clientWidth || !wrap.clientHeight) return;
-    var points = [].map.call(list.children, function (li) {
-      var mark = getComputedStyle(li, "::before");
-      var x = list.offsetLeft + li.offsetLeft + parseFloat(mark.left) + parseFloat(mark.width) / 2;
-      var y = list.offsetTop + li.offsetTop + parseFloat(mark.top) + parseFloat(mark.height) / 2;
-      return (x / wrap.clientWidth * 100).toFixed(2) + " " + (y / wrap.clientHeight * 100).toFixed(2);
-    });
-    routePath.setAttribute("d", "M" + points.join(" L"));
-  }
-  if (routePath) {
-    drawRoute();
-    window.addEventListener("resize", drawRoute);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawRoute);
+  // "Who it's for": a tape measure unwinds along the walk from corner to corner as the
+  // page scrolls. The route leaves each corner straight down past its text, crosses in
+  // the gap to the next audience and drops into the next corner, so it covers no text.
+  var routeWrap = document.querySelector(".route-wrap");
+  if (routeWrap && "ResizeObserver" in window) {
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = routeWrap.querySelector(".route-line");
+    var list = routeWrap.querySelector(".route");
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var make = function (name, attrs, parent) {
+      var node = document.createElementNS(NS, name);
+      for (var key in attrs) node.setAttribute(key, attrs[key]);
+      if (parent) parent.appendChild(node);
+      return node;
+    };
+    var mask = make("mask", { id: "tape-reveal", maskUnits: "userSpaceOnUse" }, make("defs", {}, svg));
+    var maskPath = make("path", { fill: "none", stroke: "#fff", "stroke-width": 44, "stroke-linejoin": "round" }, mask);
+    var tape = make("g", { mask: "url(#tape-reveal)" }, svg);
+    var edge = make("path", { "class": "tape-edge" }, tape);
+    var band = make("path", { "class": "tape-band" }, tape);
+    var ticks = make("g", { "class": "tape-ticks" }, tape);
+    var tapeCase = make("g", { "class": "tape-case parked" }, svg);
+    make("rect", { x: -19, y: -19, width: 38, height: 38, rx: 10 }, tapeCase);
+    var reel = make("g", {}, tapeCase);
+    make("circle", { "class": "reel", r: 11 }, reel);
+    make("line", { "class": "spoke", x1: 0, y1: -8, x2: 0, y2: 8 }, reel);
+    make("circle", { "class": "hub", r: 3 }, reel);
+    var total = 0;
+    var queued = false;
+
+    var layout = function () {
+      var w = routeWrap.clientWidth, h = routeWrap.clientHeight;
+      if (!w || !h) return;
+      svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+      ["x", "y"].forEach(function (k) { mask.setAttribute(k, -60); });
+      mask.setAttribute("width", w + 120);
+      mask.setAttribute("height", h + 120);
+      var corners = [].map.call(list.children, function (li) {
+        var mark = getComputedStyle(li, "::before");
+        var top = list.offsetTop + li.offsetTop;
+        return {
+          x: list.offsetLeft + li.offsetLeft + parseFloat(mark.left) + parseFloat(mark.width) / 2,
+          y: top + parseFloat(mark.top) + parseFloat(mark.height) / 2,
+          top: top,
+          bottom: top + li.offsetHeight
+        };
+      });
+      var d = "M" + corners[0].x + " " + corners[0].y;
+      for (var i = 1; i < corners.length; i++) {
+        var from = corners[i - 1], to = corners[i];
+        d += " L" + from.x + " " + from.bottom + " L" + to.x + " " + to.top + " L" + to.x + " " + to.y;
+      }
+      edge.setAttribute("d", d);
+      band.setAttribute("d", d);
+      maskPath.setAttribute("d", d);
+      total = band.getTotalLength();
+      maskPath.setAttribute("stroke-dasharray", total + " " + total);
+      // Graduations from one edge of the band: short, longer every 5th, a number every 10th.
+      while (ticks.firstChild) ticks.removeChild(ticks.firstChild);
+      for (var n = 1, s = 8; s < total; n++, s += 8) {
+        var p = band.getPointAtLength(s), q = band.getPointAtLength(Math.min(s + 1, total));
+        var dx = q.x - p.x, dy = q.y - p.y, len = Math.sqrt(dx * dx + dy * dy) || 1;
+        var nx = -dy / len, ny = dx / len;
+        var size = n % 10 === 0 ? 9 : n % 5 === 0 ? 6.5 : 4;
+        make("line", { x1: p.x - nx * 8.5, y1: p.y - ny * 8.5, x2: p.x - nx * (8.5 - size), y2: p.y - ny * (8.5 - size) }, ticks);
+        if (n % 10 === 0) {
+          var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+          if (angle > 90 || angle < -90) angle += 180; // never upside down
+          make("text", { x: 0, y: 0, "text-anchor": "middle",
+            transform: "translate(" + (p.x + nx * 3.5 + dx / len * 6) + " " + (p.y + ny * 3.5 + dy / len * 6) + ") rotate(" + angle + ")" }, ticks).textContent = n / 10;
+        }
+      }
+      routeWrap.classList.add("taped");
+      update();
+    };
+
+    // The case sits on the tape where it crosses 60% of the screen height.
+    var update = function () {
+      queued = false;
+      if (!total) return;
+      var target = window.innerHeight * 0.6 - svg.getBoundingClientRect().top;
+      var shown = total;
+      if (!still) {
+        var lo = 0, hi = total;
+        for (var k = 0; k < 18; k++) {
+          var mid = (lo + hi) / 2;
+          if (band.getPointAtLength(mid).y < target) lo = mid; else hi = mid;
+        }
+        shown = lo;
+      }
+      maskPath.setAttribute("stroke-dashoffset", total - shown);
+      var at = band.getPointAtLength(shown);
+      tapeCase.setAttribute("transform", "translate(" + at.x + " " + at.y + ")");
+      reel.setAttribute("transform", "rotate(" + (shown * 1.5) + ")");
+      tapeCase.classList.toggle("parked", still || shown < 2 || shown > total - 2);
+    };
+
+    new ResizeObserver(layout).observe(routeWrap);
+    window.addEventListener("scroll", function () {
+      if (!queued) { queued = true; requestAnimationFrame(update); }
+    }, { passive: true });
   }
 
   // "Who it's for": the plus shows or hides each sentence (a mouse also shows it on hover).
