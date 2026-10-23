@@ -32,14 +32,17 @@
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+          entry.target.classList.add(entry.target.classList.contains("draw") ? "drawn" : "visible");
           observer.unobserve(entry.target);
         }
       });
     }, { rootMargin: "0px 0px -8% 0px" });
     reveals.forEach(function (el) { observer.observe(el); });
+    // The walked lines (hero plot, "who it's for" route) draw in once seen.
+    document.querySelectorAll(".draw").forEach(function (el) { observer.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add("visible"); });
+    document.querySelectorAll(".draw").forEach(function (el) { el.classList.add("drawn"); });
   }
 
   // "How it works" presentation: slides advance on their own while visible.

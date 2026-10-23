@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>WalkMeasure — measure a plot, a lawn or a room with your iPhone, no tape measure</title>
   <meta name="description" content="For landscapers, builders and estate agents who need the size of a plot, a lawn or a room today. Set your iPhone down at each corner: area, sides, slopes and floor plans in minutes, each with its margin of error. No camera, no GPS, no internet.">
-  <meta name="theme-color" content="#2e7d32">
+  <meta name="theme-color" content="#f4eee3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15140f" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <link rel="canonical" href="https://walkmeasure.com/en/">
@@ -21,6 +22,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/styles.css">
   <script defer src="../assets/site.js"></script>
 </head>
@@ -30,20 +32,25 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="./" aria-label="WalkMeasure — home">
-      <img src="../assets/favicon.svg" width="32" height="32" alt="">
+      <img src="../assets/img/app-icon.png" width="30" height="30" alt="">
       WalkMeasure
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      Menu
     </button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#how">How it works</a>
-      <a href="#who">Who it's for</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <div class="lang" aria-label="Language"><a href="../" hreflang="ro" lang="ro">RO</a><span aria-current="true">EN</span></div>
-      <a class="btn btn-primary btn-small" href="#start">Notify me</a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#who">Who it's for</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-end">
+        <div class="lang" aria-label="Language"><a href="../" hreflang="ro" lang="ro">RO</a><span aria-current="true">EN</span></div>
+        <a class="btn btn-primary" href="#start">Notify me <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      </div>
     </nav>
   </div>
 </header>
@@ -52,64 +59,79 @@
 
   <!-- ============ HERO: the narrow promise, to a specific customer ============ -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>Measure the job in one walk. <em>No tape, no helper, no waiting for a surveyor.</em></h1>
+    <div class="container">
+      <div class="hero-title">
+        <h1><span>Measure the job</span> <span>in one walk.</span></h1>
+        <ul class="stickers" aria-label="No more">
+          <li class="sticker">No tape</li>
+          <li class="sticker">No helper</li>
+          <li class="sticker">No waiting for a surveyor</li>
+        </ul>
+      </div>
+
+      <div class="hero-intro">
         <p class="lead">For landscapers, builders and estate agents who need the size of a plot, a lawn or a room today. Set your iPhone down at each corner and get the area, the sides and the slopes in minutes, each with its margin of error.</p>
         <div class="actions">
           <!-- Once the app is published: point href="#start" at the App Store page and swap the button for Apple's official badge. -->
-          <a class="btn btn-primary" href="#start" data-appstore>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-            Coming soon to the App Store
-          </a>
-          <a class="btn btn-secondary" href="#how">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor"/></svg>
-            See how it works
-          </a>
+          <a class="btn btn-primary" href="#start" data-appstore>Coming soon to the App Store <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn" href="#how">See how it works</a>
         </div>
-        <ul class="chips" aria-label="In short">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>First project free</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No camera or GPS</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Works offline</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Your data stays on your phone</li>
-        </ul>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="phone phone-back"><img src="../assets/img/plan.png" alt="" width="395" height="860"></div>
-        <div class="phone phone-front"><img src="../assets/img/measure.png" alt="" width="395" height="860" fetchpriority="high"></div>
+
+      <div class="hero-stage">
+        <svg class="plot draw" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="edge" d="M6 24 L91 12 L97 84 L3 94 Z"/>
+          <path class="walk" d="M3 94 C 20 70, 34 66, 50 52"/>
+        </svg>
+        <span class="plot-corner" style="left: 6%; top: 24%;" aria-hidden="true"><b>C</b></span>
+        <span class="plot-corner" style="left: 91%; top: 12%;" aria-hidden="true"><b>B</b></span>
+        <span class="plot-corner" style="left: 97%; top: 84%;" aria-hidden="true"><b>A</b></span>
+        <span class="plot-corner" style="left: 3%; top: 94%;" aria-hidden="true"><b>D</b></span>
+        <div class="phones">
+          <figure class="shot shot-side shot-left"><img src="../assets/img/app/plan-slope.webp" alt="" width="660" height="1434"></figure>
+          <figure class="shot shot-main"><img src="../assets/img/app/measure.webp" alt="WalkMeasure while measuring a front lawn: the plan of the corners laid down so far, with side lengths and spot heights" width="660" height="1434" fetchpriority="high"></figure>
+          <figure class="shot shot-side shot-right"><img src="../assets/img/app/project-results.webp" alt="" width="660" height="1434"></figure>
+        </div>
+        <ul class="facts" aria-label="In short">
+          <li class="sticker yellow">First project free</li>
+          <li class="sticker">No camera or GPS</li>
+          <li class="sticker">Works offline</li>
+          <li class="sticker yellow">Your data stays on your phone</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ============ WHO IT'S FOR: the specific customer ============ -->
-  <section id="who" class="alt">
+  <section id="who">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Who it's for</span>
+      <div class="head reveal">
+        <span class="label">Who it's for</span>
         <h2>Made for people who quote by the square metre</h2>
         <p class="lead">If a wrong area costs you money, WalkMeasure pays for itself the first time you use it.</p>
       </div>
-      <div class="audience">
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12M12 12c-4 0-7-3-7-7 4 0 7 3 7 7zm0 0c4 0 7-3 7-7-4 0-7 3-7 7z"/></svg></div>
-          <h3>Landscapers and gardeners</h3>
-          <p>Lawns, beds, paving and fences: quote from the real area and order the right amount of turf, gravel or stone.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
-          <h3>Builders and renovators</h3>
-          <p>Floor plans of existing rooms, with doors and windows, ready for a quote or a drawing. No laser, no notebook.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v10H3z"/><path d="M9 21v-7h6v7"/></svg></div>
-          <h3>Estate agents and landowners</h3>
-          <p>The size of a plot and a plan for the listing or the family, before anyone pays for a survey.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/><path d="M3 20h18"/></svg></div>
-          <h3>Farmers and smallholders</h3>
-          <p>Fields, enclosures and how the ground slopes, walked in minutes with the phone on a stick.</p>
-        </div>
+      <div class="route-wrap">
+        <svg class="route-line draw down" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M44 2 L6 29 L50 55 L16 82"/>
+        </svg>
+        <ul class="route">
+          <li class="reveal">
+            <h3>Landscapers and gardeners</h3>
+            <p>Lawns, beds, paving and fences: quote from the real area and order the right amount of turf, gravel or stone.</p>
+          </li>
+          <li class="reveal">
+            <h3>Builders and renovators</h3>
+            <p>Floor plans of existing rooms, with doors and windows, ready for a quote or a drawing. No laser, no notebook.</p>
+          </li>
+          <li class="reveal">
+            <h3>Estate agents and landowners</h3>
+            <p>The size of a plot and a plan for the listing or the family, before anyone pays for a survey.</p>
+          </li>
+          <li class="reveal">
+            <h3>Farmers and smallholders</h3>
+            <p>Fields, enclosures and how the ground slopes, walked in minutes with the phone on a stick.</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -117,246 +139,225 @@
   <!-- ============ THE PROBLEM: what a wrong number costs ============ -->
   <section id="problem">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">The problem</span>
-        <h2>The wrong number is the expensive part</h2>
-      </div>
-      <div class="problem">
-        <div class="card reveal">
+      <span class="label reveal">The problem</span>
+      <h2 class="statement fill">The wrong number is the expensive part.</h2>
+      <ol class="costs">
+        <li class="reveal">
           <h3>Over-order, and the difference comes out of your margin</h3>
           <p>Turf, gravel, paving and fencing are bought by the square metre and the metre run. A guess is a cost.</p>
-        </div>
-        <div class="card reveal">
+        </li>
+        <li class="reveal">
           <h3>Under-quote, and you work for free</h3>
           <p>A plot that turns out bigger than you guessed is more work at the same price.</p>
-        </div>
-        <div class="card reveal">
+        </li>
+        <li class="reveal">
           <h3>Re-measure, and you lose half a day</h3>
           <p>A tape and a wheel need two people and a clear line. A surveyor costs hundreds and takes weeks.</p>
-        </div>
-      </div>
-      <p class="promise reveal">WalkMeasure gives you the number on the spot, <em>and tells you how far to trust it.</em></p>
+        </li>
+      </ol>
+      <p class="promise reveal">WalkMeasure gives you the number on the spot, <span class="sticker yellow">and tells you how far to trust it.</span></p>
     </div>
   </section>
 
   <!-- ============ HOW IT WORKS ============ -->
-  <section id="how" class="alt">
+  <section id="how">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">How it works</span>
+      <div class="head reveal">
+        <span class="label">How it works</span>
         <h2>Set the phone down. Feel the buzz. Move on.</h2>
       </div>
 
-      <div class="demo-wrap reveal">
-        <!--
-          THE PRESENTATION BELOW STANDS IN FOR THE VIDEO.
-          When the video is ready, replace the whole <div class="demo" ...> ... </div> block with, for example:
+      <!--
+        THE PRESENTATION BELOW STANDS IN FOR THE VIDEO.
+        When the video is ready, replace the whole <div class="demo" ...> ... </div> block with, for example:
 
-          <div class="video">
-            <video src="../assets/video/how-it-works.mp4" poster="../assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
-          </div>
+        <div class="video">
+          <video src="../assets/video/how-it-works.mp4" poster="../assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
+        </div>
 
-          or, for YouTube (the no-cookie variant):
+        or, for YouTube (the no-cookie variant):
 
-          <div class="video">
-            <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="How WalkMeasure works" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="How WalkMeasure works" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      -->
+      <div class="demo reveal" data-demo aria-roledescription="presentation" aria-label="How to measure with a selfie stick">
+        <div class="demo-stage">
+          <figure class="slide active"><img src="../assets/img/demo/1-stick.svg" alt="The phone in a selfie stick's clamp, with the Selfie stick setting turned on" width="640" height="360"></figure>
+          <figure class="slide"><img src="../assets/img/demo/2-place.svg" alt="The phone lying flat on the ground at the first corner, held still for a second" width="640" height="360" loading="lazy"></figure>
+          <figure class="slide"><img src="../assets/img/demo/3-buzz.svg" alt="The phone buzzes and the vibration is felt in the selfie stick's handle" width="640" height="360" loading="lazy"></figure>
+          <figure class="slide"><img src="../assets/img/demo/4-carry.svg" alt="The phone is carried at least a metre to the next point" width="640" height="360" loading="lazy"></figure>
+          <figure class="slide"><img src="../assets/img/demo/5-result.svg" alt="The outline closed at the starting point, with the area worked out" width="640" height="360" loading="lazy"></figure>
+          <div class="demo-progress"><span></span></div>
+        </div>
+        <div class="slide-caption">
+          <p class="active"><span class="num">1</span><strong>Clip the phone onto a selfie stick</strong><span>Turn on "Selfie stick" in the app. No more bending down at every point.</span></p>
+          <p><span class="num">2</span><strong>Set it down and hold it still</strong><span>Flat on the ground at the first corner, for about a second. The point records itself.</span></p>
+          <p><span class="num">3</span><strong>Feel the buzz in the handle</strong><span>The phone gives a strong buzz and a beep: your signal to move on.</span></p>
+          <p><span class="num">4</span><strong>Carry it on</strong><span>Every metre or more, and at every corner, set it down again.</span></p>
+          <p><span class="num">5</span><strong>Finish where you started</strong><span>The outline closes and the app shows the area, the sides and the measured error.</span></p>
+        </div>
+        <div class="demo-controls">
+          <button class="demo-prev" type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <div class="demo-dots">
+            <button type="button" aria-label="Step 1"></button>
+            <button type="button" aria-label="Step 2"></button>
+            <button type="button" aria-label="Step 3"></button>
+            <button type="button" aria-label="Step 4"></button>
+            <button type="button" aria-label="Step 5"></button>
           </div>
-        -->
-        <div class="demo" data-demo aria-roledescription="presentation" aria-label="How to measure with a selfie stick">
-          <div class="demo-stage">
-            <figure class="slide active"><img src="../assets/img/demo/1-stick.svg" alt="The phone in a selfie stick's clamp, with the Selfie stick setting turned on" width="640" height="360"></figure>
-            <figure class="slide"><img src="../assets/img/demo/2-place.svg" alt="The phone lying flat on the ground at the first corner, held still for a second" width="640" height="360" loading="lazy"></figure>
-            <figure class="slide"><img src="../assets/img/demo/3-buzz.svg" alt="The phone buzzes and the vibration is felt in the selfie stick's handle" width="640" height="360" loading="lazy"></figure>
-            <figure class="slide"><img src="../assets/img/demo/4-carry.svg" alt="The phone is carried at least a metre to the next point" width="640" height="360" loading="lazy"></figure>
-            <figure class="slide"><img src="../assets/img/demo/5-result.svg" alt="The outline closed at the starting point, with the area worked out" width="640" height="360" loading="lazy"></figure>
-            <div class="demo-progress"><span></span></div>
-          </div>
-          <div class="slide-caption" aria-live="polite">
-            <p class="active"><strong><span class="num">1</span>Clip the phone onto a selfie stick</strong><span>Turn on "Selfie stick" in the app. No more bending down at every point.</span></p>
-            <p><strong><span class="num">2</span>Set it down and hold it still</strong><span>Flat on the ground at the first corner, for about a second. The point records itself.</span></p>
-            <p><strong><span class="num">3</span>Feel the buzz in the handle</strong><span>The phone gives a strong buzz and a beep: your signal to move on.</span></p>
-            <p><strong><span class="num">4</span>Carry it on</strong><span>Every metre or more, and at every corner, set it down again.</span></p>
-            <p><strong><span class="num">5</span>Finish where you started</strong><span>The outline closes and the app shows the area, the sides and the measured error.</span></p>
-          </div>
-          <div class="demo-controls">
-            <button class="demo-prev" type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <div class="demo-dots">
-              <button type="button" aria-label="Step 1"></button>
-              <button type="button" aria-label="Step 2"></button>
-              <button type="button" aria-label="Step 3"></button>
-              <button type="button" aria-label="Step 4"></button>
-              <button type="button" aria-label="Step 5"></button>
-            </div>
-            <button class="demo-pause" type="button" aria-pressed="false" aria-label="Pause" data-pause-label="Pause" data-play-label="Play">
-              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
-            </button>
-            <button class="demo-next" type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-          </div>
+          <button class="demo-pause" type="button" aria-pressed="false" aria-label="Pause" data-pause-label="Pause" data-play-label="Play">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
+          </button>
+          <button class="demo-next" type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ TRUST: the proof is in the product ============ -->
-  <section id="trust">
+  <section id="trust" class="band">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Trust</span>
+      <div class="head reveal">
+        <span class="label">Trust</span>
         <h2>See the error before you trust the number</h2>
         <p class="lead">Other apps give you a figure. WalkMeasure gives you the figure and how far it may be off.</p>
       </div>
-      <div class="trust">
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></div>
+      <ol class="notes">
+        <li class="note reveal">
+          <span class="sticker yellow">01</span>
           <h3>Finish where you started</h3>
           <p>Lay the phone back on the first corner and the app shows how far the walk drifted, as a percentage of the distance walked.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M8 8h8M8 16h8"/></svg></div>
+        </li>
+        <li class="note reveal">
+          <span class="sticker">02</span>
           <h3>A margin on every number</h3>
           <p>Area, sides and heights come with a ± worked out from your phone's sensors and from how long each carry took.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18v6H3z"/><path d="M7 9v3M11 9v3M15 9v3M19 9v3"/></svg></div>
+        </li>
+        <li class="note reveal">
+          <span class="sticker yellow">03</span>
           <h3>Check it against a tape</h3>
           <p>Calibrate once, measure a taped line and see what your phone achieves. Your first project is free: test it on your own land.</p>
-        </div>
-      </div>
-      <p class="trust-note reveal">Results are estimates from the phone's motion sensors. For critical dimensions, check with a tape; for legal documents, use a licensed surveyor.</p>
+        </li>
+      </ol>
+      <p class="fineprint reveal">Results are estimates from the phone's motion sensors. For critical dimensions, check with a tape; for legal documents, use a licensed surveyor.</p>
     </div>
   </section>
 
   <!-- ============ FEATURES ============ -->
-  <section id="features" class="alt">
+  <section id="features">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Features</span>
+      <div class="head reveal">
+        <span class="label">Features</span>
         <h2>Everything you need, from one walk</h2>
         <p class="lead">Area and sides for the quote, slopes for the drainage, a floor plan for the drawing: one app, one phone.</p>
       </div>
-      <div class="grid grid-3">
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l14-2 2 14-16 2z"/></svg></div>
-          <div><h3>Area, perimeter, sides</h3><p>Every number comes with its margin of error.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></div>
-          <div><h3>Heights and slopes</h3><p>A slope map, contour lines and a 3D model.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M3 12h7v9M14 3v6h7"/></svg></div>
-          <div><h3>Floor plans</h3><p>Rooms, doors and windows, with the phone against each wall.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></div>
-          <div><h3>Checks its own error</h3><p>Finish where you started and see how accurate the walk was.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4 8v8M20 8v8"/></svg></div>
-          <div><h3>Works with a selfie stick</h3><p>A buzz in the handle tells you when to move on.</p></div>
-        </div>
-        <div class="feature reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
-          <div><h3>PDF, CSV, DXF</h3><p>Send the result to a client or into AutoCAD, straight from the phone.</p></div>
-        </div>
-      </div>
+      <ol class="index">
+        <li class="reveal"><h3>Area, perimeter, sides</h3><p>Every number comes with its margin of error.</p></li>
+        <li class="reveal"><h3>Heights and slopes</h3><p>A slope map, contour lines and a 3D model.</p></li>
+        <li class="reveal"><h3>Floor plans</h3><p>Rooms, doors and windows, with the phone against each wall.</p></li>
+        <li class="reveal"><h3>Checks its own error</h3><p>Finish where you started and see how accurate the walk was.</p></li>
+        <li class="reveal"><h3>Works with a selfie stick</h3><p>A buzz in the handle tells you when to move on.</p></li>
+        <li class="reveal"><h3>PDF, CSV, DXF</h3><p>Send the result to a client or into AutoCAD, straight from the phone.</p></li>
+      </ol>
     </div>
   </section>
 
   <!-- ============ FLOOR PLANS ============ -->
   <section id="floorplans">
-    <div class="container showcase">
+    <div class="container split">
       <div class="reveal">
-        <span class="eyebrow">Floor plans</span>
+        <span class="label">Floor plans</span>
         <h2>A floor plan, by touching the walls with your phone</h2>
         <p class="lead">Hold the phone against each wall. Corners come from where the walls meet, even when they're hidden behind furniture.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Several rooms, with the wall between them measured</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Doors, windows and openings from a simple editor</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PDF to scale, an image, or DXF for AutoCAD</li>
+        <ul class="dash">
+          <li>Several rooms, with the wall between them measured</li>
+          <li>Doors, windows and openings from a simple editor</li>
+          <li>PDF to scale, an image, or DXF for AutoCAD</li>
         </ul>
       </div>
       <div class="reveal">
-        <img class="doc" src="../assets/img/floor-plan-pdf.png" alt="A floor plan exported as PDF, with two rooms, doors, windows and dimensions" width="948" height="604" loading="lazy">
+        <img class="doc" src="../assets/img/floor-plan-pdf.webp" alt="A floor plan exported as PDF, with two rooms, doors, windows and dimensions" width="948" height="604" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- ============ SCREENS ============ -->
-  <section id="screens" class="alt">
+  <section id="screens">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">The app</span>
+      <div class="head reveal">
+        <span class="label">The app</span>
         <h2>Clear, step by step</h2>
       </div>
-      <div class="screens">
-        <figure><div class="phone"><img src="../assets/img/project.png" alt="A project's results: area, perimeter, heights" width="395" height="860" loading="lazy"></div><figcaption>Results<span>with the margin of error</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/floor-plan.png" alt="A two-room floor plan" width="395" height="860" loading="lazy"></div><figcaption>Floor plan<span>rooms, doors, windows</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/surface.png" alt="The ground surface in 3D" width="395" height="860" loading="lazy"></div><figcaption>3D terrain<span>true heights</span></figcaption></figure>
-        <figure><div class="phone"><img src="../assets/img/projects.png" alt="The project list" width="395" height="860" loading="lazy"></div><figcaption>Projects<span>saved on your phone</span></figcaption></figure>
-      </div>
+      <ul class="screens">
+        <li class="reveal"><figure><div class="shot"><img src="../assets/img/app/project-results.webp" alt="A project's results: the ground surface with its slope colours, area, perimeter, height difference and the start/finish check" width="660" height="1434" loading="lazy"></div><figcaption><strong>Results</strong><span>with the margin of error</span></figcaption></figure></li>
+        <li class="reveal"><figure><div class="shot"><img src="../assets/img/app/floor-plan.webp" alt="A two-room floor plan with doors, windows and wall lengths" width="660" height="1434" loading="lazy"></div><figcaption><strong>Floor plan</strong><span>rooms, doors, windows</span></figcaption></figure></li>
+        <li class="reveal"><figure><div class="shot"><img src="../assets/img/app/surface-3d.webp" alt="The ground surface in 3D, coloured by height" width="660" height="1434" loading="lazy"></div><figcaption><strong>3D terrain</strong><span>true heights</span></figcaption></figure></li>
+        <li class="reveal"><figure><div class="shot"><img src="../assets/img/app/projects.webp" alt="The project list" width="660" height="1434" loading="lazy"></div><figcaption><strong>Projects</strong><span>saved on your phone</span></figcaption></figure></li>
+      </ul>
     </div>
   </section>
 
   <!-- ============ PRICING ============ -->
   <section id="pricing">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Pricing</span>
+      <div class="head reveal">
+        <span class="label">Pricing</span>
         <h2>Try it free. Then pay monthly, or once.</h2>
         <p class="lead">Less than one wasted trip to the site. Far less than a measuring device or a surveyor's visit.</p>
       </div>
-      <div class="pricing reveal">
-        <div class="plan">
+      <div class="pricing">
+        <article class="plan reveal">
           <h3>Free</h3>
           <p class="price">$0</p>
           <p class="plan-note">One project, to test it on your own land.</p>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>One measuring project</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Area, perimeter and side lengths</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Calibration and the start–finish check</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Selfie stick, buzz and sound cues</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>A plan image with the WalkMeasure mark</li>
+            <li>One measuring project</li>
+            <li>Area, perimeter and side lengths</li>
+            <li>Calibration and the start–finish check</li>
+            <li>Selfie stick, buzz and sound cues</li>
+            <li>A plan image with the WalkMeasure mark</li>
           </ul>
-        </div>
-        <div class="plan plan-pro">
-          <span class="plan-tag">Flexible</span>
+        </article>
+        <article class="plan plan-pro reveal">
+          <span class="sticker plan-tag">Flexible</span>
           <h3>Pro Monthly</h3>
           <p class="price">$3.99 <span>/ month</span></p>
           <p class="plan-note">For a season of jobs. Cancel any time in your Apple account settings.</p>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Unlimited projects</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>PDF, CSV and DXF for AutoCAD</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Floor plans: rooms, doors, windows, to scale</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Heights and terrain: slope map, contours, 3D</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Images without the mark</li>
+            <li>Unlimited projects</li>
+            <li>PDF, CSV and DXF for AutoCAD</li>
+            <li>Floor plans: rooms, doors, windows, to scale</li>
+            <li>Heights and terrain: slope map, contours, 3D</li>
+            <li>Images without the mark</li>
           </ul>
-        </div>
-        <div class="plan plan-best">
-          <span class="plan-tag warm">Best value</span>
+        </article>
+        <article class="plan plan-best reveal">
+          <span class="sticker yellow plan-tag">Best value</span>
           <h3>Pro Lifetime</h3>
           <p class="price">$49.99 <span>once</span></p>
           <p class="plan-note">About a year of Pro, paid once. Yours for good, with every future update.</p>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Everything in Pro Monthly</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No renewal, ever</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Every future update included</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Restores on your next iPhone</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>One payment through the App Store</li>
+            <li>Everything in Pro Monthly</li>
+            <li>No renewal, ever</li>
+            <li>Every future update included</li>
+            <li>Restores on your next iPhone</li>
+            <li>One payment through the App Store</li>
           </ul>
-        </div>
+        </article>
       </div>
       <p class="pricing-note reveal">Billed through the App Store, which shows the price in your currency. The free project is used when you start your first measurement, even if you delete it later.</p>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section id="faq" class="alt">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">FAQ</span>
+  <section id="faq">
+    <div class="container faq-grid">
+      <div class="faq-aside reveal">
+        <span class="label">FAQ</span>
         <h2>Good to know</h2>
+        <p class="faq-more">Another question? Write to us at <a href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a>.</p>
       </div>
       <div class="faq reveal">
         <details>
@@ -392,22 +393,17 @@
           <p>Yes. Pro Lifetime is a one-time purchase of $49.99: every Pro feature, for good, including future updates. It belongs to your Apple ID, so Restore Purchases brings it back on a new iPhone.</p>
         </details>
       </div>
-      <p class="faq-more reveal">Another question? Write to us at <a href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a>.</p>
     </div>
   </section>
 
   <!-- ============ CTA ============ -->
   <section id="start">
-    <div class="container">
-      <div class="cta reveal">
-        <img src="../assets/img/app-icon.png" alt="" width="88" height="88" style="margin: 0 auto 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.25);">
-        <h2>Measure your first plot free.</h2>
-        <p>WalkMeasure is coming soon to the App Store. We'll write to you when it's out.</p>
-        <div class="actions">
-          <a class="btn store-badge" href="mailto:contact.kodgo@gmail.com?subject=WalkMeasure%20%E2%80%94%20notify%20me%20at%20launch">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
-            Notify me at launch
-          </a>
+    <div class="finale">
+      <div class="container">
+        <h2 class="reveal">Measure your first plot free.</h2>
+        <div class="cta-row reveal">
+          <p>WalkMeasure is coming soon to the App Store. We'll write to you when it's out.</p>
+          <a class="btn btn-primary" href="mailto:contact.kodgo@gmail.com?subject=WalkMeasure%20%E2%80%94%20notify%20me%20at%20launch">Notify me at launch <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
         </div>
       </div>
     </div>
@@ -417,18 +413,23 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <a class="brand" href="./"><img src="../assets/favicon.svg" width="28" height="28" alt="">WalkMeasure</a>
+      <div>
+        <span class="label">Contact</span>
+        <a class="footer-mail" href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a>
+      </div>
       <nav class="footer-links" aria-label="Footer">
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="mailto:contact.kodgo@gmail.com">Contact</a>
-        <a href="../" hreflang="ro" lang="ro">Română</a>
       </nav>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="../" hreflang="ro" lang="ro">Română</a>
+      </div>
     </div>
     <p class="disclaimer">© <span data-year>2026</span> WalkMeasure. Results are estimates from the phone's motion sensors and do not replace a licensed survey. iPhone and App Store are trademarks of Apple Inc.</p>
   </div>
+  <span class="ruler" aria-hidden="true"></span>
 </footer>
 </body>
 </html>

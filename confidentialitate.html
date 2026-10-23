@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Confidențialitate — WalkMeasure</title>
   <meta name="description" content="Politica de confidențialitate a aplicației WalkMeasure și a acestui site.">
-  <meta name="theme-color" content="#2e7d32">
+  <meta name="theme-color" content="#f4eee3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15140f" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="canonical" href="https://walkmeasure.com/confidentialitate.html">
@@ -14,19 +15,22 @@
   <script defer src="assets/site.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Sari la conținut</a>
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="./"><img src="assets/favicon.svg" width="32" height="32" alt="">WalkMeasure</a>
+    <a class="brand" href="./"><img src="assets/img/app-icon.png" width="30" height="30" alt="">WalkMeasure</a>
     <nav class="nav nav-static" aria-label="Principal">
       <div class="lang" aria-label="Limba"><span aria-current="true">RO</span><a href="en/privacy.html" hreflang="en" lang="en">EN</a></div>
     </nav>
   </div>
 </header>
 
-<main class="container legal">
-  <h1>Confidențialitate</h1>
-  <p>Ultima actualizare: 21 octombrie 2026</p>
-
+<main id="main" class="container legal">
+  <div class="legal-head">
+    <h1>Confidențialitate</h1>
+    <p>Ultima actualizare: 21 octombrie 2026</p>
+  </div>
+  <div class="legal-body">
   <h2>Pe scurt</h2>
   <p>WalkMeasure nu colectează, nu trimite și nu vinde datele tale. Măsurătorile rămân pe telefonul tău.</p>
 
@@ -53,19 +57,26 @@
 
   <h2>Contact</h2>
   <p>Pentru orice întrebare: <a href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a></p>
+  </div>
 </main>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <a class="brand" href="./"><img src="assets/favicon.svg" width="28" height="28" alt="">WalkMeasure</a>
+      <div>
+        <span class="label">Contact</span>
+        <a class="footer-mail" href="mailto:contact.kodgo@gmail.com">contact.kodgo@gmail.com</a>
+      </div>
       <nav class="footer-links" aria-label="Subsol">
         <a href="./">Acasă</a>
-        <a href="en/privacy.html" hreflang="en" lang="en">English</a>
       </nav>
+      <div class="footer-links">
+        <a href="en/privacy.html" hreflang="en" lang="en">English</a>
+      </div>
     </div>
     <p class="disclaimer">© <span data-year>2026</span> WalkMeasure.</p>
   </div>
+  <span class="ruler" aria-hidden="true"></span>
 </footer>
 </body>
 </html>

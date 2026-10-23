@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f9f2"/><stop offset="1" stop-color="#e3efe0"/></linearGradient></defs><rect width="640" height="360" fill="url(#sky)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f2e8"/><stop offset="1" stop-color="#ebe3d3"/></linearGradient></defs><rect width="640" height="360" fill="url(#sky)"/>
 <rect x="304" y="250" width="32" height="110" rx="10" fill="#2e7d32"/>
 <rect x="312" y="196" width="16" height="60" rx="4" fill="#5d6b62"/>
 <rect x="246" y="132" width="148" height="20" rx="8" fill="#5d6b62"/>
 <rect x="242" y="118" width="16" height="48" rx="6" fill="#5d6b62"/>
 <rect x="382" y="118" width="16" height="48" rx="6" fill="#5d6b62"/>
 <rect x="258" y="30" width="124" height="232" rx="22" fill="#17201a"/>
-<rect x="265" y="37" width="110" height="218" rx="16" fill="#f6f7f3"/>
+<rect x="265" y="37" width="110" height="218" rx="16" fill="#f7f2e8"/>
 <rect x="296" y="44" width="48" height="12" rx="6" fill="#17201a"/>
 <path d="M287 110L346 98L356 190L281 196Z" fill="#2e7d32" fill-opacity=".18" stroke="#2e7d32" stroke-width="4" stroke-linejoin="round"/>
 <g fill="#fff" stroke="#2e7d32" stroke-width="3"><circle cx="287" cy="110" r="6"/><circle cx="346" cy="98" r="6"/><circle cx="356" cy="190" r="6"/><circle cx="281" cy="196" r="6"/></g>

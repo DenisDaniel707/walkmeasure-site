@@ -2,7 +2,14 @@
 
 Static site, Romanian (`index.html`) and English (`en/index.html`), desktop and mobile.
 Plain HTML + CSS + a little JavaScript. No build step, no frameworks, no cookies, no
-analytics, no external fonts or scripts, so no cookie banner is needed.
+analytics, no external fonts or scripts, so no cookie banner is needed. The two fonts
+are self-hosted in `assets/fonts/` (see the README there).
+
+Look: warm paper, ink and the app's green, with the app icon's dotted yellow line as the
+one extra colour. The motifs come from the app itself: a plot walked corner to corner
+(A, B, C, D), dimension labels like the side lengths on the app's plan, a tape-measure
+rule at the foot of each page. Headings are Bricolage Grotesque, text is Instrument Sans.
+Light and dark follow the visitor's system setting.
 
 ```
 website/
@@ -12,9 +19,10 @@ website/
 ├── en/privacy.html          English privacy page
 └── assets/
     ├── styles.css           all styles (light + dark mode)
-    ├── site.js              menu, scroll reveal, "how it works" slideshow
+    ├── site.js              menu, scroll reveal, walked lines, "how it works" slideshow
     ├── favicon.svg
-    └── img/                 app screenshots, app icon, demo/ slides (SVG)
+    ├── fonts/               self-hosted woff2 (Bricolage Grotesque, Instrument Sans)
+    └── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ slides (SVG)
 ```
 
 ## Preview locally
@@ -72,11 +80,18 @@ to pay. Keep new copy honest: no accuracy figures, no promises the app can't che
 
 ## Updating screenshots
 
-Screenshots are 395×860 PNGs in `assets/img/`. Replace a file with one of the same name
-and aspect ratio. `measure`, `plan`, `project`, `surface`, `floor-plan` and `projects` are
-the App Store screenshots (`docs/app-store/screenshots/`) scaled down, so the site matches
-the store listing. `floor-plan-pdf.png` is the top of an exported floor-plan PDF page
-(title, plan and room table).
+The app screenshots are in `assets/img/app/` as 660×1434 WebP files, made from the App
+Store screenshots (`docs/app-store/screenshots/`, 1320×2868) so the site matches the store
+listing. To refresh them after new App Store screenshots:
+
+```bash
+for f in docs/app-store/screenshots/*.png; do
+  n=$(basename "$f" .png | sed 's/^0[0-9]-//')
+  magick "$f" -resize 660x -strip -quality 82 -define webp:method=6 "website/assets/img/app/$n.webp"
+done
+```
+
+`floor-plan-pdf.webp` is the top of an exported floor-plan PDF page (title, plan and room table).
 
 ## Publishing (walkmeasure.com)
 
