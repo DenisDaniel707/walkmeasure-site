@@ -25,6 +25,12 @@ website/
     └── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ slides (SVG)
 ```
 
+## Cache busting
+
+The pages load `assets/styles.css?v=2` and `assets/site.js?v=2`. When you change either
+file, raise the number in all five pages (both home pages, both privacy pages, 404) so
+browsers and GitHub Pages' cache fetch the new version.
+
 ## Preview locally
 
 ```bash

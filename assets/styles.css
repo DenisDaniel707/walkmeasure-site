@@ -521,17 +521,21 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 
 /* ---------- Screens ---------- */
 
-.screens { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.screens { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px clamp(24px, 3vw, 48px); }
 .screens figure { margin: 0; }
-.screens li:nth-child(even) { margin-top: 48px; }
-.screens figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 4px 0; }
-.screens figcaption strong { font: 800 22px/1 var(--display); font-stretch: 88%; }
-.screens figcaption span { font-size: 14px; color: var(--muted); font-weight: 600; text-align: right; }
+/* The screenshots stay small; the caption is what people read. */
+.screens .shot { max-width: 220px; }
+.screens li:nth-child(even) { margin-top: 40px; }
+.screens figcaption { display: flex; flex-direction: column; gap: 8px; padding-top: 24px; }
+.screens figcaption strong { font: 800 clamp(28px, 2.6vw, 38px)/1 var(--display); font-stretch: 88%; letter-spacing: -.02em; }
+.screens figcaption span { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.35; color: var(--muted); font-weight: 500; }
 @media (max-width: 899.98px) {
-  .screens { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; }
+  .screens { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+  .screens .shot { max-width: 160px; }
   .screens li:nth-child(even) { margin-top: 32px; }
-  .screens figcaption { flex-direction: column; gap: 4px; }
-  .screens figcaption span { text-align: left; }
+  .screens figcaption { padding-top: 16px; gap: 6px; }
+  .screens figcaption strong { font-size: 26px; }
+  .screens figcaption span { font-size: 16px; }
 }
 
 /* ---------- Pricing ---------- */
