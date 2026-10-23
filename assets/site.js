@@ -45,6 +45,20 @@
     document.querySelectorAll(".draw").forEach(function (el) { el.classList.add("drawn"); });
   }
 
+  // The hero plot pops in each time it comes back into view.
+  var pops = document.querySelectorAll(".pop");
+  if ("IntersectionObserver" in window) {
+    var popObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio >= 0.2) entry.target.classList.add("popped");
+        else if (!entry.isIntersecting) entry.target.classList.remove("popped");
+      });
+    }, { threshold: [0, 0.2] });
+    pops.forEach(function (el) { popObserver.observe(el); });
+  } else {
+    pops.forEach(function (el) { el.classList.add("popped"); });
+  }
+
   // "How it works" presentation: slides advance on their own while visible.
   document.querySelectorAll("[data-demo]").forEach(function (demo) {
     var slides = demo.querySelectorAll(".slide");
