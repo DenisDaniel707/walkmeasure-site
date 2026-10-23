@@ -9,7 +9,7 @@ Look: warm paper, ink and the app's green, with the app icon's dotted yellow lin
 one extra colour. The motifs come from the app itself: a plot walked corner to corner
 (A, B, C, D), dimension labels like the side lengths on the app's plan, a tape-measure
 rule at the foot of each page. Headings are Bricolage Grotesque, text is Instrument Sans.
-Light and dark follow the visitor's system setting.
+The site is light only, also when the visitor's system is in dark mode.
 
 ```
 website/
