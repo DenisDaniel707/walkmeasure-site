@@ -41,7 +41,9 @@
 }
 
 /* ---------- Tokens ----------
-   Three colours do the work: paper, ink and the app's green. The yellow is the
+   Three colours do the work: paper, ink and the app's green (its accent colour,
+   the middle of the icon's gradient, the same in light and dark). Green is kept to
+   large type, fills and marks; small text stays ink so it reads well. The yellow is the
    dotted walk from the app icon, used only for the walked path and stickers. */
 
 :root {
@@ -51,10 +53,10 @@
   --ink: #181611;
   --muted: #59544a;
   --line: rgba(24, 22, 17, .16);
-  --green: #1f6b32;
-  --green-band: #1f6b32;
+  --green: #2e7d32;
+  --green-band: #2e7d32;
   --green-soft: #c9dcc0;
-  --on-green: #f4eee3;
+  --on-green: #fbf8f2;
   --yellow: #f2c230;
   --on-yellow: #181611;
   --display: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
@@ -73,10 +75,7 @@
     --ink: #f1eadc;
     --muted: #b3ab9b;
     --line: rgba(241, 234, 220, .16);
-    --green: #8fd29a;
-    --green-band: #1c4f29;
     --green-soft: #2c4a30;
-    --on-green: #f1eadc;
     color-scheme: dark;
   }
 }
@@ -336,15 +335,39 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 /* ---------- Who it's for: stops along a walked line ---------- */
 
 .route-wrap { position: relative; }
-.route { position: relative; list-style: none; counter-reset: corner; display: grid; gap: clamp(40px, 6vw, 72px); }
+.route { position: relative; list-style: none; counter-reset: corner; display: grid; gap: clamp(28px, 6vw, 72px); }
 .route-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .route-line path { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.5 13; vector-effect: non-scaling-stroke; }
-.route li { position: relative; max-width: 520px; }
+.route li { position: relative; max-width: 560px; }
 .route h3 {
   font-weight: 800; font-stretch: 88%; letter-spacing: -.03em; color: var(--green);
-  font-size: clamp(40px, 5.2vw, 76px); line-height: .94; margin-bottom: 14px;
+  font-size: clamp(30px, 5.2vw, 76px); line-height: .94;
 }
-.route p { margin: 0; max-width: 26em; font-size: 18px; }
+.route-toggle {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%;
+  padding: 0; border: 0; background: none; color: inherit; font: inherit; letter-spacing: inherit;
+  text-align: left; cursor: pointer;
+}
+.route .plus {
+  flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--ink); color: var(--paper); font: 700 22px/1 var(--text); letter-spacing: 0;
+  transition: transform .25s, background-color .2s;
+}
+.route-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.route-more > div { overflow: hidden; min-height: 0; }
+.route p { margin: 0; padding-top: 14px; max-width: 26em; font-size: 18px; transition: opacity .3s; }
+.route li.open .route-more { grid-template-rows: 1fr; }
+.route li.open .plus { transform: rotate(45deg); background: var(--green); color: var(--on-green); }
+@media (hover: hover) and (pointer: fine) {
+  /* With a mouse the space stays put and the sentence fades in, so nothing jumps. */
+  .route-more { grid-template-rows: 1fr; }
+  .route p { opacity: 0; }
+  .route li:hover p, .route li:focus-within p, .route li.open p { opacity: 1; }
+  .route li:hover .plus { background: var(--green); color: var(--on-green); }
+}
+.no-js .route-more { grid-template-rows: 1fr; }
+.no-js .route p { opacity: 1; }
+.no-js .route .plus { display: none; }
 .route li::before {
   counter-increment: corner; content: counter(corner, upper-alpha);
   position: absolute; left: -44px; top: .2em; width: 30px; height: 30px; border-radius: 50%;
@@ -432,7 +455,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
   background: var(--green-band); color: var(--on-green);
   border-radius: clamp(28px, 5vw, 64px); margin: 0 clamp(8px, 1.2vw, 16px);
 }
-.band .label, .band .lead { color: color-mix(in srgb, var(--on-green) 78%, transparent); }
+.band .label, .band .lead { color: var(--on-green); }
 .band a:hover { color: var(--yellow); }
 .notes { list-style: none; display: grid; gap: 24px; }
 .note {
@@ -443,7 +466,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .note h3 { margin-bottom: 12px; font-size: clamp(24px, 2.2vw, 32px); }
 .note p { margin: 0; color: var(--muted); }
 @media (min-width: 900px) { .notes { grid-template-columns: repeat(3, 1fr); } }
-.band .fineprint { margin: clamp(40px, 6vw, 64px) 0 0; max-width: 46em; font-size: 15px; color: color-mix(in srgb, var(--on-green) 80%, transparent); }
+.band .fineprint { margin: clamp(40px, 6vw, 64px) 0 0; max-width: 46em; font-size: 15px; color: var(--on-green); }
 
 /* ---------- Features: an index, not a card grid ---------- */
 
@@ -477,7 +500,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .screens li:nth-child(even) { margin-top: 48px; }
 .screens figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 4px 0; }
 .screens figcaption strong { font: 800 22px/1 var(--display); font-stretch: 88%; }
-.screens figcaption span { font-size: 14px; color: var(--green); font-weight: 600; text-align: right; }
+.screens figcaption span { font-size: 14px; color: var(--muted); font-weight: 600; text-align: right; }
 @media (max-width: 899.98px) {
   .screens { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; }
   .screens li:nth-child(even) { margin-top: 32px; }
@@ -528,7 +551,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .faq details[open] summary::after { transform: rotate(45deg); background: var(--green); color: var(--on-green); }
 .faq summary:hover::after { background: var(--green); color: var(--on-green); }
 .faq details p { margin: 0 24px 20px; padding: 16px 20px; border-radius: 4px 20px 20px 20px; background: var(--card); color: var(--ink); }
-.faq details p a { color: var(--green); font-weight: 600; }
+.faq details p a { color: var(--ink); font-weight: 600; text-decoration-color: var(--green); text-decoration-thickness: 2px; }
 
 /* ---------- Start (launch call) and footer, one green block ---------- */
 
@@ -554,13 +577,12 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
   border-bottom: 1.5px solid color-mix(in srgb, var(--on-green) 24%, transparent);
 }
 @media (min-width: 900px) { .footer-grid { grid-template-columns: 6fr 3fr 3fr; } }
-.footer-grid .label { color: color-mix(in srgb, var(--on-green) 70%, transparent); margin-bottom: 14px; }
+.footer-grid .label { color: var(--on-green); margin-bottom: 14px; }
 .footer-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .footer-links a { color: var(--on-green); text-decoration: none; font-weight: 500; font-size: 18px; }
 .footer-links a:hover { color: var(--yellow); text-decoration: underline; }
 .footer-mail { font: 700 clamp(22px, 2.4vw, 32px)/1.1 var(--display); font-stretch: 88%; color: var(--on-green); word-break: break-word; }
-.disclaimer { margin: 0; padding: 24px 0; font-size: 14px; color: color-mix(in srgb, var(--on-green) 76%, transparent); max-width: 60em; }
-.handmade { font-size: 14px; color: color-mix(in srgb, var(--on-green) 76%, transparent); }
+.disclaimer { margin: 0; padding: 24px 0; font-size: 14px; color: var(--on-green); max-width: 60em; }
 /* A tape measure along the bottom edge: short ticks, longer ones every fifth and tenth. */
 .ruler {
   display: block; height: 44px; margin-top: 8px;
@@ -581,7 +603,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .legal-body h2:first-child { margin-top: 0; }
 .legal-body ul { list-style: none; }
 .legal-body li { padding: 14px 0; border-top: 1.5px solid var(--line); }
-.legal-body a { color: var(--green); font-weight: 600; }
+.legal-body a { color: var(--ink); font-weight: 600; text-decoration-color: var(--green); text-decoration-thickness: 2px; }
 
 .not-found { text-align: center; padding: clamp(72px, 12vw, 160px) var(--gutter); }
 .not-found h1 { color: var(--green); font-size: clamp(56px, 10vw, 150px); }

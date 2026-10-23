@@ -113,6 +113,14 @@
     show(0);
   });
 
+  // "Who it's for": the plus shows or hides each sentence (a mouse also shows it on hover).
+  document.querySelectorAll(".route-toggle").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var open = button.closest("li").classList.toggle("open");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
 })();
