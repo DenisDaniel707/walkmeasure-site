@@ -127,6 +127,27 @@
     show(0);
   });
 
+  // "Who it's for" on wide screens: the walked line runs exactly through each corner
+  // circle, wherever the layout puts them (redrawn when the window resizes).
+  var routePath = document.querySelector(".route-line path");
+  function drawRoute() {
+    var wrap = routePath.ownerSVGElement.parentElement;
+    var list = wrap.querySelector(".route");
+    if (!wrap.clientWidth || !wrap.clientHeight) return;
+    var points = [].map.call(list.children, function (li) {
+      var mark = getComputedStyle(li, "::before");
+      var x = list.offsetLeft + li.offsetLeft + parseFloat(mark.left) + parseFloat(mark.width) / 2;
+      var y = list.offsetTop + li.offsetTop + parseFloat(mark.top) + parseFloat(mark.height) / 2;
+      return (x / wrap.clientWidth * 100).toFixed(2) + " " + (y / wrap.clientHeight * 100).toFixed(2);
+    });
+    routePath.setAttribute("d", "M" + points.join(" L"));
+  }
+  if (routePath) {
+    drawRoute();
+    window.addEventListener("resize", drawRoute);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawRoute);
+  }
+
   // "Who it's for": the plus shows or hides each sentence (a mouse also shows it on hover).
   document.querySelectorAll(".route-toggle").forEach(function (button) {
     button.addEventListener("click", function () {

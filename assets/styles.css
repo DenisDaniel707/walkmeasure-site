@@ -355,7 +355,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 /* ---------- Who it's for: stops along a walked line ---------- */
 
 .route-wrap { position: relative; }
-.route { position: relative; list-style: none; counter-reset: corner; display: grid; gap: clamp(28px, 6vw, 72px); }
+.route { --gap: clamp(28px, 6vw, 72px); position: relative; list-style: none; counter-reset: corner; display: grid; gap: var(--gap); }
 .route-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .route-line path { fill: none; stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.5 13; vector-effect: non-scaling-stroke; }
 .route li { --title: clamp(30px, 5.2vw, 76px); position: relative; max-width: 560px; }
@@ -393,7 +393,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .route li::before {
   counter-increment: corner; content: counter(corner, upper-alpha);
   position: absolute; left: -44px; top: calc(var(--title) * .52 - 15px); width: 30px; height: 30px; border-radius: 50%;
-  display: grid; place-items: center; font: 800 14px/1 var(--display);
+  display: grid; place-items: center; font: 800 14px/1 var(--display); z-index: 1;
   background: var(--paper); border: 4px solid var(--ink);
 }
 @media (min-width: 900px) {
@@ -405,8 +405,12 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 @media (max-width: 899.98px) {
   .route { padding-left: 40px; }
   .route-line { display: none; }
-  .route::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; border-left: 6px dotted var(--yellow); }
   .route li::before { left: -40px; }
+  /* One dotted leg from each corner to the next, so the walk stops at the last corner. */
+  .route li:not(:last-child)::after {
+    content: ""; position: absolute; left: -28px; top: calc(var(--title) * .52);
+    height: calc(100% + var(--gap)); border-left: 6px dotted var(--yellow);
+  }
 }
 
 /* ---------- How it works ---------- */
