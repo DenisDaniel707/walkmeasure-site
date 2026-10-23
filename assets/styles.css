@@ -410,6 +410,11 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .demo-pause[aria-pressed="true"] .icon-pause { display: none; }
 /* The demo pieces sit in two columns: captions with the text, stage and controls to the right. */
 .demo { display: grid; gap: 24px; }
+@media (max-width: 999.98px) {
+  /* On phones the controls stay right under the picture, the steps follow. */
+  .demo-controls { order: 1; margin-top: 0; }
+  .slide-caption { order: 2; }
+}
 @media (min-width: 1000px) {
   .demo { grid-template-columns: 5fr 7fr; grid-template-areas: "steps stage" "steps controls"; gap: 0 64px; align-items: start; }
   .demo-stage { grid-area: stage; }
