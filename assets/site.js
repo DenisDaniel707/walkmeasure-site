@@ -128,8 +128,7 @@
   });
 
   // "Who it's for": a tape measure unwinds along the walk from corner to corner as the
-  // page scrolls. The route leaves each corner straight down past its text, crosses in
-  // the gap to the next audience and drops into the next corner, so it covers no text.
+  // page scrolls, turning at each corner circle and never running over text.
   var routeWrap = document.querySelector(".route-wrap");
   if (routeWrap && "ResizeObserver" in window) {
     var NS = "http://www.w3.org/2000/svg";
@@ -174,22 +173,29 @@
           bottom: top + li.offsetHeight
         };
       });
-      var points = [[corners[0].x, corners[0].y]];
+      // The tape turns at every corner circle: it leaves a corner straight down past its
+      // text, crosses the gap and comes into the next corner from above-left, where no
+      // text is (a corner further left gets a waypoint out to its left first).
+      var points = [{ x: corners[0].x, y: corners[0].y }];
       for (var i = 1; i < corners.length; i++) {
         var from = corners[i - 1], to = corners[i];
-        points.push([from.x, from.bottom], [to.x, to.top], [to.x, to.y]);
+        points.push({ x: from.x, y: from.bottom, r: 36 });
+        if (to.x < from.x - 1) {
+          points.push({ x: to.x - Math.min(56, Math.max(0, to.x - 6)), y: to.top - Math.min(30, (to.top - from.bottom) * 0.45), r: 36 });
+        }
+        points.push({ x: to.x, y: to.y, r: 12 });
       }
-      // Each bend is rounded off: the tape curves through it instead of folding.
-      var d = "M" + points[0].join(" ");
+      // Each bend is rounded off; at a circle the small turn sits under the circle.
+      var d = "M" + points[0].x + " " + points[0].y;
       for (var v = 1; v < points.length - 1; v++) {
         var prev = points[v - 1], at = points[v], next = points[v + 1];
-        var inLen = Math.hypot(at[0] - prev[0], at[1] - prev[1]), outLen = Math.hypot(next[0] - at[0], next[1] - at[1]);
-        var r = Math.min(36, inLen / 2, outLen / 2);
+        var inLen = Math.hypot(at.x - prev.x, at.y - prev.y), outLen = Math.hypot(next.x - at.x, next.y - at.y);
         if (!inLen || !outLen) continue;
-        d += " L" + (at[0] - (at[0] - prev[0]) * r / inLen) + " " + (at[1] - (at[1] - prev[1]) * r / inLen) +
-             " Q" + at[0] + " " + at[1] + " " + (at[0] + (next[0] - at[0]) * r / outLen) + " " + (at[1] + (next[1] - at[1]) * r / outLen);
+        var r = Math.min(at.r, inLen / 2, outLen / 2);
+        d += " L" + (at.x - (at.x - prev.x) * r / inLen) + " " + (at.y - (at.y - prev.y) * r / inLen) +
+             " Q" + at.x + " " + at.y + " " + (at.x + (next.x - at.x) * r / outLen) + " " + (at.y + (next.y - at.y) * r / outLen);
       }
-      d += " L" + points[points.length - 1].join(" ");
+      d += " L" + points[points.length - 1].x + " " + points[points.length - 1].y;
       edge.setAttribute("d", d);
       band.setAttribute("d", d);
       maskPath.setAttribute("d", d);

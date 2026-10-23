@@ -27,7 +27,7 @@ website/
 
 ## Cache busting
 
-The pages load `assets/styles.css?v=7` and `assets/site.js?v=7`. When you change either
+The pages load `assets/styles.css?v=8` and `assets/site.js?v=8`. When you change either
 file, raise the number in all five pages (both home pages, both privacy pages, 404) so
 browsers and GitHub Pages' cache fetch the new version.
 
