@@ -174,16 +174,11 @@
         };
       });
       // The tape turns at every corner circle: it leaves a corner straight down past its
-      // text, crosses the gap and comes into the next corner from above-left, where no
-      // text is (a corner further left gets a waypoint out to its left first).
+      // text, then crosses the gap to the next circle, which sits above its own text.
       var points = [{ x: corners[0].x, y: corners[0].y }];
       for (var i = 1; i < corners.length; i++) {
         var from = corners[i - 1], to = corners[i];
-        points.push({ x: from.x, y: from.bottom, r: 36 });
-        if (to.x < from.x - 1) {
-          points.push({ x: to.x - Math.min(56, Math.max(0, to.x - 6)), y: to.top - Math.min(30, (to.top - from.bottom) * 0.45), r: 36 });
-        }
-        points.push({ x: to.x, y: to.y, r: 12 });
+        points.push({ x: from.x, y: from.bottom, r: 36 }, { x: to.x, y: to.y, r: 12 });
       }
       // Each bend is rounded off; at a circle the small turn sits under the circle.
       var d = "M" + points[0].x + " " + points[0].y;
