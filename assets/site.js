@@ -180,10 +180,6 @@
         var from = corners[i - 1], to = corners[i];
         points.push({ x: from.x, y: from.bottom, r: 36 }, { x: to.x, y: to.y, r: 12 });
       }
-      // Past the last corner the tape runs on a little to its case, which rests there.
-      var last = points[points.length - 1], before = points[points.length - 2];
-      var run = Math.hypot(last.x - before.x, last.y - before.y) || 1;
-      points.push({ x: last.x + (last.x - before.x) / run * 60, y: last.y + (last.y - before.y) / run * 60 });
       // Each bend is rounded off; at a circle the small turn sits under the circle.
       var d = "M" + points[0].x + " " + points[0].y;
       for (var v = 1; v < points.length - 1; v++) {
@@ -219,8 +215,7 @@
       update();
     };
 
-    // The case sits on the tape where it crosses 60% of the screen height, and stays at
-  // the end of the tape once the walk is done (with reduced motion it starts there).
+    // The case sits on the tape where it crosses 60% of the screen height.
     var update = function () {
       queued = false;
       if (!total) return;
@@ -238,7 +233,7 @@
       var at = band.getPointAtLength(shown);
       tapeCase.setAttribute("transform", "translate(" + at.x + " " + at.y + ")");
       reel.setAttribute("transform", "rotate(" + (shown * 1.5) + ")");
-      tapeCase.classList.toggle("parked", shown < 2);
+      tapeCase.classList.toggle("parked", still || shown < 2 || shown > total - 2);
     };
 
     new ResizeObserver(layout).observe(routeWrap);
