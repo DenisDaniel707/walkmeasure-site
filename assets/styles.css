@@ -204,9 +204,14 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 .nav .btn { min-height: 40px; margin-left: 4px; }
 .nav .btn .arrow { width: 30px; height: 30px; }
 
-.lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; border: 1.5px solid var(--line); font-size: 13px; font-weight: 600; }
-.lang a, .lang span { display: inline-grid; place-items: center; min-width: 34px; height: 32px; border-radius: 999px; text-decoration: none; }
-.nav .lang a:not(.btn) { min-height: 32px; padding: 0; background: none; }
+.lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; border: 1.5px solid var(--line); }
+/* Both halves get the same box and type, also inside the phone menu where links are
+   larger; with line-height 1 the capitals sit in the middle of the circle. */
+.lang a, .lang span, .nav .lang a:not(.btn) {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 32px; min-height: 0; padding: 0; border-radius: 999px;
+  font: 600 14px/1 var(--text); letter-spacing: .02em; text-decoration: none; background: none;
+}
 .lang span[aria-current] { background: var(--ink); color: var(--paper); }
 
 .menu-toggle {
