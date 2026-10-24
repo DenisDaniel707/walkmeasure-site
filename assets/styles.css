@@ -412,7 +412,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 }
 @media (max-width: 899.98px) {
   /* Room between the titles, so each reads as its own stop on the tape. */
-  .route { padding-left: 40px; --gap: 52px; }
+  .route { padding-left: 40px; --gap: 100px; }
   .route-line { display: none; }
   .route li::before { left: -40px; }
   .route-wrap.taped .route-line { display: block; }
