@@ -2,6 +2,18 @@
 (function () {
   document.documentElement.classList.remove("no-js");
 
+  // Every load starts at the top: no restored scroll position after a
+  // refresh, and no jump to a section left in the address (#pricing).
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  var hadHash = location.hash !== "";
+  if (hadHash) history.replaceState(null, "", location.pathname + location.search);
+  function toTop() {
+    // "instant": the page's smooth scrolling would otherwise animate it.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }
+  toTop();
+  if (hadHash) window.addEventListener("load", toTop, { once: true });
+
   // Header border once the page scrolls.
   var header = document.querySelector(".site-header");
   function onScroll() {
