@@ -262,6 +262,94 @@
     });
   });
 
+  // Features: each tile's scene plays while the tile is on screen. Visitors who ask for
+  // less motion (and pages without JavaScript) see the finished pictures instead.
+  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var feats = document.querySelector(".feats");
+  var slope = feats && feats.querySelector(".feat-slope .scene");
+  var rollSlope = slope ? slopeMesh(slope) : null;
+  if (feats && !calm && "IntersectionObserver" in window) {
+    feats.classList.add("anim");
+    var featObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var live = entry.intersectionRatio >= 0.3;
+        entry.target.classList.toggle("live", live);
+        if (rollSlope && entry.target.contains(slope)) rollSlope(live);
+      });
+    }, { threshold: [0, 0.3] });
+    feats.querySelectorAll(".feat").forEach(function (tile) { featObserver.observe(tile); });
+  }
+
+  // "Heights and slopes": the ground under the mesh rolls slowly and the probe reads the
+  // height of one point on it. Same formula as the still picture written in the page.
+  function slopeMesh(svg) {
+    var lines = svg.querySelectorAll(".mesh polyline");
+    var dot = svg.querySelector(".probe-dot"), stem = svg.querySelector(".probe-line");
+    var tag = svg.querySelector(".probe-tag"), label = tag.querySelector("text");
+    var comma = document.documentElement.lang === "ro";
+    var N = 11, clock = 0, last = 0, running = false, written = 0;
+    var height = function (x, y, t) {
+      return 0.5 * Math.sin(1.6 * x + t) * Math.cos(1.2 * y + 0.7 * t) + 0.2 * Math.sin(2.1 * (x + y) - 0.5 * t);
+    };
+    var point = function (x, y) {
+      return (200 + (x - y) * 92).toFixed(1) + "," + (122 + (x + y) * 40 - height(x, y, clock) * 40).toFixed(1);
+    };
+    var render = function (now) {
+      for (var i = 0; i < N; i++) {
+        var row = [], col = [], a = i / (N - 1) * 2 - 1;
+        for (var j = 0; j < N; j++) {
+          var b = j / (N - 1) * 2 - 1;
+          row.push(point(a, b));
+          col.push(point(b, a));
+        }
+        lines[2 * i].setAttribute("points", row.join(" "));
+        lines[2 * i + 1].setAttribute("points", col.join(" "));
+      }
+      // The probe stands on grid point (0.2, -0.2); its label changes a few times a second.
+      var z = height(0.2, -0.2, clock), y = (122 - z * 40).toFixed(1);
+      dot.setAttribute("cy", y);
+      stem.setAttribute("y2", y);
+      tag.setAttribute("transform", "translate(236.8 " + (y - 34).toFixed(1) + ")");
+      if (now - written > 160) {
+        written = now;
+        var text = ((z + 0.75) * 1.6).toFixed(2) + " m";
+        label.textContent = comma ? text.replace(".", ",") : text;
+      }
+    };
+    var frame = function (now) {
+      if (!running) return;
+      if (last) clock += Math.min(now - last, 50) / 1000 * 0.8;
+      last = now;
+      render(now);
+      requestAnimationFrame(frame);
+    };
+    return function (on) {
+      if (on === running) return;
+      running = on;
+      last = 0;
+      if (on) requestAnimationFrame(frame);
+    };
+  }
+
+  // Features: the bits floating beside the title drift at their own pace on scroll.
+  var drifters = document.querySelectorAll("[data-drift]");
+  if (drifters.length && !calm) {
+    var drifting = false;
+    var drift = function () {
+      drifting = false;
+      var mid = window.innerHeight / 2;
+      drifters.forEach(function (el) {
+        var box = el.parentNode.getBoundingClientRect();
+        if (!box.height) return;
+        el.style.translate = "0 " + ((box.top + box.height / 2 - mid) * parseFloat(el.dataset.drift)).toFixed(1) + "px";
+      });
+    };
+    window.addEventListener("scroll", function () {
+      if (!drifting) { drifting = true; requestAnimationFrame(drift); }
+    }, { passive: true });
+    drift();
+  }
+
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
 })();
