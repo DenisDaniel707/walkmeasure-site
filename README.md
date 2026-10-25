@@ -43,8 +43,8 @@ Then open http://localhost:8765 (RO) and http://localhost:8765/en/ (EN).
 
 Search both languages for these and replace them:
 
-| What | Where | Replace with |
-|---|---|---|
+| What                          | Where                        | Replace with                                                                                                            |
+| ----------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `href="#start" data-appstore` | hero button, both home pages | the App Store link once the app is live, and Apple's official "Download on the App Store" badge (Apple Marketing Tools) |
 
 To publish accuracy figures, use your own field results (taped side vs. measured side)
@@ -58,8 +58,13 @@ code to paste. In short, replace the whole `<div class="demo"> … </div>` block
 
 ```html
 <div class="video">
-  <video src="assets/video/cum-functioneaza.mp4" poster="assets/img/demo/1-stick.svg"
-         controls playsinline preload="metadata"></video>
+  <video
+    src="assets/video/cum-functioneaza.mp4"
+    poster="assets/img/demo/1-stick.svg"
+    controls
+    playsinline
+    preload="metadata"
+  ></video>
 </div>
 ```
 
@@ -79,7 +84,7 @@ and 249,99 lei and $49.99 once for Pro Lifetime. If you change a price in App St
 Connect, update both pages (the app itself always shows the App Store's prices).
 
 The home pages follow a one-page business plan: a specific customer (people who quote
-by the square metre), the expensive problem (a wrong area), the narrow promise (the
+by the square meter), the expensive problem (a wrong area), the narrow promise (the
 number on the spot, with how far to trust it), proof built into the product (the
 start/finish check, the margin on every number, the free first project) and the two ways
 to pay. Keep new copy honest: no accuracy figures, no promises the app can't check.
@@ -120,13 +125,13 @@ files as they are), `404.html` (shown for unknown addresses). `sitemap.xml` and
 
 DNS for walkmeasure.com (at the registrar):
 
-| Type | Host | Value |
-|---|---|---|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| AAAA | @ | 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153 |
-| CNAME | www | denisdaniel707.github.io |
+| Type  | Host | Value                                                                              |
+| ----- | ---- | ---------------------------------------------------------------------------------- |
+| A     | @    | 185.199.108.153                                                                    |
+| A     | @    | 185.199.109.153                                                                    |
+| A     | @    | 185.199.110.153                                                                    |
+| A     | @    | 185.199.111.153                                                                    |
+| AAAA  | @    | 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153 |
+| CNAME | www  | denisdaniel707.github.io                                                           |
 
 Remove any other A/AAAA records for `@` (such as the registrar's parking page).
