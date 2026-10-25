@@ -144,7 +144,9 @@ h3 { font-family: var(--display); font-weight: 700; font-stretch: 85%; font-size
   .head > :not(.label) { grid-column: 2; }
 }
 
-section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
+section { --pad: clamp(72px, 11vw, 160px); padding: var(--pad) 0; position: relative; }
+/* A menu link lands the section's title just under the header, not a whole padding below it. */
+section[id] { scroll-margin-top: calc(40px - var(--pad)); }
 
 /* ---------- Buttons and pills ---------- */
 
@@ -617,7 +619,7 @@ section { padding: clamp(72px, 11vw, 160px) 0; position: relative; }
 
 /* ---------- Start (launch call) and footer, one green block ---------- */
 
-#start { padding: 0; }
+#start { padding: 0; scroll-margin-top: 0; }
 .finale {
   background: var(--green-band); color: var(--on-green);
   border-radius: clamp(28px, 5vw, 64px) clamp(28px, 5vw, 64px) 0 0;
