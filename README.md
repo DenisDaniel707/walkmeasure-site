@@ -90,7 +90,8 @@ on screen. Export H.264 MP4 under ~15 MB.
 
 The `#pricing` section and the "Cât costă? / How much does it cost?" and "Pot plăti o
 singură dată? / Can I pay once?" answers show 19,99 lei and $3.99 a month for Pro Monthly,
-and 249,99 lei and $49.99 once for Pro Lifetime. If you change a price in App Store
+and 249,99 lei and $49.99 once for Pro Lifetime, a limited-time offer (the Lifetime card's
+"Limited time" sticker and note, and the "Can I pay once?" answer, say so). If you change a price in App Store
 Connect, update both pages (the app itself always shows the App Store's prices).
 
 The home pages follow a one-page business plan: a specific customer (people who quote
