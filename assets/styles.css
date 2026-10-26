@@ -489,6 +489,20 @@ section[id] { scroll-margin-top: calc(40px - var(--pad)); }
   .demo-controls { grid-area: controls; }
 }
 
+/* The accuracy tip under the steps: the text, and two walks compared. */
+.accuracy-tip {
+  display: grid; gap: 28px; align-items: center; margin-top: clamp(48px, 7vw, 96px);
+  padding: clamp(24px, 4vw, 44px); border-radius: var(--radius); background: var(--card); border: 1.5px solid var(--line);
+}
+@media (min-width: 760px) { .accuracy-tip { grid-template-columns: 6fr 5fr; gap: 48px; } }
+.accuracy-tip h3 { font: 800 clamp(28px, 3.4vw, 44px)/1.05 var(--display); font-stretch: 88%; margin: 12px 0 14px; }
+.accuracy-tip p { margin: 0; color: var(--muted); max-width: 34em; }
+.tip-art { width: 100%; height: auto; max-width: 420px; justify-self: center; overflow: visible; }
+.tip-art text { font: 600 13px/1 var(--text); fill: var(--muted); }
+.tip-path { stroke: var(--ink); stroke-width: 1.5; }
+.tip-error { fill: var(--yellow); opacity: .55; }
+.tip-dot { fill: var(--green); stroke: var(--card); stroke-width: 2; }
+
 .video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #000; }
 .video video, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
