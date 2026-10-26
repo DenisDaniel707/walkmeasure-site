@@ -1,45 +1,57 @@
 <!doctype html>
-<html lang="ro" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+    <script>
+      // Visitors in Romania get the Romanian page. "In Romania" is read from the
+      // device's time zone, as the site asks no server where anyone is. Only on
+      // arriving from elsewhere: choosing English on the site itself is left alone.
+      (function () {
+        try {
+          var zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          var fromSite = document.referrer.indexOf(location.origin + "/") === 0;
+          if (zone === "Europe/Bucharest" && !fromSite) location.replace("ro/");
+        } catch (e) {}
+      })();
+    </script>
     <title>
-      WalkMeasure — măsori un teren, o peluză sau o cameră cu iPhone-ul, fără
-      ruletă
+      WalkMeasure — measure a plot, a lawn or a room with your iPhone, no tape
+      measure
     </title>
     <meta
       name="description"
-      content="Pentru peisagiști, constructori și agenți imobiliari care au nevoie azi de suprafața unui teren, a unei peluze sau a unei camere. Pui iPhone-ul jos la fiecare colț: suprafață, laturi, pante și planuri de locuință în câteva minute. Nu cumperi niciun aparat: doar iPhone-ul pe care îl ai deja. Fără cameră, fără GPS, fără internet."
+      content="For landscapers, builders and estate agents who need the size of a plot, a lawn or a room today. Set your iPhone down at each corner: area, sides, slopes and floor plans in minutes. No extra device to buy: just the iPhone you already have. No camera, no GPS, no internet."
     />
     <meta name="theme-color" content="#f4eee3" />
     <meta name="color-scheme" content="only light" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
     <link rel="canonical" href="https://walkmeasure.com/" />
-    <link rel="alternate" hreflang="ro" href="https://walkmeasure.com/" />
-    <link rel="alternate" hreflang="en" href="https://walkmeasure.com/en/" />
+    <link rel="alternate" hreflang="ro" href="https://walkmeasure.com/ro/" />
+    <link rel="alternate" hreflang="en" href="https://walkmeasure.com/" />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://walkmeasure.com/en/"
+      href="https://walkmeasure.com/"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ro_RO" />
+    <meta property="og:locale" content="en_US" />
     <meta
       property="og:title"
-      content="WalkMeasure — măsori lucrarea într-o singură tură"
+      content="WalkMeasure — measure the job in one walk"
     />
     <meta
       property="og:description"
-      content="Suprafață, laturi, pante și planuri de locuință cu iPhone-ul. Fără alt aparat, fără ruletă, fără GPS. Primul proiect gratuit."
+      content="Area, sides, slopes and floor plans from your iPhone. No extra device, no tape measure, no GPS. First project free."
     />
     <meta property="og:url" content="https://walkmeasure.com/" />
     <meta
       property="og:image"
-      content="https://walkmeasure.com/assets/img/og-ro.png"
+      content="https://walkmeasure.com/assets/img/og-en.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -55,11 +67,11 @@
     <script defer src="assets/site.js?v=15"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Sari la conținut</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="./" aria-label="WalkMeasure — acasă">
+        <a class="brand" href="./" aria-label="WalkMeasure — home">
           <img src="assets/img/app-icon.png" width="30" height="30" alt="" />
           WalkMeasure
         </a>
@@ -79,23 +91,23 @@
           >
             <path d="M4 8h16M4 16h16" />
           </svg>
-          Meniu
+          Menu
         </button>
-        <nav class="nav" id="nav" aria-label="Principal">
+        <nav class="nav" id="nav" aria-label="Main">
           <div class="nav-links">
-            <a href="#how">Cum funcționează</a>
-            <a href="#who">Pentru cine</a>
-            <a href="#features">Funcții</a>
-            <a href="#pricing">Preț</a>
-            <a href="#faq">Întrebări</a>
+            <a href="#how">How it works</a>
+            <a href="#who">Who it's for</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
           </div>
           <div class="nav-end">
-            <div class="lang" aria-label="Limba">
-              <span aria-current="true">RO</span
-              ><a href="en/" hreflang="en" lang="en">EN</a>
+            <div class="lang" aria-label="Language">
+              <a href="ro/" hreflang="ro" lang="ro">RO</a
+              ><span aria-current="true">EN</span>
             </div>
             <a class="btn btn-primary" href="#start"
-              >Anunță-mă
+              >Notify me
               <span class="arrow"
                 ><svg
                   viewBox="0 0 24 24"
@@ -114,37 +126,35 @@
     </header>
 
     <main id="main">
-      <!-- ============ HERO: promisiunea, pentru un client anume ============ -->
+      <!-- ============ HERO: the narrow promise, to a specific customer ============ -->
       <section class="hero">
         <div class="container">
           <div class="hero-title">
-            <h1>
-              <span>Măsori lucrarea</span> <span>într-o singură tură.</span>
-            </h1>
-            <ul class="stickers" aria-label="Fără">
-              <li class="sticker">Fără alt aparat</li>
-              <li class="sticker">Fără ruletă</li>
-              <li class="sticker">Fără ajutor</li>
-              <li class="sticker">Fără să aștepți topograful</li>
+            <h1><span>Measure the job</span> <span>in one walk.</span></h1>
+            <ul class="stickers" aria-label="No more">
+              <li class="sticker">No extra device</li>
+              <li class="sticker">No tape</li>
+              <li class="sticker">No helper</li>
+              <li class="sticker">No waiting for a surveyor</li>
             </ul>
           </div>
 
           <div class="hero-intro">
             <div class="hero-copy">
-              <p class="label">Pentru peisagiști, constructori, agenți imobiliari și nu numai</p>
+              <p class="label">For landscapers, builders, estate agents and more</p>
               <p class="lead">
-                Pui iPhone-ul jos la fiecare colț. Afli suprafața, laturile și
-                pantele în câteva minute.
+                Set your iPhone down at each corner. Get the area, sides and
+                slopes in minutes.
               </p>
               <p class="hero-badge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
-                Doar iPhone-ul tău. Nimic de cumpărat.
+                Just your iPhone. Nothing extra to buy.
               </p>
             </div>
             <div class="actions">
-              <!-- Când aplicația e publicată: înlocuiește href="#start" cu linkul din App Store și textul cu insigna oficială Apple. -->
+              <!-- Once the app is published: point href="#start" at the App Store page and swap the button for Apple's official badge. -->
               <a class="btn btn-primary" href="#start" data-appstore
-                >În curând pe App Store
+                >Coming soon to the App Store
                 <span class="arrow"
                   ><svg
                     viewBox="0 0 24 24"
@@ -157,7 +167,7 @@
                   >
                     <path d="M7 17L17 7M9 7h8v8" /></svg></span
               ></a>
-              <a class="btn" href="#how">Vezi cum funcționează</a>
+              <a class="btn" href="#how">See how it works</a>
             </div>
           </div>
 
@@ -207,7 +217,7 @@
               <figure class="shot shot-main">
                 <img
                   src="assets/img/app/plan-slope.webp"
-                  alt="Planul WalkMeasure al unei grădini în pantă: douăsprezece colțuri și șase puncte de înălțime, cu lungimile laturilor, înălțimile și harta pantelor de la peluza plană la taluzul abrupt"
+                  alt="WalkMeasure's plan of a hillside garden: twelve corners and six spot heights, with side lengths, heights and a slope map from the flat lawn to the steep bank"
                   width="660"
                   height="1434"
                   fetchpriority="high"
@@ -222,28 +232,28 @@
                 />
               </figure>
             </div>
-            <ul class="facts" aria-label="Pe scurt">
-              <li class="sticker yellow">Primul proiect gratuit</li>
-              <li class="sticker">Fără cameră sau GPS</li>
-              <li class="sticker">Merge offline</li>
-              <li class="sticker yellow">Datele rămân pe telefon</li>
+            <ul class="facts" aria-label="In short">
+              <li class="sticker yellow">First project free</li>
+              <li class="sticker">No camera or GPS</li>
+              <li class="sticker">Works offline</li>
+              <li class="sticker yellow">Your data stays on your phone</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- ============ FUNCȚII: șase plăci, fiecare cu o mică scenă care rulează pe ecran ============ -->
+      <!-- ============ FEATURES: six tiles, each with a small scene that plays on screen ============ -->
       <section id="features">
         <div class="container">
           <div class="head reveal">
-            <span class="label">Funcții</span>
+            <span class="label">Features</span>
             <h2>
-              Tot ce îți trebuie, dintr-o <span class="walked">singură tură<svg class="walked-line draw" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 50 6, 96 20, 150 12 S 250 6, 296 14" /></svg></span>
+              Everything you need, from <span class="walked">one walk<svg class="walked-line draw" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 50 6, 96 20, 150 12 S 250 6, 296 14" /></svg></span>
             </h2>
             <p class="lead">
-              Suprafața și laturile pentru ofertă, pantele pentru scurgere,
-              planul pentru desen: o aplicație, pe telefonul pe care îl ai deja.
-              Niciun alt aparat de cumpărat.
+              Area and sides for the quote, slopes for the drainage, a floor
+              plan for the drawing: one app, on the phone you already carry.
+              No other device to buy.
             </p>
             <div class="floaters" aria-hidden="true">
               <span class="floater f-tape" data-drift="-.08">
@@ -262,7 +272,7 @@
                 </svg>
               </span>
               <span class="floater f-area" data-drift="-.2"><span class="sticker yellow">168 m²</span></span>
-              <span class="floater f-side" data-drift=".16"><span class="sticker">24,0 m</span></span>
+              <span class="floater f-side" data-drift=".16"><span class="sticker">24.0 m</span></span>
               <span class="floater f-corner" data-drift=".05"><span class="corner-dot">A</span></span>
             </div>
           </div>
@@ -279,10 +289,10 @@
                     <path class="area-fill mv" d="M80 200 L130 70 L400 48 L480 196 Z" />
                     <path class="area-edge mv" d="M80 200 L130 70 L400 48 L480 196 Z" />
                     <path class="walk" mask="url(#area-walk)" d="M80 200 L130 70 L400 48 L480 196 Z" />
-                    <g transform="translate(83 126)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">8,4 m</text></g></g>
-                    <g transform="translate(263 33)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">16,3 m</text></g></g>
-                    <g transform="translate(461 111)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">10,1 m</text></g></g>
-                    <g transform="translate(280 222)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">24,0 m</text></g></g>
+                    <g transform="translate(83 126)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">8.4 m</text></g></g>
+                    <g transform="translate(263 33)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">16.3 m</text></g></g>
+                    <g transform="translate(461 111)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">10.1 m</text></g></g>
+                    <g transform="translate(280 222)"><g class="tag mv"><rect x="-30" y="-13" width="60" height="26" rx="7" /><text y="4.5">24.0 m</text></g></g>
                     <text class="area-num mv" x="272" y="143">168 m²</text>
                   </g>
                   <circle class="stake" cx="80" cy="200" r="8" />
@@ -297,8 +307,8 @@
                 </svg>
               </div>
               <div class="feat-text">
-                <h3>Suprafață, perimetru, laturi</h3>
-                <p>Fiecare cifră vine cu marja ei de eroare.</p>
+                <h3>Area, perimeter, sides</h3>
+                <p>Every number comes with its margin of error.</p>
               </div>
             </li>
             <li class="feat feat-slope dark reveal">
@@ -337,12 +347,12 @@
                   </g>
                   <line class="probe-line" x1="236.8" y1="152" x2="236.8" y2="115.9" />
                   <circle class="probe-dot" cx="236.8" cy="115.9" r="5" />
-                  <g class="probe-tag" transform="translate(236.8 81.9)"><g class="tag"><rect x="-32" y="-13" width="64" height="26" rx="7" /><text y="4.5">1,44 m</text></g></g>
+                  <g class="probe-tag" transform="translate(236.8 81.9)"><g class="tag"><rect x="-32" y="-13" width="64" height="26" rx="7" /><text y="4.5">1.44 m</text></g></g>
                 </svg>
               </div>
               <div class="feat-text">
-                <h3>Pante și înălțimi</h3>
-                <p>Hartă de pante, curbe de nivel și model 3D.</p>
+                <h3>Heights and slopes</h3>
+                <p>A slope map, contour lines and a 3D model.</p>
               </div>
             </li>
             <li class="feat feat-plan soft reveal">
@@ -362,15 +372,15 @@
                       <line class="leaf leaf-front mv" x1="110" y1="215" x2="110" y2="173" />
                       <line class="leaf leaf-inner mv" x1="185" y1="172" x2="227" y2="172" />
                     </g>
-                    <text class="room mv" x="128" y="110">12,6 m²</text>
-                    <text class="room mv" x="266" y="104">15,9 m²</text>
+                    <text class="room mv" x="128" y="110">12.6 m²</text>
+                    <text class="room mv" x="266" y="104">15.9 m²</text>
                     <g class="phone plan-phone mv"><rect x="-14" y="-4.5" width="28" height="9" rx="3" /></g>
                   </g>
                 </svg>
               </div>
               <div class="feat-text">
-                <h3>Planuri de locuință</h3>
-                <p>Camere, uși și ferestre, cu telefonul lipit de fiecare perete.</p>
+                <h3>Floor plans</h3>
+                <p>Rooms, doors and windows, with the phone against each wall.</p>
               </div>
             </li>
             <li class="feat feat-loop reveal">
@@ -395,9 +405,9 @@
                     <circle class="stake stake-on grow mv pass-4" cx="196.3" cy="97.8" r="7" />
                     <circle class="loop-pulse grow mv" cx="280" cy="37" r="9" />
                     <g class="loop-result mv">
-                      <text class="loop-kicker" x="280" y="98">ÎNAPOI LA A</text>
-                      <text class="loop-big" x="280" y="142">0,3%</text>
-                      <text class="loop-small" x="280" y="162">din 86 m parcurși</text>
+                      <text class="loop-kicker" x="280" y="98">BACK AT A</text>
+                      <text class="loop-big" x="280" y="142">0.3%</text>
+                      <text class="loop-small" x="280" y="162">of 86 m walked</text>
                     </g>
                   </g>
                   <circle class="stake" cx="280" cy="37" r="9" />
@@ -408,8 +418,8 @@
                 </svg>
               </div>
               <div class="feat-text">
-                <h3>Își verifică eroarea</h3>
-                <p>Termini unde ai început și vezi cât de exactă a fost tura.</p>
+                <h3>Checks its own error</h3>
+                <p>Finish where you started and see how accurate the walk was.</p>
               </div>
             </li>
             <li class="feat feat-stick reveal">
@@ -441,8 +451,8 @@
                 </svg>
               </div>
               <div class="feat-text">
-                <h3>Merge cu selfie stick</h3>
-                <p>Vibrația din mâner îți spune când să mergi mai departe.</p>
+                <h3>Works with a selfie stick</h3>
+                <p>A buzz in the handle tells you when to move on.</p>
               </div>
             </li>
             <li class="feat feat-export green reveal">
@@ -486,22 +496,22 @@
               </div>
               <div class="feat-text">
                 <h3>PDF, CSV, DXF</h3>
-                <p>Trimiți rezultatul clientului sau în AutoCAD, direct din telefon.</p>
+                <p>Send the result to a client or into AutoCAD, straight from the phone.</p>
               </div>
             </li>
           </ol>
         </div>
       </section>
 
-      <!-- ============ PENTRU CINE: clientul anume ============ -->
+      <!-- ============ WHO IT'S FOR: the specific customer ============ -->
       <section id="who">
         <div class="container">
           <div class="head reveal">
-            <span class="label">Pentru cine</span>
-            <h2>Făcut pentru cei care dau prețul la metru pătrat</h2>
+            <span class="label">Who it's for</span>
+            <h2>Made for people who quote by the square meter</h2>
             <p class="lead">
-              Dacă o suprafață greșită te costă bani, WalkMeasure se amortizează
-              de la prima folosire.
+              If a wrong area costs you money, WalkMeasure pays for itself the
+              first time you use it.
             </p>
           </div>
           <div class="route-wrap">
@@ -511,7 +521,7 @@
               preserveAspectRatio="none"
               aria-hidden="true"
             >
-              <path class="dots" d="M44 2 L6 29 L50 55 L16 82"/>
+              <path class="dots" d="M44 2 L6 29 L50 55 L16 82" />
             </svg>
             <ul class="route">
               <li class="reveal">
@@ -522,7 +532,9 @@
                     aria-expanded="false"
                     aria-controls="who-1"
                   >
-                    Peisagiști și grădinari<span class="plus" aria-hidden="true"
+                    Landscapers and gardeners<span
+                      class="plus"
+                      aria-hidden="true"
                       >+</span
                     >
                   </button>
@@ -530,9 +542,8 @@
                 <div class="route-more" id="who-1">
                   <div>
                     <p>
-                      Gazon, straturi, pavaj și garduri: dai prețul pe suprafața
-                      reală și comanzi exact cât rulou, pietriș sau piatră
-                      trebuie.
+                      Lawns, beds, paving and fences: quote from the real area
+                      and order the right amount of turf, gravel or stone.
                     </p>
                   </div>
                 </div>
@@ -545,9 +556,7 @@
                     aria-expanded="false"
                     aria-controls="who-2"
                   >
-                    Constructori și renovatori<span
-                      class="plus"
-                      aria-hidden="true"
+                    Builders and renovators<span class="plus" aria-hidden="true"
                       >+</span
                     >
                   </button>
@@ -555,9 +564,8 @@
                 <div class="route-more" id="who-2">
                   <div>
                     <p>
-                      Planul camerelor existente, cu uși și ferestre, gata
-                      pentru ofertă sau pentru desen. Fără telemetru, fără
-                      caiet.
+                      Floor plans of existing rooms, with doors and windows,
+                      ready for a quote or a drawing. No laser, no notebook.
                     </p>
                   </div>
                 </div>
@@ -570,7 +578,7 @@
                     aria-expanded="false"
                     aria-controls="who-3"
                   >
-                    Agenți imobiliari și proprietari<span
+                    Estate agents and landowners<span
                       class="plus"
                       aria-hidden="true"
                       >+</span
@@ -580,9 +588,8 @@
                 <div class="route-more" id="who-3">
                   <div>
                     <p>
-                      Cât are terenul și un plan pentru anunț sau pentru
-                      familie, înainte să plătească cineva o măsurătoare
-                      topografică.
+                      The size of a plot and a plan for the listing or the
+                      family, before anyone pays for a survey.
                     </p>
                   </div>
                 </div>
@@ -595,7 +602,9 @@
                     aria-expanded="false"
                     aria-controls="who-4"
                   >
-                    Fermieri și gospodari<span class="plus" aria-hidden="true"
+                    Farmers and smallholders<span
+                      class="plus"
+                      aria-hidden="true"
                       >+</span
                     >
                   </button>
@@ -603,8 +612,8 @@
                 <div class="route-more" id="who-4">
                   <div>
                     <p>
-                      Parcele, țarcuri și cum înclină terenul, parcurse în
-                      câteva minute cu telefonul pe un băț.
+                      Fields, enclosures and how the ground slopes, walked in
+                      minutes with the phone on a stick.
                     </p>
                   </div>
                 </div>
@@ -614,39 +623,39 @@
         </div>
       </section>
 
-      <!-- ============ CUM FUNCȚIONEAZĂ ============ -->
+      <!-- ============ HOW IT WORKS ============ -->
       <section id="how">
         <div class="container">
           <div class="head reveal">
-            <span class="label">Cum funcționează</span>
-            <h2>Pui telefonul jos. Simți vibrația. Mergi mai departe.</h2>
+            <span class="label">How it works</span>
+            <h2>Set the phone down. Feel the buzz. Move on.</h2>
           </div>
 
           <!--
-        PREZENTAREA DE MAI JOS ȚINE LOCUL VIDEOCLIPULUI.
-        Când ai video-ul, înlocuiește tot blocul <div class="demo" ...> ... </div> cu, de exemplu:
+        THE PRESENTATION BELOW STANDS IN FOR THE VIDEO.
+        When the video is ready, replace the whole <div class="demo" ...> ... </div> block with, for example:
 
         <div class="video">
-          <video src="assets/video/cum-functioneaza.mp4" poster="assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
+          <video src="assets/video/how-it-works.mp4" poster="assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
         </div>
 
-        sau, pentru YouTube (varianta fără cookie-uri):
+        or, for YouTube (the no-cookie variant):
 
         <div class="video">
-          <iframe src="https://www.youtube-nocookie.com/embed/ID_VIDEO" title="Cum funcționează WalkMeasure" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="How WalkMeasure works" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       -->
           <div
             class="demo reveal"
             data-demo
-            aria-roledescription="prezentare"
-            aria-label="Cum se măsoară cu un selfie stick"
+            aria-roledescription="presentation"
+            aria-label="How to measure with a selfie stick"
           >
             <div class="demo-stage">
               <figure class="slide active">
                 <img
                   src="assets/img/demo/1-stick.svg"
-                  alt="Telefonul prins în clema unui selfie stick, cu setarea Selfie stick activată"
+                  alt="The phone in a selfie stick's clamp, with the Selfie stick setting turned on"
                   width="640"
                   height="360"
                 />
@@ -654,7 +663,7 @@
               <figure class="slide">
                 <img
                   src="assets/img/demo/2-place.svg"
-                  alt="Telefonul așezat culcat pe sol, la primul colț, ținut nemișcat o secundă"
+                  alt="The phone lying flat on the ground at the first corner, held still for a second"
                   width="640"
                   height="360"
                   loading="lazy"
@@ -663,7 +672,7 @@
               <figure class="slide">
                 <img
                   src="assets/img/demo/3-buzz.svg"
-                  alt="Telefonul vibrează, vibrația se simte în mânerul selfie stick-ului"
+                  alt="The phone buzzes and the vibration is felt in the selfie stick's handle"
                   width="640"
                   height="360"
                   loading="lazy"
@@ -672,7 +681,7 @@
               <figure class="slide">
                 <img
                   src="assets/img/demo/4-carry.svg"
-                  alt="Telefonul e dus cel puțin un metru, până la următorul punct"
+                  alt="The phone is carried at least a meter to the next point"
                   width="640"
                   height="360"
                   loading="lazy"
@@ -681,7 +690,7 @@
               <figure class="slide">
                 <img
                   src="assets/img/demo/5-result.svg"
-                  alt="Conturul terenului închis la punctul de start, cu suprafața calculată"
+                  alt="The outline closed at the starting point, with the area worked out"
                   width="640"
                   height="360"
                   loading="lazy"
@@ -692,41 +701,41 @@
             <div class="slide-caption">
               <p class="active">
                 <span class="num">1</span
-                ><strong>Prinde telefonul pe un selfie stick</strong
+                ><strong>Clip the phone onto a selfie stick</strong
                 ><span
-                  >Activează „Selfie stick” în aplicație. Nu mai e nevoie să te
-                  apleci la fiecare punct.</span
+                  >Turn on "Selfie stick" in the app. No more bending down at
+                  every point.</span
                 >
               </p>
               <p>
                 <span class="num">2</span
-                ><strong>Pune-l jos și ține-l nemișcat</strong
+                ><strong>Set it down and hold it still</strong
                 ><span
-                  >Culcat pe sol, la primul colț, cam o secundă. Punctul se
-                  înregistrează singur.</span
+                  >Flat on the ground at the first corner, for about a second.
+                  The point records itself.</span
                 >
               </p>
               <p>
                 <span class="num">3</span
-                ><strong>Simți vibrația în mâner</strong
+                ><strong>Feel the buzz in the handle</strong
                 ><span
-                  >Telefonul vibrează puternic și scoate un sunet: semnalul că
-                  poți pleca.</span
+                  >The phone gives a strong buzz and a beep: your signal to move
+                  on.</span
                 >
               </p>
               <p>
-                <span class="num">4</span><strong>Du-l mai departe</strong
+                <span class="num">4</span><strong>Carry it on</strong
                 ><span
-                  >La fiecare metru sau mai mult, și la fiecare colț, pune-l din
-                  nou jos.</span
+                  >Every meter or more, and at every corner, set it down
+                  again.</span
                 >
               </p>
               <p>
                 <span class="num">5</span
-                ><strong>Termină unde ai început</strong
+                ><strong>Finish where you started</strong
                 ><span
-                  >Conturul se închide, iar aplicația îți arată suprafața,
-                  laturile și eroarea măsurată.</span
+                  >The outline closes and the app shows the area, the sides and
+                  the measured error.</span
                 >
               </p>
             </div>
@@ -734,7 +743,7 @@
               <button
                 class="demo-prev"
                 type="button"
-                aria-label="Pasul anterior"
+                aria-label="Previous step"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -749,19 +758,19 @@
                 </svg>
               </button>
               <div class="demo-dots">
-                <button type="button" aria-label="Pasul 1"></button>
-                <button type="button" aria-label="Pasul 2"></button>
-                <button type="button" aria-label="Pasul 3"></button>
-                <button type="button" aria-label="Pasul 4"></button>
-                <button type="button" aria-label="Pasul 5"></button>
+                <button type="button" aria-label="Step 1"></button>
+                <button type="button" aria-label="Step 2"></button>
+                <button type="button" aria-label="Step 3"></button>
+                <button type="button" aria-label="Step 4"></button>
+                <button type="button" aria-label="Step 5"></button>
               </div>
               <button
                 class="demo-pause"
                 type="button"
                 aria-pressed="false"
-                aria-label="Pauză"
-                data-pause-label="Pauză"
-                data-play-label="Pornește"
+                aria-label="Pause"
+                data-pause-label="Pause"
+                data-play-label="Play"
               >
                 <svg
                   class="icon-pause"
@@ -781,11 +790,7 @@
                   <path d="M7 5l12 7-12 7z" />
                 </svg>
               </button>
-              <button
-                class="demo-next"
-                type="button"
-                aria-label="Pasul următor"
-              >
+              <button class="demo-next" type="button" aria-label="Next step">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -803,54 +808,53 @@
         </div>
       </section>
 
-      <!-- ============ DE CE: problema pe care o rezolvă ============ -->
+      <!-- ============ WHY: the problem it solves ============ -->
       <section id="why" class="band">
         <div class="container">
           <div class="head reveal">
-            <span class="label">De ce WalkMeasure</span>
-            <h2>Nu mai ghici cât de mare e lucrarea</h2>
+            <span class="label">Why WalkMeasure</span>
+            <h2>Stop guessing the size of the job</h2>
             <p class="lead">
-              O cifră ghicită costă bani. WalkMeasure îți dă cifra reală pe loc
-              și fără ajutor, cu telefonul pe care îl ai deja în buzunar.
+              A guessed number costs money. WalkMeasure gives you the real one
+              on the spot, on your own, with the phone already in your pocket.
             </p>
           </div>
           <ol class="notes">
             <li class="note reveal">
               <span class="sticker yellow">01</span>
-              <h3>Comanzi cât trebuie</h3>
+              <h3>Order the right amount</h3>
               <p>
-                Ruloul de gazon, pietrișul, pavajul și gardul se cumpără la
-                metru pătrat și la metru liniar. Cumperi cât cere lucrarea, nu o
-                estimare plus rezervă.
+                Turf, gravel, paving and fencing are sold by the square meter
+                and the meter run. Buy what the job needs, not a guess plus
+                extra.
               </p>
             </li>
             <li class="note reveal">
               <span class="sticker">02</span>
-              <h3>Ofertezi lucrarea reală</h3>
+              <h3>Quote the real job</h3>
               <p>
-                Un teren mai mare decât ai crezut înseamnă mai multă muncă la
-                același preț. Faci oferta după suprafața măsurată.
+                A plot that turns out bigger than you guessed is more work at
+                the same price. Price it from the measured area instead.
               </p>
             </li>
             <li class="note reveal">
               <span class="sticker yellow">03</span>
-              <h3>Măsori singur, în câteva minute</h3>
+              <h3>Measure alone, in minutes</h3>
               <p>
-                Fără ruletă, fără roată de măsurat, fără al doilea om și fără să
-                aștepți săptămâni după topograf. Pui telefonul jos la fiecare
-                colț și ai terminat.
+                No tape, no wheel, no second person, no waiting weeks for a
+                surveyor. Set the phone down at each corner and you're done.
               </p>
             </li>
           </ol>
         </div>
       </section>
 
-      <!-- ============ ECRANE ============ -->
+      <!-- ============ SCREENS ============ -->
       <section id="screens">
         <div class="container">
           <div class="head reveal">
-            <span class="label">Aplicația</span>
-            <h2>Clar, pas cu pas</h2>
+            <span class="label">The app</span>
+            <h2>Clear, step by step</h2>
           </div>
           <ul class="screens">
             <li class="reveal">
@@ -858,14 +862,14 @@
                 <div class="shot">
                   <img
                     src="assets/img/app/project-results.webp"
-                    alt="Rezultatele unui proiect: suprafața terenului colorată după pante, suprafață, perimetru, diferență de nivel și verificarea start–final"
+                    alt="A project's results: the ground surface with its slope colors, area, perimeter, height difference and the start/finish check"
                     width="660"
                     height="1434"
                     loading="lazy"
                   />
                 </div>
                 <figcaption>
-                  <strong>Rezultate</strong><span>cu marja de eroare</span>
+                  <strong>Results</strong><span>with the margin of error</span>
                 </figcaption>
               </figure>
             </li>
@@ -874,15 +878,14 @@
                 <div class="shot">
                   <img
                     src="assets/img/app/floor-plan.webp"
-                    alt="Planul unei locuințe cu două camere, cu uși, ferestre și lungimile pereților"
+                    alt="A two-room floor plan with doors, windows and wall lengths"
                     width="660"
                     height="1434"
                     loading="lazy"
                   />
                 </div>
                 <figcaption>
-                  <strong>Plan de locuință</strong
-                  ><span>camere, uși, ferestre</span>
+                  <strong>Floor plan</strong><span>rooms, doors, windows</span>
                 </figcaption>
               </figure>
             </li>
@@ -891,14 +894,14 @@
                 <div class="shot">
                   <img
                     src="assets/img/app/surface-3d.webp"
-                    alt="Suprafața terenului în 3D, colorată după înălțime"
+                    alt="The ground surface in 3D, colored by height"
                     width="660"
                     height="1434"
                     loading="lazy"
                   />
                 </div>
                 <figcaption>
-                  <strong>Teren 3D</strong><span>înălțimi reale</span>
+                  <strong>3D terrain</strong><span>true heights</span>
                 </figcaption>
               </figure>
             </li>
@@ -907,14 +910,14 @@
                 <div class="shot">
                   <img
                     src="assets/img/app/projects.webp"
-                    alt="Lista de proiecte"
+                    alt="The project list"
                     width="660"
                     height="1434"
                     loading="lazy"
                   />
                 </div>
                 <figcaption>
-                  <strong>Proiecte</strong><span>salvate pe telefon</span>
+                  <strong>Projects</strong><span>saved on your phone</span>
                 </figcaption>
               </figure>
             </li>
@@ -922,27 +925,27 @@
         </div>
       </section>
 
-      <!-- ============ PLANURI DE LOCUINȚĂ ============ -->
+      <!-- ============ FLOOR PLANS ============ -->
       <section id="floorplans">
         <div class="container split">
           <div class="reveal">
-            <span class="label">Planuri de locuință</span>
-            <h2>Planul casei, atingând pereții cu telefonul</h2>
+            <span class="label">Floor plans</span>
+            <h2>A floor plan, by touching the walls with your phone</h2>
             <p class="lead">
-              Ții telefonul lipit de fiecare perete. Colțurile rezultă din
-              intersecția pereților, chiar dacă sunt ascunse după mobilă.
+              Hold the phone against each wall. Corners come from where the
+              walls meet, even when they're hidden behind furniture.
             </p>
             <ul class="dash">
-              <li>Mai multe camere, cu peretele dintre ele măsurat</li>
-              <li>Uși, ferestre și goluri, dintr-un editor simplu</li>
-              <li>PDF la scară, imagine sau DXF pentru AutoCAD</li>
+              <li>Several rooms, with the wall between them measured</li>
+              <li>Doors, windows and openings from a simple editor</li>
+              <li>PDF to scale, an image, or DXF for AutoCAD</li>
             </ul>
           </div>
           <div class="reveal">
             <img
               class="doc"
               src="assets/img/floor-plan-pdf.webp"
-              alt="Plan de locuință exportat ca PDF, cu două camere, uși, ferestre și cote"
+              alt="A floor plan exported as PDF, with two rooms, doors, windows and dimensions"
               width="948"
               height="604"
               loading="lazy"
@@ -951,81 +954,79 @@
         </div>
       </section>
 
-      <!-- ============ PREȚ ============ -->
+      <!-- ============ PRICING ============ -->
       <section id="pricing">
         <div class="container">
           <div class="head reveal">
-            <span class="label">Preț</span>
-            <h2>Încearcă gratuit. Apoi plătești lunar sau o singură dată.</h2>
+            <span class="label">Pricing</span>
+            <h2>Try it free. Then pay monthly, or once.</h2>
             <p class="lead">
-              Mai puțin decât un drum degeaba la client și niciun aparat de
-              măsurat de cumpărat: măsoară iPhone-ul pe care îl ai deja.
+              Less than one wasted trip to the site, and no measuring device to
+              buy: the iPhone you already own does the measuring.
             </p>
           </div>
           <div class="pricing">
             <article class="plan reveal">
-              <h3>Gratuit</h3>
-              <p class="price">0 lei</p>
-              <p class="plan-note">
-                Un proiect, ca să-l testezi pe terenul tău.
-              </p>
+              <h3>Free</h3>
+              <p class="price">$0</p>
+              <p class="plan-note">One project, to test it on your own land.</p>
               <ul>
-                <li>Un proiect de măsurare</li>
-                <li>Suprafață, perimetru și laturi</li>
-                <li>Calibrare și verificare start–final</li>
-                <li>Selfie stick, vibrație și sunet</li>
-                <li>Imaginea planului, cu marcajul WalkMeasure</li>
+                <li>One measuring project</li>
+                <li>Area, perimeter and side lengths</li>
+                <li>Calibration and the start–finish check</li>
+                <li>Selfie stick, buzz and sound cues</li>
+                <li>A plan image with the WalkMeasure mark</li>
               </ul>
             </article>
             <article class="plan plan-pro reveal">
-              <span class="sticker plan-tag">Flexibil</span>
-              <h3>Pro Lunar</h3>
-              <p class="price">19,99 lei <span>/ lună</span></p>
+              <span class="sticker plan-tag">Flexible</span>
+              <h3>Pro Monthly</h3>
+              <p class="price">$3.99 <span>/ month</span></p>
               <p class="plan-note">
-                Pentru un sezon de lucrări. Anulezi oricând din setările
-                contului Apple.
+                For a season of jobs. Cancel any time in your Apple account
+                settings.
               </p>
               <ul>
-                <li>Proiecte nelimitate</li>
-                <li>Rapoarte PDF, CSV și DXF pentru AutoCAD</li>
-                <li>Planuri de locuință: camere, uși, ferestre, la scară</li>
-                <li>Înălțimi și teren: hartă de pante, curbe de nivel, 3D</li>
-                <li>Imagini fără marcaj</li>
+                <li>Unlimited projects</li>
+                <li>PDF, CSV and DXF for AutoCAD</li>
+                <li>Floor plans: rooms, doors, windows, to scale</li>
+                <li>Heights and terrain: slope map, contours, 3D</li>
+                <li>Images without the mark</li>
               </ul>
             </article>
             <article class="plan plan-best reveal">
-              <span class="sticker yellow plan-tag">Cel mai avantajos</span>
-              <h3>Pro pe viață</h3>
-              <p class="price">249,99 lei <span>O singură dată</span></p>
+              <span class="sticker yellow plan-tag">Best value</span>
+              <h3>Pro Lifetime</h3>
+              <p class="price">$49.99 <span>once</span></p>
               <p class="plan-note">
-                Cam un an de Pro, plătit o singură dată. Al tău pentru
-                totdeauna, cu toate actualizările viitoare.
+                About a year of Pro, paid once. Yours for good, with every
+                future update.
               </p>
               <ul>
-                <li>Tot ce e în Pro Lunar</li>
-                <li>Fără reînnoire, niciodată</li>
-                <li>Toate actualizările viitoare incluse</li>
-                <li>Se recuperează pe următorul iPhone</li>
-                <li>O singură plată, prin App Store</li>
+                <li>Everything in Pro Monthly</li>
+                <li>No renewal, ever</li>
+                <li>Every future update included</li>
+                <li>Restores on your next iPhone</li>
+                <li>One payment through the App Store</li>
               </ul>
             </article>
           </div>
           <p class="pricing-note reveal">
-            Plata se face prin App Store, care afișează prețul în moneda ta.
-            Proiectul gratuit se consumă când începi prima măsurătoare, chiar
-            dacă îl ștergi apoi.
+            Billed through the App Store, which shows the price in your
+            currency. The free project is used when you start your first
+            measurement, even if you delete it later.
           </p>
         </div>
       </section>
 
-      <!-- ============ ÎNTREBĂRI ============ -->
+      <!-- ============ FAQ ============ -->
       <section id="faq">
         <div class="container faq-grid">
           <div class="faq-aside reveal">
-            <span class="label">Întrebări frecvente</span>
-            <h2>Bine de știut</h2>
+            <span class="label">FAQ</span>
+            <h2>Good to know</h2>
             <p class="faq-more">
-              Altă întrebare? Scrie-ne la
+              Another question? Write to us at
               <a href="mailto:contact@walkmeasure.com"
                 >contact@walkmeasure.com</a
               >.
@@ -1033,75 +1034,74 @@
           </div>
           <div class="faq reveal">
             <details>
-              <summary>Trebuie să cumpăr vreun aparat sau accesoriu?</summary>
+              <summary>Do I need to buy a device or accessory?</summary>
               <p>
-                Nu. WalkMeasure măsoară cu senzorii de mișcare care sunt deja în
-                iPhone: nicio roată, niciun laser, senzor sau dispozitiv prins de
-                telefon de cumpărat, conectat sau încărcat. Un selfie stick te
-                ajută să ajungi la colțuri fără să te apleci, dar e opțional.
+                No. WalkMeasure measures with the motion sensors already built
+                into your iPhone: no wheel, laser, sensor or clip-on to buy, pair
+                or charge. A selfie stick helps you reach the corners without
+                bending down, but it is optional.
               </p>
             </details>
             <details>
-              <summary>Folosește camera, GPS-ul sau internetul?</summary>
+              <summary>Does it use the camera, GPS or internet?</summary>
               <p>
-                Nu. Doar accelerometrul și giroscopul iPhone-ului. Măsurătorile
-                merg offline, în casă, sub copaci și oriunde GPS-ul e slab.
-                Internetul îți trebuie doar ca să cumperi Pro.
+                No. Only the iPhone's accelerometer and gyroscope. Measuring
+                works offline, indoors, under trees and anywhere GPS is weak.
+                You only need the internet to buy Pro.
               </p>
             </details>
             <details>
-              <summary>Cât de precisă este?</summary>
+              <summary>How accurate is it?</summary>
               <p>
-                Depinde de calibrare și de cât de des pui telefonul jos. Fiecare
-                rezultat vine cu marja de eroare, iar revenirea la start o
-                verifică. Pentru cote critice, verifică cu ruleta.
+                It depends on calibration and on how often you set the phone
+                down. Every result comes with its margin of error, and returning
+                to the start checks it. For critical dimensions, check with a
+                tape measure.
               </p>
             </details>
             <details>
               <summary>
-                Pot folosi rezultatul pentru cadastru sau intabulare?
+                Can I use the result for the land registry or a sale?
               </summary>
               <p>
-                Nu. Pentru documente oficiale ai nevoie de un topograf
-                autorizat. WalkMeasure îți spune rapid la ce să te aștepți, ca
-                să decizi ce merită o vizită a topografului.
+                No. Official documents need a licensed surveyor. WalkMeasure
+                quickly tells you what to expect, so you decide what is worth a
+                surveyor's visit.
               </p>
             </details>
             <details>
-              <summary>Trebuie să calibrez telefonul?</summary>
+              <summary>Do I need to calibrate the phone?</summary>
               <p>
-                O singură dată, la început: îl așezi pe o masă, pe fiecare
-                dintre cele șase fețe, cam un minut în total. Aplicația te
-                ghidează.
+                Once, at the start: rest it on a table on each of its six sides,
+                about a minute in all. The app guides you.
               </p>
             </details>
             <details>
-              <summary>Unde ajung datele mele?</summary>
+              <summary>Where does my data go?</summary>
               <p>
-                Rămân pe telefon. Fără cont, fără reclame, fără analiză de
-                trafic. Le trimiți tu, ca PDF, CSV sau DXF, doar când vrei.
+                It stays on your phone. No account, no ads, no analytics. You
+                share projects yourself, as PDF, CSV or DXF, only when you want
+                to.
               </p>
             </details>
             <details>
-              <summary>Ce telefon îmi trebuie?</summary>
-              <p>Un iPhone cu iOS 17 sau mai nou.</p>
+              <summary>Which phone do I need?</summary>
+              <p>An iPhone running iOS 17 or later.</p>
             </details>
             <details>
-              <summary>Cât costă?</summary>
+              <summary>How much does it cost?</summary>
               <p>
-                Aplicația e gratuită pentru un proiect. WalkMeasure Pro costă
-                19,99 lei pe lună, cu anulare oricând, sau 249,99 lei o singură
-                dată, pentru totdeauna. Ambele prin App Store. Detalii la
-                <a href="#pricing">preț</a>.
+                The app is free for one project. WalkMeasure Pro is $3.99 a
+                month, cancelled any time, or $49.99 once for good. Both through
+                the App Store. See <a href="#pricing">pricing</a>.
               </p>
             </details>
             <details>
-              <summary>Pot plăti o singură dată, în loc de abonament?</summary>
+              <summary>Can I pay once instead of subscribing?</summary>
               <p>
-                Da. Pro pe viață e o achiziție unică de 249,99 lei: toate
-                funcțiile Pro, pentru totdeauna, inclusiv actualizările
-                viitoare. E legată de Apple ID-ul tău, așa că „Restaurează
-                achizițiile” o aduce înapoi pe un iPhone nou.
+                Yes. Pro Lifetime is a one-time purchase of $49.99: every Pro
+                feature, for good, including future updates. It belongs to your
+                Apple ID, so Restore Purchases brings it back on a new iPhone.
               </p>
             </details>
           </div>
@@ -1112,16 +1112,16 @@
       <section id="start">
         <div class="finale">
           <div class="container">
-            <h2 class="reveal">Măsoară-ți primul teren gratuit.</h2>
+            <h2 class="reveal">Measure your first plot free.</h2>
             <div class="cta-row reveal">
               <p>
-                WalkMeasure ajunge în curând pe App Store. Îți scriem când
-                apare.
+                WalkMeasure is coming soon to the App Store. We'll write to you
+                when it's out.
               </p>
               <a
                 class="btn btn-primary"
-                href="mailto:contact@walkmeasure.com?subject=WalkMeasure%20%E2%80%94%20anun%C8%9Ba%C8%9Bi-m%C4%83%20la%20lansare"
-                >Anunță-mă la lansare
+                href="mailto:contact@walkmeasure.com?subject=WalkMeasure%20%E2%80%94%20notify%20me%20at%20launch"
+                >Notify me at launch
                 <span class="arrow"
                   ><svg
                     viewBox="0 0 24 24"
@@ -1149,21 +1149,20 @@
               >contact@walkmeasure.com</a
             >
           </div>
-          <nav class="footer-links" aria-label="Subsol">
-            <a href="#how">Cum funcționează</a>
-            <a href="#pricing">Preț</a>
-            <a href="#faq">Întrebări</a>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="#how">How it works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
           </nav>
           <div class="footer-links">
-            <a href="confidentialitate.html">Confidențialitate</a>
-            <a href="en/" hreflang="en" lang="en">English</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="ro/" hreflang="ro" lang="ro">Română</a>
           </div>
         </div>
         <p class="disclaimer">
-          © <span data-year>2026</span> WalkMeasure. Rezultatele sunt estimări
-          obținute cu senzorii de mișcare ai telefonului și nu înlocuiesc
-          măsurătorile topografice autorizate. iPhone și App Store sunt mărci
-          comerciale ale Apple Inc.
+          © <span data-year>2026</span> WalkMeasure. Results are estimates from
+          the phone's motion sensors and do not replace a licensed survey.
+          iPhone and App Store are trademarks of Apple Inc.
         </p>
       </div>
       <span class="ruler" aria-hidden="true"></span>

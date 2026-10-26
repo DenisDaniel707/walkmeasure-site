@@ -1,6 +1,8 @@
 # WalkMeasure — site de prezentare / presentation website
 
-Static site, Romanian (`index.html`) and English (`en/index.html`), desktop and mobile.
+Static site, English (`index.html`, the home page) and Romanian (`ro/index.html`), desktop
+and mobile. Visitors in Romania (by their device's time zone) who open the English home
+page from outside the site are sent to the Romanian one.
 Plain HTML + CSS + a little JavaScript. No build step, no frameworks, no cookies, no
 analytics, no external fonts or scripts, so no cookie banner is needed. The two fonts
 are self-hosted in `assets/fonts/` (see the README there).
@@ -13,10 +15,11 @@ The site is light only, also when the visitor's system is in dark mode.
 
 ```
 website/
-├── index.html               Romanian home page
-├── confidentialitate.html   Romanian privacy page
-├── en/index.html            English home page
-├── en/privacy.html          English privacy page
+├── index.html               English home page
+├── privacy.html             English privacy page
+├── ro/index.html            Romanian home page
+├── ro/confidentialitate.html  Romanian privacy page
+├── en/, confidentialitate.html  old addresses, forwarding to the pages above (keep them)
 └── assets/
     ├── styles.css           all styles (light + dark mode)
     ├── site.js              menu, scroll reveal, walked lines, "how it works" slideshow
@@ -37,7 +40,14 @@ browsers and GitHub Pages' cache fetch the new version.
 python3 -m http.server 8765 --directory website
 ```
 
-Then open http://localhost:8765 (RO) and http://localhost:8765/en/ (EN).
+Then open http://localhost:8765 (EN) and http://localhost:8765/ro/ (RO).
+
+## Old addresses
+
+English used to live under `/en/` and the Romanian privacy page at the root. The pages at
+`en/index.html`, `en/privacy.html` and `confidentialitate.html` now only forward to the
+new addresses. Keep them: the app's Settings and Pro screen link to
+`https://walkmeasure.com/en/privacy.html` and `https://walkmeasure.com/en/#faq`.
 
 ## Before publishing — replace the placeholders
 
@@ -68,7 +78,7 @@ code to paste. In short, replace the whole `<div class="demo"> … </div>` block
 </div>
 ```
 
-(in `en/index.html` the paths start with `../`), or with a YouTube embed using
+(in `ro/index.html` the paths start with `../`), or with a YouTube embed using
 `https://www.youtube-nocookie.com/embed/VIDEO_ID` so no tracking cookies are set before
 the visitor presses play. The `.video` styles are already in `styles.css`.
 

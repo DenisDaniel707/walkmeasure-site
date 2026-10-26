@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://walkmeasure.com/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://walkmeasure.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://walkmeasure.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://walkmeasure.com/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://walkmeasure.com/ro/"/>
   </url>
   <url>
-    <loc>https://walkmeasure.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://walkmeasure.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://walkmeasure.com/en/"/>
+    <loc>https://walkmeasure.com/ro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://walkmeasure.com/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://walkmeasure.com/ro/"/>
   </url>
-  <url><loc>https://walkmeasure.com/confidentialitate.html</loc></url>
-  <url><loc>https://walkmeasure.com/en/privacy.html</loc></url>
+  <url><loc>https://walkmeasure.com/privacy.html</loc></url>
+  <url><loc>https://walkmeasure.com/ro/confidentialitate.html</loc></url>
 </urlset>
