@@ -2,22 +2,13 @@
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <script>
-      // Visitors in Romania get the Romanian page. "In Romania" is read from the
-      // device's time zone, as the site asks no server where anyone is. Only on
-      // arriving from elsewhere: choosing English on the site itself is left alone.
-      (function () {
-        try {
-          var zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-          var fromSite = document.referrer.indexOf(location.origin + "/") === 0;
-          if (zone === "Europe/Bucharest" && !fromSite) location.replace("ro/");
-        } catch (e) {}
-      })();
-    </script>
+    <script src="assets/lang.js"></script>
     <title>
       WalkMeasure — measure a plot, a lawn or a room with your iPhone, no tape
       measure
@@ -63,8 +54,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/styles.css?v=15" />
-    <script defer src="assets/site.js?v=15"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=16" />
+    <script defer src="assets/site.js?v=16"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -184,25 +175,21 @@
               </svg>
               <span
                 class="plot-corner nw"
-                style="left: 6%; top: 24%"
                 aria-hidden="true"
                 ><b>C</b></span
               >
               <span
                 class="plot-corner ne"
-                style="left: 91%; top: 12%"
                 aria-hidden="true"
                 ><b>B</b></span
               >
               <span
                 class="plot-corner se"
-                style="left: 97%; top: 84%"
                 aria-hidden="true"
                 ><b>A</b></span
               >
               <span
                 class="plot-corner sw"
-                style="left: 3%; top: 94%"
                 aria-hidden="true"
                 ><b>D</b></span
               >

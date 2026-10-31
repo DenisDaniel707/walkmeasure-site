@@ -1,0 +1,4 @@
+Contact: mailto:contact@walkmeasure.com
+Expires: 2027-10-31T00:00:00.000Z
+Preferred-Languages: en, ro
+Canonical: https://walkmeasure.com/.well-known/security.txt

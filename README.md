@@ -34,6 +34,14 @@ The pages load `assets/styles.css?v=9` and `assets/site.js?v=9`. When you change
 file, raise the number in all five pages (both home pages, both privacy pages, 404) so
 browsers and GitHub Pages' cache fetch the new version.
 
+## Content-Security-Policy
+
+Every page has a `<meta http-equiv="Content-Security-Policy">` that loads only the
+site's own files: no inline `<script>`, no `style="…"` attributes, nothing from other
+addresses. Put scripts in `assets/*.js` and styles in `styles.css`. If a page must load
+something from elsewhere (a YouTube embed: `frame-src https://www.youtube-nocookie.com`),
+add it to the policy in every page, and to the same header set in Cloudflare.
+
 ## Preview locally
 
 ```bash
