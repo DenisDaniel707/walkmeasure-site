@@ -31,7 +31,7 @@ website/
 
 ## Cache busting
 
-The pages load `assets/styles.css?v=19` and `assets/site.js?v=19`. When you change either
+The pages load `assets/styles.css?v=20` and `assets/site.js?v=20`. When you change either
 file, raise the number in all five pages (both home pages, both privacy pages, 404) so
 browsers and GitHub Pages' cache fetch the new version.
 
@@ -75,8 +75,9 @@ The five steps in the `#how` section are short clips, one per step (`assets/vide
 `how-5`), each as HEVC, AV1 and H.264 at 1080p, and at 720p for phones, plus a poster (the
 clip's last frame). `site.js` adds the sources, fetches the clips (about 1 MB in all) once
 the section comes near, and plays each clip once when its step comes up, in step with the
-5-second progress bar. Visitors who ask for less motion or to save data, and pages without
-JavaScript, see the posters.
+progress bar. A step lasts 5 seconds, or what its figure's `data-step` says (step 4 is 3 s,
+because its clip and walk line are done in about a second). Visitors who ask for less motion
+or to save data, and pages without JavaScript, see the posters.
 
 Each clip has an overlay in the videos' overlay style, an `<svg class="ov">` right after its
 `<video>`: the "Selfie stick" switch turning on (1), corner A popping with a buzz ring where

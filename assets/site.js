@@ -236,10 +236,17 @@
       demo.classList.toggle("playing", playing && visible);
       syncClips(playing && visible);
       if (playing && visible) {
-        // Restart the CSS progress bar.
+        // A step lasts 5 seconds, or its figure's data-step (seconds) when its clip is short.
+        var seconds = parseFloat(slides[index].getAttribute("data-step")) || 5;
+        // Restart the CSS progress bar, at the step's length.
         var bar = demo.querySelector(".demo-progress span");
-        if (bar) { bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = ""; }
-        timer = setTimeout(function () { show(index + 1); }, 5000);
+        if (bar) {
+          bar.style.animation = "none";
+          void bar.offsetWidth;
+          bar.style.animation = "";
+          bar.style.animationDuration = seconds + "s";
+        }
+        timer = setTimeout(function () { show(index + 1); }, seconds * 1000);
       }
     }
 
