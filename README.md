@@ -75,9 +75,10 @@ The five steps in the `#how` section are short clips, one per step (`assets/vide
 `how-5`), each as HEVC, AV1 and H.264 at 1080p, and at 720p for phones, plus a poster (the
 clip's last frame). `site.js` adds the sources, fetches the clips (about 1 MB in all) once
 the section comes near, and plays each clip once when its step comes up, in step with the
-progress bar. A step lasts 5 seconds, or what its figure's `data-step` says (step 4 is 3 s,
-because its clip and walk line are done in about a second). Visitors who ask for less motion
-or to save data, and pages without JavaScript, see the posters.
+progress bar. A step lasts 5 seconds, or what its figure's `data-step` says: step 1 is 4 s
+(its "Selfie stick" switch turns on just after the hands stop, at 2.2 s) and step 4 is 3 s
+(its clip and walk line are done in about a second). Visitors who ask for less motion or to
+save data, and pages without JavaScript, see the posters.
 
 Each clip has an overlay in the videos' overlay style, an `<svg class="ov">` right after its
 `<video>`: the "Selfie stick" switch turning on (1), corner A popping with a buzz ring where
