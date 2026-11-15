@@ -25,12 +25,13 @@ website/
     ├── site.js              menu, scroll reveal, walked lines, "how it works" slideshow
     ├── favicon.svg
     ├── fonts/               self-hosted woff2 (Bricolage Grotesque, Instrument Sans)
-    └── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ slides (SVG)
+    ├── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ slides (SVG)
+    └── video/               hero background loop (HEVC, AV1, H.264 in three sizes) and its poster
 ```
 
 ## Cache busting
 
-The pages load `assets/styles.css?v=9` and `assets/site.js?v=9`. When you change either
+The pages load `assets/styles.css?v=17` and `assets/site.js?v=17`. When you change either
 file, raise the number in all five pages (both home pages, both privacy pages, 404) so
 browsers and GitHub Pages' cache fetch the new version.
 
@@ -107,6 +108,27 @@ by the square meter), the expensive problem (a wrong area), the narrow promise (
 number on the spot, with how far to trust it), proof built into the product (the
 start/finish check, the margin on every number, the free first project) and the two ways
 to pay. Keep new copy honest: no accuracy figures, no promises the app can't check.
+
+## Hero video
+
+The home pages' hero runs a muted background loop behind the headline (`.hero-film`).
+`assets/video/` holds it in three sizes, 1440p for screens 1200 px and wider, 1080p, and an
+810×1080 centre crop for phones, each as HEVC (Safari), AV1 (Chrome, Firefox) and H.264
+(fallback), plus `hero-poster.webp` (the first frame). Each visitor downloads one file:
+about 2.4–3 MB on a wide screen, under 1 MB on a phone. `site.js` fills in the sources,
+so visitors who ask for less motion or to save data, and pages without JavaScript, see the
+poster only. The loop pauses while it's scrolled out of view.
+
+To replace it with a new edit (1920×1080 master; black frames at the end are trimmed):
+
+```bash
+scripts/encode-hero-video.sh "/path/to/new edit.mp4"
+```
+
+The footage is AI-generated, so both pages say so under the video ("Background footage
+AI-generated." / „Imagini de fundal generate cu AI."). Keep that line while it's AI footage;
+remove it once real footage replaces it. How the clips were made:
+`marketing/video/05-hero-ai-clips.md`.
 
 ## Updating screenshots
 

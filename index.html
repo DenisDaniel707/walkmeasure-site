@@ -54,8 +54,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/styles.css?v=16" />
-    <script defer src="assets/site.js?v=16"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=17" />
+    <script defer src="assets/site.js?v=17"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -119,49 +119,67 @@
     <main id="main">
       <!-- ============ HERO: the narrow promise, to a specific customer ============ -->
       <section class="hero">
+        <!-- The film: a muted background loop behind the promise. Sources and how they were made:
+             marketing/video/05-hero-ai-clips.md. site.js fills in the sources, so visitors who ask
+             for less motion or to save data, and pages without JavaScript, get the poster only. -->
+        <div class="hero-film">
+          <video class="hero-video" data-hero-video muted loop playsinline disablepictureinpicture preload="none" poster="assets/video/hero-poster.webp" aria-hidden="true" tabindex="-1">
+            <source data-src="assets/video/hero-1440.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L150.90"' media="(min-width: 1200px)" />
+            <source data-src="assets/video/hero-1440.av1.mp4" type='video/mp4; codecs="av01.0.12M.08"' media="(min-width: 1200px)" />
+            <source data-src="assets/video/hero-1080.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L120.90"' media="(min-width: 720px)" />
+            <source data-src="assets/video/hero-1080.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"' media="(min-width: 720px)" />
+            <source data-src="assets/video/hero-1080.mp4" type='video/mp4; codecs="avc1.640029"' media="(min-width: 720px)" />
+            <source data-src="assets/video/hero-mobile.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L93.90"' />
+            <source data-src="assets/video/hero-mobile.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"' />
+            <source data-src="assets/video/hero-mobile.mp4" type='video/mp4; codecs="avc1.640028"' />
+          </video>
+          <div class="container">
+            <div class="hero-title">
+              <h1><span>Measure the job</span> <span>in one walk.</span></h1>
+              <ul class="stickers" aria-label="No more">
+                <li class="sticker">No extra device</li>
+                <li class="sticker">No tape</li>
+                <li class="sticker">No helper</li>
+                <li class="sticker">No waiting for a surveyor</li>
+              </ul>
+            </div>
+
+            <div class="hero-intro">
+              <div class="hero-copy">
+                <p class="label">For landscapers, builders, estate agents and more</p>
+                <p class="lead">
+                  Set your iPhone down at each corner. Get the area, sides and
+                  slopes in minutes.
+                </p>
+                <p class="hero-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+                  Just your iPhone. Nothing extra to buy.
+                </p>
+              </div>
+              <div class="actions">
+                <!-- Once the app is published: point href="#start" at the App Store page and swap the button for Apple's official badge. -->
+                <a class="btn btn-primary" href="#start" data-appstore
+                  >Coming soon to the App Store
+                  <span class="arrow"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17L17 7M9 7h8v8" /></svg></span
+                ></a>
+                <a class="btn btn-light" href="#how">See how it works</a>
+              </div>
+            </div>
+          </div>
+          <p class="hero-film-note">Background footage AI-generated.</p>
+        </div>
+
         <div class="container">
-          <div class="hero-title">
-            <h1><span>Measure the job</span> <span>in one walk.</span></h1>
-            <ul class="stickers" aria-label="No more">
-              <li class="sticker">No extra device</li>
-              <li class="sticker">No tape</li>
-              <li class="sticker">No helper</li>
-              <li class="sticker">No waiting for a surveyor</li>
-            </ul>
-          </div>
-
-          <div class="hero-intro">
-            <div class="hero-copy">
-              <p class="label">For landscapers, builders, estate agents and more</p>
-              <p class="lead">
-                Set your iPhone down at each corner. Get the area, sides and
-                slopes in minutes.
-              </p>
-              <p class="hero-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
-                Just your iPhone. Nothing extra to buy.
-              </p>
-            </div>
-            <div class="actions">
-              <!-- Once the app is published: point href="#start" at the App Store page and swap the button for Apple's official badge. -->
-              <a class="btn btn-primary" href="#start" data-appstore
-                >Coming soon to the App Store
-                <span class="arrow"
-                  ><svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M7 17L17 7M9 7h8v8" /></svg></span
-              ></a>
-              <a class="btn" href="#how">See how it works</a>
-            </div>
-          </div>
-
           <div class="hero-stage pop">
             <div class="phones">
               <svg

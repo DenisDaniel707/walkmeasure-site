@@ -22,6 +22,31 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // Hero film: load the background loop only for visitors who haven't asked for less
+  // motion or to save data (they keep the poster), and play it only while it's on screen.
+  var film = document.querySelector("[data-hero-video]");
+  var saveData = navigator.connection && navigator.connection.saveData;
+  if (film && !saveData && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    film.querySelectorAll("source[data-src]").forEach(function (source) {
+      source.src = source.getAttribute("data-src");
+      source.removeAttribute("data-src");
+    });
+    film.preload = "auto";
+    film.load();
+    function playFilm() {
+      var playing = film.play();
+      // Low Power Mode and some browsers refuse; the poster stays, which is fine.
+      if (playing && playing.catch) playing.catch(function () {});
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) playFilm(); else film.pause();
+      }).observe(film);
+    } else {
+      playFilm();
+    }
+  }
+
   // Mobile menu.
   var toggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("nav");
