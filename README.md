@@ -125,9 +125,9 @@ To replace it with a new edit (1920×1080 master; black frames at the end are tr
 scripts/encode-hero-video.sh "/path/to/new edit.mp4"
 ```
 
-The footage is AI-generated, so both pages say so under the video ("Background footage
-AI-generated." / „Imagini de fundal generate cu AI."). Keep that line while it's AI footage;
-remove it once real footage replaces it. How the clips were made:
+The footage is AI-generated, so the footer disclaimer on both home pages says so ("The videos
+on this page are AI-generated." / „Videoclipurile de pe această pagină sunt generate cu AI.").
+Keep that sentence while any clip is AI footage. How the clips were made:
 `marketing/video/05-hero-ai-clips.md`.
 
 ## Updating screenshots
