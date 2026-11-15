@@ -26,12 +26,12 @@ website/
     ├── favicon.svg
     ├── fonts/               self-hosted woff2 (Bricolage Grotesque, Instrument Sans)
     ├── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ (the old step slides, SVG)
-    └── video/               hero background loop and the five step clips (HEVC, AV1, H.264), with posters
+    └── video/               hero background loop, the five step clips and the three Why clips (HEVC, AV1, H.264), with posters
 ```
 
 ## Cache busting
 
-The pages load `assets/styles.css?v=20` and `assets/site.js?v=20`. When you change either
+The pages load `assets/styles.css?v=21` and `assets/site.js?v=21`. When you change either
 file, raise the number in all five pages (both home pages, both privacy pages, 404) so
 browsers and GitHub Pages' cache fetch the new version.
 
@@ -99,6 +99,25 @@ scripts/encode-how-it-works.sh step1.mp4 step2.mp4 step3.mp4 step4.mp4 step5.mp4
 ```
 
 The prompts they were made from: `marketing/video/how-it-works/`.
+
+## "Why WalkMeasure" clips
+
+Each of the three cards in the green `#why` band opens with a short clip (`assets/video/why-1`
+… `why-3`: the last roll of turf going down, writing the quote in the van, walking off alone
+with the stick), 960×540 as HEVC, AV1 and H.264, with two stills each: the first frame
+(`-first.webp`, shown until the clip plays) and the last (`-poster.webp`, the card at rest).
+`site.js` fetches a clip as its card comes near and plays it once when the card is in view;
+cards that come into view together start one after another. Visitors who ask for less motion
+or to save data, and pages without JavaScript, see the posters. No overlays, no numbers.
+
+They were cut from one three-shot film. To replace them, give the film and each card's in and
+out point in seconds, on the film's hard cuts:
+
+```bash
+scripts/encode-why-clips.sh film.mp4 0-6.1 7.3-12 12-15.08
+```
+
+The prompt: `marketing/video/why/`.
 
 ## Prices
 

@@ -278,6 +278,61 @@
     show(0);
   });
 
+  // "Why WalkMeasure": each card's clip plays once when the card is in view and holds its
+  // last frame (the poster). Until then the card shows the clip's first frame. Visitors who
+  // ask for less motion or to save data, and pages without JavaScript, see the posters.
+  // Codec strings: scripts/encode-why-clips.sh.
+  var cardClips = document.querySelectorAll("video[data-card-clip]");
+  var stillCards = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    (navigator.connection && navigator.connection.saveData);
+  if (cardClips.length && !stillCards && "IntersectionObserver" in window) {
+    var cardSources = [
+      [".hevc.mp4", "hvc1.1.6.L90.90"],
+      [".av1.mp4", "av01.0.04M.08"],
+      [".mp4", "avc1.64001f"]
+    ];
+    var playCard = function (video) {
+      if (video.ended) return;
+      var started = video.play();
+      if (started && started.catch) started.catch(function () {
+        video.poster = video.getAttribute("data-card-clip") + "-poster.webp";
+      });
+    };
+    var cardNear = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        cardNear.unobserve(entry.target);
+        entry.target.preload = "auto";
+        entry.target.load();
+      });
+    }, { rootMargin: "400px 0px" });
+    var cardSeen = new IntersectionObserver(function (entries) {
+      // Cards that come into view together start one after another.
+      var n = 0;
+      entries.forEach(function (entry) {
+        var video = entry.target;
+        clearTimeout(video.cardTimer);
+        if (entry.isIntersecting) {
+          video.cardTimer = setTimeout(playCard, 450 * n++, video);
+        } else if (!video.paused) {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.6 });
+    cardClips.forEach(function (video) {
+      var base = video.getAttribute("data-card-clip");
+      video.poster = base + "-first.webp";
+      cardSources.forEach(function (s) {
+        var source = document.createElement("source");
+        source.src = base + "-540" + s[0];
+        source.type = 'video/mp4; codecs="' + s[1] + '"';
+        video.appendChild(source);
+      });
+      cardNear.observe(video);
+      cardSeen.observe(video);
+    });
+  }
+
   // "Who it's for": a tape measure unwinds along the walk from corner to corner as the
   // page scrolls, turning at each corner circle and never running over text.
   var routeWrap = document.querySelector(".route-wrap");
