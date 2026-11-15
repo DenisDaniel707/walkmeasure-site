@@ -278,9 +278,10 @@
     show(0);
   });
 
-  // "Why WalkMeasure": each card's clip plays once when the card is in view and holds its
-  // last frame (the poster). Until then the card shows the clip's first frame. Visitors who
-  // ask for less motion or to save data, and pages without JavaScript, see the posters.
+  // "Why WalkMeasure": each card's clip loops while the card is in view and pauses when it
+  // scrolls away. Until it plays, the card shows the clip's first frame. Visitors who ask
+  // for less motion or to save data, and pages without JavaScript, see the posters (each
+  // clip's last frame).
   // Codec strings: scripts/encode-why-clips.sh.
   var cardClips = document.querySelectorAll("video[data-card-clip]");
   var stillCards = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
@@ -292,7 +293,6 @@
       [".mp4", "avc1.64001f"]
     ];
     var playCard = function (video) {
-      if (video.ended) return;
       var started = video.play();
       if (started && started.catch) started.catch(function () {
         video.poster = video.getAttribute("data-card-clip") + "-poster.webp";
@@ -322,6 +322,7 @@
     cardClips.forEach(function (video) {
       var base = video.getAttribute("data-card-clip");
       video.poster = base + "-first.webp";
+      video.loop = true;
       cardSources.forEach(function (s) {
         var source = document.createElement("source");
         source.src = base + "-540" + s[0];
