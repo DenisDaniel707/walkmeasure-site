@@ -25,13 +25,13 @@ website/
     ├── site.js              menu, scroll reveal, walked lines, "how it works" slideshow
     ├── favicon.svg
     ├── fonts/               self-hosted woff2 (Bricolage Grotesque, Instrument Sans)
-    ├── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ slides (SVG)
-    └── video/               hero background loop (HEVC, AV1, H.264 in three sizes) and its poster
+    ├── img/                 app icon, og images, floor-plan PDF, app/ screenshots, demo/ (the old step slides, SVG)
+    └── video/               hero background loop and the five step clips (HEVC, AV1, H.264), with posters
 ```
 
 ## Cache busting
 
-The pages load `assets/styles.css?v=17` and `assets/site.js?v=17`. When you change either
+The pages load `assets/styles.css?v=19` and `assets/site.js?v=19`. When you change either
 file, raise the number in all five pages (both home pages, both privacy pages, 404) so
 browsers and GitHub Pages' cache fetch the new version.
 
@@ -69,31 +69,34 @@ Search both languages for these and replace them:
 To publish accuracy figures, use your own field results (taped side vs. measured side)
 and add them to the FAQ answer "Cât de precisă este?" / "How accurate is it?".
 
-## Replacing the "how it works" presentation with the video
+## "How it works" clips
 
-The animated 5-step presentation in the `#how` section is a stand-in for the video.
-Each home page has an HTML comment right above `<div class="demo" ...>` with the exact
-code to paste. In short, replace the whole `<div class="demo"> … </div>` block with:
+The five steps in the `#how` section are short clips, one per step (`assets/video/how-1` …
+`how-5`), each as HEVC, AV1 and H.264 at 1080p, and at 720p for phones, plus a poster (the
+clip's last frame). `site.js` adds the sources, fetches the clips (about 1 MB in all) once
+the section comes near, and plays each clip once when its step comes up, in step with the
+5-second progress bar. Visitors who ask for less motion or to save data, and pages without
+JavaScript, see the posters.
 
-```html
-<div class="video">
-  <video
-    src="assets/video/cum-functioneaza.mp4"
-    poster="assets/img/demo/1-stick.svg"
-    controls
-    playsinline
-    preload="metadata"
-  ></video>
-</div>
+Each clip has an overlay in the videos' overlay style, an `<svg class="ov">` right after its
+`<video>`: the "Selfie stick" switch turning on (1), corner A popping with a buzz ring where
+the phone lands (2), buzz ripples on the handle and "Point A recorded" (3), the dotted walk
+line from A at the left flag to his heels (4), and the line from D closing on A with "Closed
+outline" (5). They are drawn in the footage's own 1920×1080 coordinates and timed with SMIL
+(`begin` = seconds into the clip); `site.js` starts each overlay's timeline when its clip
+starts playing, pauses it with the clip, and shows the end state (matching the poster) when
+there's no motion. Step 3's figure has `data-buzz`, the second the picture shakes. The
+overlays are pinned to these exact clips (where the phone lands, the flags, his heels, the
+camera pan in step 4), so new clips need their positions and times measured again. The
+labels use the app's own wording (translated on the Romanian page) and carry no numbers.
+
+To replace them (five 1920×1080 clips, in step order; black frames at the end are trimmed):
+
+```bash
+scripts/encode-how-it-works.sh step1.mp4 step2.mp4 step3.mp4 step4.mp4 step5.mp4
 ```
 
-(in `ro/index.html` the paths start with `../`), or with a YouTube embed using
-`https://www.youtube-nocookie.com/embed/VIDEO_ID` so no tracking cookies are set before
-the visitor presses play. The `.video` styles are already in `styles.css`.
-
-Video tips: 30–60 s, landscape 16:9, show the selfie stick from the side, the phone being
-set down, a close-up of the hand feeling the buzz, the walk back to the start and the result
-on screen. Export H.264 MP4 under ~15 MB.
+The prompts they were made from: `marketing/video/how-it-works/`.
 
 ## Prices
 

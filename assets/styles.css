@@ -473,11 +473,63 @@ section[id] { scroll-margin-top: calc(40px - var(--pad)); }
 }
 .slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .6s ease; }
 .slide.active { opacity: 1; }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
-.demo-progress { position: absolute; left: 20px; right: 20px; bottom: 16px; height: 4px; border-radius: 4px; background: rgba(24, 22, 17, .14); overflow: hidden; }
-.demo-progress span { display: block; height: 100%; width: 0; background: var(--ink); }
+.slide img, .slide video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Light, so it reads over grass and sky alike. */
+.demo-progress { position: absolute; left: 20px; right: 20px; bottom: 16px; height: 4px; border-radius: 4px; background: rgba(251, 248, 242, .38); overflow: hidden; }
+.demo-progress span { display: block; height: 100%; width: 0; background: var(--card); }
 .demo.playing .demo-progress span { animation: progress 5s linear forwards; }
 @keyframes progress { to { width: 100%; } }
+/* Overlays on the clips, in the videos' overlay style: walk line, corners, buzz rings, tags.
+   SVG at the footage's own 1920 × 1080, timed with SMIL. site.js starts each step's timeline
+   with its clip, and shows the end state (which matches the poster) when there's no motion. */
+.ov { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; --ov-k: 1; }
+.ov-sc { transform: scale(var(--ov-k)); }
+.ov-pill { fill: var(--card); stroke: var(--ink); stroke-width: 4; }
+.ov-tag text { font: 600 40px/1 var(--text); fill: var(--ink); }
+.ov-ok { fill: var(--green); }
+.ov-tick { fill: none; stroke: var(--card); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.ov-stick { fill: none; stroke: var(--ink); stroke-width: 8; stroke-linecap: round; }
+.ov-phone { fill: var(--ink); }
+.ov-track { fill: #d8d0c0; }
+.ov-track-on { fill: var(--green); }
+.ov-knob { fill: #fff; stroke: rgba(24, 22, 17, .2); stroke-width: 2; }
+.ov-snap path { fill: none; stroke-linecap: round; }
+.ov-snap .ring { stroke: var(--ink); stroke-width: 20; }
+.ov-snap .ray { stroke: var(--yellow); stroke-width: 12; }
+.ov-buzz { fill: none; stroke: var(--yellow); stroke-width: 10; }
+.ov-ripple { fill: none; stroke: var(--yellow); }
+.ov-corner circle { fill: var(--paper); stroke: var(--ink); stroke-width: 11; }
+.ov-corner text {
+  font: 800 60px/1 var(--display); font-stretch: 82%; fill: var(--ink);
+  stroke: var(--paper); stroke-width: 10px; stroke-linejoin: round; paint-order: stroke;
+}
+.ov-done { fill: none; stroke: var(--ink); stroke-width: 8; }
+.ov-walk line { stroke-linecap: round; stroke-dasharray: 0 44; }
+.ov-walk .ring { stroke: var(--ink); stroke-width: 30; }
+.ov-walk .dot { stroke: var(--yellow); stroke-width: 20; }
+/* On the buzz, the picture shakes for a moment with the handle. */
+.slide video.ov-shake { animation: ov-shake .3s linear; }
+@keyframes ov-shake {
+  0%, 100% { transform: scale(1.008); }
+  20% { transform: scale(1.008) translate(-3px, 1px); }
+  40% { transform: scale(1.008) translate(3px, -1px); }
+  60% { transform: scale(1.008) translate(-2px, -1px); }
+  80% { transform: scale(1.008) translate(2px, 1px); }
+}
+/* Smaller pictures get bigger marks, so they stay legible. */
+@media (min-width: 1000px) and (max-width: 1199.98px) { .ov { --ov-k: 1.15; } }
+@media (max-width: 599.98px) {
+  .ov { --ov-k: 1.5; }
+  .ov-walk line { stroke-dasharray: 0 62; }
+  .ov-walk .ring { stroke-width: 44; }
+  .ov-walk .dot { stroke-width: 30; }
+}
+@media (max-width: 429.98px) {
+  .ov { --ov-k: 1.9; }
+  .ov-walk line { stroke-dasharray: 0 78; }
+  .ov-walk .ring { stroke-width: 54; }
+  .ov-walk .dot { stroke-width: 38; }
+}
 
 .slide-caption { list-style: none; counter-reset: step; }
 .slide-caption p {

@@ -54,8 +54,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/styles.css?v=17" />
-    <script defer src="assets/site.js?v=17"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=19" />
+    <script defer src="assets/site.js?v=19"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -636,18 +636,10 @@
           </div>
 
           <!--
-        THE PRESENTATION BELOW STANDS IN FOR THE VIDEO.
-        When the video is ready, replace the whole <div class="demo" ...> ... </div> block with, for example:
-
-        <div class="video">
-          <video src="assets/video/how-it-works.mp4" poster="assets/img/demo/1-stick.svg" controls playsinline preload="metadata"></video>
-        </div>
-
-        or, for YouTube (the no-cookie variant):
-
-        <div class="video">
-          <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="How WalkMeasure works" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
+        The steps are short clips (assets/video/how-1 … how-5), one per step, made with
+        scripts/encode-how-it-works.sh. site.js adds their sources and plays each clip once when
+        its step comes up; the poster (the clip's last frame) is what visitors who ask for less
+        motion or to save data see. Prompts: marketing/video/how-it-works/.
       -->
           <div
             class="demo reveal"
@@ -657,48 +649,240 @@
           >
             <div class="demo-stage">
               <figure class="slide active">
-                <img
-                  src="assets/img/demo/1-stick.svg"
-                  alt="The phone in a selfie stick's clamp, with the Selfie stick setting turned on"
-                  width="640"
-                  height="360"
-                />
+                <video
+                  data-clip="assets/video/how-1"
+                  poster="assets/video/how-1-poster.webp"
+                  muted
+                  playsinline
+                  disablepictureinpicture
+                  preload="none"
+                  width="1280"
+                  height="720"
+                  aria-label="Hands clipping the phone into a selfie stick's clamp"
+                ></video>
+                <svg class="ov" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                <g transform="translate(1340 320)">
+                  <g class="ov-sc">
+                    <g class="ov-snap" opacity="0">
+                      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.6;1" dur="0.45s" begin="0.25s" fill="freeze" />
+                      <animateTransform attributeName="transform" type="scale" values="0.8;1.1" dur="0.45s" begin="0.25s" fill="freeze" />
+                      <path class="ring" d="M-155 -56L-202 -74M-95 -135L-123 -176M0 -165V-215M95 -135L123 -176M155 -56L202 -74" />
+                      <path class="ray" d="M-155 -56L-202 -74M-95 -135L-123 -176M0 -165V-215M95 -135L123 -176M155 -56L202 -74" />
+                    </g>
+                  </g>
+                </g>
+                <g transform="translate(1860 60)">
+                  <g class="ov-sc">
+                    <g opacity="0">
+                      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.75s" fill="freeze" />
+                      <animateTransform attributeName="transform" type="translate" values="0 -16;0 0" dur="0.3s" begin="0.75s" fill="freeze" />
+                      <g class="ov-tag" transform="translate(-444 0)">
+                        <rect class="ov-pill" width="444" height="104" rx="52" />
+                        <path class="ov-stick" d="M42 80l20-22" />
+                        <rect class="ov-phone" x="52" y="22" width="26" height="36" rx="6" />
+                        <text x="98" y="66">Selfie stick</text>
+                        <rect class="ov-track" x="328" y="27" width="88" height="50" rx="25" />
+                        <rect class="ov-track-on" x="328" y="27" width="88" height="50" rx="25" opacity="0">
+                          <animate attributeName="opacity" from="0" to="1" dur="0.2s" begin="1.3s" fill="freeze" />
+                        </rect>
+                        <circle class="ov-knob" cx="353" cy="52" r="19">
+                          <animate attributeName="cx" from="353" to="391" dur="0.2s" begin="1.3s" fill="freeze" />
+                        </circle>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                </svg>
               </figure>
               <figure class="slide">
-                <img
-                  src="assets/img/demo/2-place.svg"
-                  alt="The phone lying flat on the ground at the first corner, held still for a second"
-                  width="640"
-                  height="360"
-                  loading="lazy"
-                />
+                <video
+                  data-clip="assets/video/how-2"
+                  poster="assets/video/how-2-poster.webp"
+                  muted
+                  playsinline
+                  disablepictureinpicture
+                  preload="none"
+                  width="1280"
+                  height="720"
+                  aria-label="The selfie stick lowers the phone to lie flat on the ground at the first corner"
+                ></video>
+                <svg class="ov" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                <g transform="translate(1354 961)">
+                  <g class="ov-sc">
+                    <circle class="ov-buzz" r="28" opacity="0">
+                      <animate attributeName="r" from="28" to="100" dur="0.42s" begin="2.5s" fill="freeze" />
+                      <animate attributeName="opacity" from="1" to="0" dur="0.42s" begin="2.5s" fill="freeze" />
+                    </circle>
+                    <g class="ov-corner" opacity="0">
+                      <set attributeName="opacity" to="1" begin="2.5s" fill="freeze" />
+                      <animateTransform attributeName="transform" type="scale" values="0.3;1.2;1" keyTimes="0;0.6;1" dur="0.3s" begin="2.5s" fill="freeze" />
+                      <circle r="28" />
+                      <text x="44" y="-26">A</text>
+                    </g>
+                  </g>
+                </g>
+                </svg>
+              </figure>
+              <figure class="slide" data-buzz="0.45">
+                <video
+                  data-clip="assets/video/how-3"
+                  poster="assets/video/how-3-poster.webp"
+                  muted
+                  playsinline
+                  disablepictureinpicture
+                  preload="none"
+                  width="1280"
+                  height="720"
+                  aria-label="A hand on the selfie stick's handle, feeling the buzz"
+                ></video>
+                <svg class="ov" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                <g transform="translate(930 470)">
+                    <circle class="ov-ripple" r="150" stroke-width="16" opacity="0">
+                      <animate attributeName="r" from="150" to="560" dur="0.7s" begin="0.45s" fill="freeze" />
+                      <animate attributeName="stroke-width" from="16" to="4" dur="0.7s" begin="0.45s" fill="freeze" />
+                      <animate attributeName="opacity" from="0.95" to="0" dur="0.7s" begin="0.45s" fill="freeze" />
+                    </circle>
+                    <circle class="ov-ripple" r="150" stroke-width="16" opacity="0">
+                      <animate attributeName="r" from="150" to="560" dur="0.7s" begin="0.6s" fill="freeze" />
+                      <animate attributeName="stroke-width" from="16" to="4" dur="0.7s" begin="0.6s" fill="freeze" />
+                      <animate attributeName="opacity" from="0.95" to="0" dur="0.7s" begin="0.6s" fill="freeze" />
+                    </circle>
+                    <circle class="ov-ripple" r="150" stroke-width="16" opacity="0">
+                      <animate attributeName="r" from="150" to="560" dur="0.7s" begin="0.75s" fill="freeze" />
+                      <animate attributeName="stroke-width" from="16" to="4" dur="0.7s" begin="0.75s" fill="freeze" />
+                      <animate attributeName="opacity" from="0.95" to="0" dur="0.7s" begin="0.75s" fill="freeze" />
+                    </circle>
+                </g>
+                <g transform="translate(1860 60)">
+                  <g class="ov-sc">
+                    <g opacity="0">
+                      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.95s" fill="freeze" />
+                      <animateTransform attributeName="transform" type="translate" values="0 -16;0 0" dur="0.3s" begin="0.95s" fill="freeze" />
+                      <g class="ov-tag" transform="translate(-451 0)">
+                        <rect class="ov-pill" width="451" height="104" rx="52" />
+                        <circle class="ov-ok" cx="54" cy="52" r="26" />
+                        <path class="ov-tick" d="M42 53l8 8 15-17" />
+                        <text x="98" y="66">Point A recorded</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                </svg>
               </figure>
               <figure class="slide">
-                <img
-                  src="assets/img/demo/3-buzz.svg"
-                  alt="The phone buzzes and the vibration is felt in the selfie stick's handle"
-                  width="640"
-                  height="360"
-                  loading="lazy"
-                />
+                <video
+                  data-clip="assets/video/how-4"
+                  poster="assets/video/how-4-poster.webp"
+                  muted
+                  playsinline
+                  disablepictureinpicture
+                  preload="none"
+                  width="1280"
+                  height="720"
+                  aria-label="The phone carried on the stick to the next point"
+                ></video>
+                <svg class="ov" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                <g>
+                  <animateTransform attributeName="transform" type="translate" values="0 0;-110 -7" dur="1.29s" fill="freeze" />
+                  <g class="ov-walk">
+                    <line class="ring" x1="410" y1="766" x2="410" y2="766">
+                      <animate attributeName="x2" values="410;1303;1386;1536;1645" keyTimes="0;0.26;0.64;0.78;1" dur="1.29s" begin="0s" fill="freeze" />
+                      <animate attributeName="y2" values="766;986;994;999;1005" keyTimes="0;0.26;0.64;0.78;1" dur="1.29s" begin="0s" fill="freeze" />
+                    </line>
+                    <line class="dot" x1="410" y1="766" x2="410" y2="766">
+                      <animate attributeName="x2" values="410;1303;1386;1536;1645" keyTimes="0;0.26;0.64;0.78;1" dur="1.29s" begin="0s" fill="freeze" />
+                      <animate attributeName="y2" values="766;986;994;999;1005" keyTimes="0;0.26;0.64;0.78;1" dur="1.29s" begin="0s" fill="freeze" />
+                    </line>
+                  </g>
+                  <g transform="translate(410 766)">
+                    <g class="ov-sc">
+                      <g class="ov-corner">
+                        <circle r="28" />
+                        <text x="44" y="-26">A</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                </svg>
               </figure>
               <figure class="slide">
-                <img
-                  src="assets/img/demo/4-carry.svg"
-                  alt="The phone is carried at least a meter to the next point"
-                  width="640"
-                  height="360"
-                  loading="lazy"
-                />
-              </figure>
-              <figure class="slide">
-                <img
-                  src="assets/img/demo/5-result.svg"
-                  alt="The outline closed at the starting point, with the area worked out"
-                  width="640"
-                  height="360"
-                  loading="lazy"
-                />
+                <video
+                  data-clip="assets/video/how-5"
+                  poster="assets/video/how-5-poster.webp"
+                  muted
+                  playsinline
+                  disablepictureinpicture
+                  preload="none"
+                  width="1280"
+                  height="720"
+                  aria-label="Walking back to the starting corner to close the outline"
+                ></video>
+                <svg class="ov" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                <g class="ov-walk">
+                  <line class="ring" x1="245" y1="902" x2="245" y2="902">
+                    <animate attributeName="x2" values="245;405;500;560;590;615;680;730" keyTimes="0;0.15;0.3;0.44;0.59;0.74;0.89;1" dur="1.13s" begin="0s" fill="freeze" />
+                    <animate attributeName="y2" values="902;910.5;915.6;918.8;920.4;921.7;925.1;927.8" keyTimes="0;0.15;0.3;0.44;0.59;0.74;0.89;1" dur="1.13s" begin="0s" fill="freeze" />
+                  </line>
+                  <line class="dot" x1="245" y1="902" x2="245" y2="902">
+                    <animate attributeName="x2" values="245;405;500;560;590;615;680;730" keyTimes="0;0.15;0.3;0.44;0.59;0.74;0.89;1" dur="1.13s" begin="0s" fill="freeze" />
+                    <animate attributeName="y2" values="902;910.5;915.6;918.8;920.4;921.7;925.1;927.8" keyTimes="0;0.15;0.3;0.44;0.59;0.74;0.89;1" dur="1.13s" begin="0s" fill="freeze" />
+                  </line>
+                </g>
+                <g class="ov-walk" opacity="0">
+                  <set attributeName="opacity" to="1" begin="1.35s" fill="freeze" />
+                  <line class="ring" x1="915" y1="937.6" x2="915" y2="937.6">
+                    <animate attributeName="x2" values="915;1326" keyTimes="0;1" dur="0.5s" begin="1.35s" fill="freeze" />
+                    <animate attributeName="y2" values="937.6;959.5" keyTimes="0;1" dur="0.5s" begin="1.35s" fill="freeze" />
+                  </line>
+                  <line class="dot" x1="915" y1="937.6" x2="915" y2="937.6">
+                    <animate attributeName="x2" values="915;1326" keyTimes="0;1" dur="0.5s" begin="1.35s" fill="freeze" />
+                    <animate attributeName="y2" values="937.6;959.5" keyTimes="0;1" dur="0.5s" begin="1.35s" fill="freeze" />
+                  </line>
+                </g>
+                <g transform="translate(245 902)">
+                  <g class="ov-sc">
+                    <g class="ov-corner">
+                      <circle r="28" />
+                      <text x="44" y="-26">D</text>
+                    </g>
+                  </g>
+                </g>
+                <g transform="translate(1354 961)">
+                  <g class="ov-sc">
+                    <g class="ov-corner">
+                      <circle r="28" />
+                      <text x="44" y="-26">A</text>
+                    </g>
+                  </g>
+                </g>
+                <g transform="translate(1354 961)">
+                  <g class="ov-sc">
+                    <circle class="ov-buzz" r="28" opacity="0">
+                      <animate attributeName="r" from="28" to="100" dur="0.42s" begin="1.85s" fill="freeze" />
+                      <animate attributeName="opacity" from="1" to="0" dur="0.42s" begin="1.85s" fill="freeze" />
+                    </circle>
+                    <g opacity="0">
+                      <set attributeName="opacity" to="1" begin="1.85s" fill="freeze" />
+                      <animateTransform attributeName="transform" type="scale" values="0.6;1.15;1" keyTimes="0;0.6;1" dur="0.3s" begin="1.85s" fill="freeze" />
+                      <circle class="ov-done" r="50" />
+                    </g>
+                  </g>
+                </g>
+                <g transform="translate(1860 60)">
+                  <g class="ov-sc">
+                    <g opacity="0">
+                      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="2.15s" fill="freeze" />
+                      <animateTransform attributeName="transform" type="translate" values="0 -16;0 0" dur="0.3s" begin="2.15s" fill="freeze" />
+                      <g class="ov-tag" transform="translate(-406 0)">
+                        <rect class="ov-pill" width="406" height="104" rx="52" />
+                        <circle class="ov-ok" cx="54" cy="52" r="26" />
+                        <path class="ov-tick" d="M42 53l8 8 15-17" />
+                        <text x="98" y="66">Closed outline</text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                </svg>
               </figure>
               <div class="demo-progress"><span></span></div>
             </div>

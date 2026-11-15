@@ -110,6 +110,112 @@
     var visible = false;
     var timer = null;
 
+    // Each step is a short clip: it plays once when its step comes up and holds its last
+    // frame. Visitors who ask for less motion or to save data, and pages without JavaScript,
+    // see the posters (each clip's last frame) instead. HEVC first (smallest where it plays),
+    // then AV1, then H.264; 720p on phones. Codec strings: scripts/encode-how-it-works.sh.
+    var CLIP_SOURCES = [
+      ["-1080.hevc.mp4", 'video/mp4; codecs="hvc1.1.6.L120.90"', "(min-width: 720px)"],
+      ["-1080.av1.mp4", 'video/mp4; codecs="av01.0.08M.08"', "(min-width: 720px)"],
+      ["-1080.mp4", 'video/mp4; codecs="avc1.640029"', "(min-width: 720px)"],
+      ["-720.hevc.mp4", 'video/mp4; codecs="hvc1.1.6.L93.90"', ""],
+      ["-720.av1.mp4", 'video/mp4; codecs="av01.0.05M.08"', ""],
+      ["-720.mp4", 'video/mp4; codecs="avc1.64001f"', ""]
+    ];
+    var clips = Array.prototype.map.call(slides, function (slide) {
+      return slide.querySelector("video[data-clip]");
+    });
+    var withClips = !reduced && !(navigator.connection && navigator.connection.saveData);
+    if (withClips) {
+      clips.forEach(function (video) {
+        if (!video) return;
+        CLIP_SOURCES.forEach(function (s) {
+          var source = document.createElement("source");
+          source.src = video.getAttribute("data-clip") + s[0];
+          source.type = s[1];
+          if (s[2]) source.media = s[2];
+          video.appendChild(source);
+        });
+      });
+      // Fetch all five (about 1 MB) once the section comes near, so steps don't wait.
+      if ("IntersectionObserver" in window) {
+        var near = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting) return;
+          near.disconnect();
+          clips.forEach(function (video) {
+            if (video) { video.preload = "auto"; video.load(); }
+          });
+        }, { rootMargin: "600px 0px" });
+        near.observe(demo);
+      }
+    }
+
+    // Each clip's overlay (svg.ov) runs on its own SMIL timeline, which starts when the clip
+    // starts playing. Without motion, or when a clip can't play, the overlay shows its end
+    // state, which matches the clip's last frame (the poster).
+    var OVERLAY_END = 30;
+    var overlays = Array.prototype.map.call(slides, function (slide) {
+      var svg = slide.querySelector("svg.ov");
+      return svg && svg.pauseAnimations ? svg : null;
+    });
+    function overlayAt(n, time, run) {
+      var svg = overlays[n];
+      if (!svg) return;
+      svg.setCurrentTime(time);
+      if (run) svg.unpauseAnimations(); else svg.pauseAnimations();
+    }
+    overlays.forEach(function (svg, n) { overlayAt(n, withClips ? 0 : OVERLAY_END, false); });
+
+    var buzzTimer = null;
+    if (withClips) {
+      clips.forEach(function (video, n) {
+        if (!video) return;
+        video.addEventListener("playing", function () {
+          if (n !== index) return;
+          overlayAt(n, video.currentTime, true);
+          // The step with data-buzz shakes the picture on the buzz (seconds into the clip).
+          var at = parseFloat(slides[n].getAttribute("data-buzz"));
+          clearTimeout(buzzTimer);
+          if (at >= video.currentTime) {
+            buzzTimer = setTimeout(function () {
+              video.classList.remove("ov-shake");
+              void video.offsetWidth;
+              video.classList.add("ov-shake");
+            }, (at - video.currentTime) * 1000);
+          }
+        });
+        // Stalled while buffering: the overlay waits for the picture.
+        video.addEventListener("waiting", function () {
+          if (overlays[n]) overlays[n].pauseAnimations();
+        });
+      });
+    }
+
+    // The current step's clip starts with the progress bar; every other clip is paused.
+    function syncClips(running) {
+      if (!withClips) return;
+      clearTimeout(buzzTimer);
+      clips.forEach(function (video, n) {
+        if (!video) return;
+        if (running && n === index) {
+          var wasPlaying = !video.paused;
+          video.currentTime = 0;
+          // A clip that was already playing sends no "playing" event, so restart its overlay here.
+          overlayAt(n, 0, wasPlaying);
+          var started = video.play();
+          // Low Power Mode and some browsers refuse: show the end, as the poster does.
+          if (started && started.catch) started.catch(function () {
+            if (n !== index || !video.paused) return;
+            if (video.duration) video.currentTime = video.duration;
+            overlayAt(n, OVERLAY_END, false);
+          });
+        } else {
+          video.pause();
+          if (overlays[n]) overlays[n].pauseAnimations();
+        }
+      });
+    }
+
     function show(i) {
       index = (i + slides.length) % slides.length;
       slides.forEach(function (slide, n) {
@@ -128,6 +234,7 @@
     function restart() {
       clearTimeout(timer);
       demo.classList.toggle("playing", playing && visible);
+      syncClips(playing && visible);
       if (playing && visible) {
         // Restart the CSS progress bar.
         var bar = demo.querySelector(".demo-progress span");
